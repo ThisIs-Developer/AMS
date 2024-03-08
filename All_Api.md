@@ -108,7 +108,7 @@ List<AttendeceResponse>
 }
 ```
 
-###
+### Add faculty
 
 **URL:** `localhost:8080/admin/manage_faculty/add
 
@@ -133,4 +133,35 @@ List<AttendeceResponse>
 ```
 **Response status:** status
 
+### Delete faculty
+
+**URL:** `localhost:8080/admin/manage_faculty/delete
+
+**Request Type:** Delete
+
+**Request Body:**
+```json
+{
+"mailID":""
+}
+```
+
+**Response:** status
+
+
+### View Section Record
+
+**URL:**localhost:8080/admin/view/
+**Request Type:** Get
+**Request Body:** 
+```json{
+
+    "batch": "",
+    "section": "",
+
+}
+```
+**Response Body:**
+
+List<SubjectResponse>
 
