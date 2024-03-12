@@ -64,7 +64,7 @@ body {
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
+    grid-template-columns: 14rem auto;
 }
 
 a {
@@ -226,24 +226,24 @@ aside .sidebar a:hover span {
 }
 
 main{
-    margin-top: 1.4rem;
+    /* margin-top: 1.4rem; */
 }
 
-.right {
+main .dashboard .right-top {
     margin-top:1.4rem;
 }
 
-.right .top {
+main .dashboard .right-top .top {
     display: flex;
     justify-content: end;
     gap: 2rem;
 }
 
-.right .top button {
+main .dashboard .right-top .top button {
     display: none;
 }
 
-.right .theme-toggler {
+main .dashboard .right-top .theme-toggler {
     background: var(--color-light);
     display: flex;
     justify-content: space-between;
@@ -256,7 +256,7 @@ main{
     height: 1.9rem;
 }
 
-.right .theme-toggler span{
+main .dashboard .right-top .theme-toggler span{
     font-size: 1.2rem;
     width: 50%;
     height: 100%;
@@ -265,28 +265,34 @@ main{
     align-items: center;
 }
 
-.right .theme-toggler span.active {
+main .dashboard .right-top .theme-toggler span.active {
     background: var(--color-primary);
     color: white;
     /* border-radius: var(--border-radius-1); */
     border-radius: 50px;
 }
 
-.right .top .profile {
+main .dashboard .right-top .top .profile {
     display: flex;
     gap: 2rem;
     text-align: right;
 }
 
-.right .recent-updates {
+main .dashboard .dash-con {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+}
+
+main .dashboard .right .recent-updates {
     margin-top: 1rem;   
 }
 
-.right .recent-updates h2 {
+main .dashboard .right .recent-updates h2 {
     margin-bottom: 0.8rem;
 }
 
-.right .recent-updates .updates {
+main .dashboard .right .recent-updates .updates {
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -294,11 +300,11 @@ main{
     transition: all 300ms ease;
 }
 
-.right .recent-updates .updates:hover {
+main .dashboard .right .recent-updates .updates:hover {
     box-shadow: none;
 }
 
-.right .recent-updates .updates .update {
+main .dashboard .right .recent-updates .updates .update {
     /* display: grid;
     grid-template-columns: 2.6rem auto; */
     gap: 1rem;
@@ -308,7 +314,7 @@ main{
 @media screen and (max-width: 1200px) {
     .container {
         width: 94%;
-        grid-template-columns: 7rem auto 23rem;
+        grid-template-columns: 7rem auto;
     }
 
     aside .logo h2{
@@ -386,12 +392,12 @@ main{
         padding: 0 1rem;
     }
 
-    .right {
+    main .dashboard .right {
         width: 94%;
         margin: 0 auto 4rem;
     }
 
-    .right .top {
+    main .dashboard .right-top .top {
         position: fixed;
         top: 0;
         left: 0;
@@ -405,17 +411,17 @@ main{
         box-shadow: 0 1rem 1rem var(--color-light);
     }
 
-    .right .top .theme-toggler {
+    main .dashboard .right-top .top .theme-toggler {
         width: 4.4rem;
         position: absolute;
         left: 66%;
     }
 
-    .right .profile .info {
+    main .dashboard .right-top .profile .info {
         display: none;
     }
 
-    .right .top button {
+    main .dashboard .right-top .top button {
         display: inline-block;
         cursor: pointer;
         background: transparent;
@@ -424,7 +430,7 @@ main{
         left: 1rem
     }
 
-    .right .top button span {
+    main .dashboard .right-top .top button span {
         font-size: 2rem;
     }
 }

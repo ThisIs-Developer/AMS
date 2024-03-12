@@ -75,102 +75,110 @@
         </aside>
 
         <main>
-            <h1>Dashboard</h1> 
-            <div class="wrapper">
-                <header>
-                  <p class="current-date"></p>
-                  <div class="icons">
-                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                    <span id="next" class="material-symbols-rounded">chevron_right</span>
-                  </div>
-                </header>
-                <div class="calendar">
-                  <ul class="weeks">
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tue</li>
-                    <li>Wed</li>
-                    <li>Thu</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
-                  </ul>
-                  <ul class="days"></ul>
+            <div class="dashboard">
+                <div class="right-top">
+                    <div class="top">
+                        <button id="menu-btn">
+                            <span class="material-symbols-outlined">
+                                menu
+                            </span>
+                        </button>
+                        <div class="theme-toggler">
+                            <span class="material-symbols-outlined active">light_mode</span>
+                            <span class="material-symbols-outlined">dark_mode</span>
+                        </div>
+                        <div class="profile">
+                            <div class="info">
+                                <p>Hey, <b>Baivab</b></p>
+                                <small class="text-muted">Admin</small>
+                            </div>
+                            <div class="profile-photo">
+                                <img src="assets/logo.png" alt="profile-photo">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>           
+                <h1>Dashboard</h1> 
+                <div class="dash-con">
+                    <div class="cal">
+                        <div class="wrapper">
+                            <header>
+                              <p class="current-date"></p>
+                              <div class="icons">
+                                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                                <span id="next" class="material-symbols-rounded">chevron_right</span>
+                              </div>
+                            </header>
+                            <div class="calendar">
+                              <ul class="weeks">
+                                <li>Sun</li>
+                                <li>Mon</li>
+                                <li>Tue</li>
+                                <li>Wed</li>
+                                <li>Thu</li>
+                                <li>Fri</li>
+                                <li>Sat</li>
+                              </ul>
+                              <ul class="days"></ul>
+                            </div>
+                        </div>
+                    </div> 
+    
+                    <div class="right">        
+                        <div class="recent-updates">
+                            <h2>Recent Events</h2>
+                            <div class="updates">
+                                <div class="update">
+                                    <div class="message">
+                                        <p>
+                                            <b>JIS-Tech 2K23 </b>
+                                            has successfully completed on 4th December 2023
+                                        </p>
+                                        <small class="text-muted">
+                                            2 Minutes ago
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="update">
+                                    <div class="message">
+                                        <p>
+                                            <b>Art competition </b>
+                                            has successfully completed on 4th December 2023
+                                        </p>
+                                        <small class="text-muted">
+                                            1 Hour ago
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="update">
+                                    <div class="message">
+                                        <p>
+                                            <b>Entrepreneurship:The next gen</b>
+                                            has successfully completed on 4th December 2023
+                                        </p>
+                                        <small class="text-muted">
+                                            9 Days ago
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="update">
+                                    <div class="message">
+                                        <p>
+                                            <b>Innovation 2k22</b>
+                                            has successfully completed on 4th December 2023
+                                        </p>
+                                        <small class="text-muted">
+                                            15 Days ago
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
-        <div class="right">
-            <div class="top">
-                <button id="menu-btn">
-                    <span class="material-symbols-outlined">
-                        menu
-                    </span>
-                </button>
-                <div class="theme-toggler">
-                    <span class="material-symbols-outlined active">light_mode</span>
-                    <span class="material-symbols-outlined">dark_mode</span>
-                </div>
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>Baivab</b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="assets/logo.png" alt="profile-photo">
-                    </div>
-                </div>
-            </div>
-
-            <div class="recent-updates">
-                <h2>Recent Events</h2>
-                <div class="updates">
-                    <div class="update">
-                        <div class="message">
-                            <p>
-                                <b>JIS-Tech 2K23 </b>
-                                has successfully completed on 4th December 2023
-                            </p>
-                            <small class="text-muted">
-                                2 Minutes ago
-                            </small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p>
-                                <b>JIS-Tech 2K23 </b>
-                                has successfully completed on 4th December 2023
-                            </p>
-                            <small class="text-muted">
-                                1 Hour ago
-                            </small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p>
-                                <b>Entrepreneurship:The next gen</b>
-                                has successfully completed on 4th December 2023
-                            </p>
-                            <small class="text-muted">
-                                9 Days agArt competitiono
-                            </small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p>
-                                <b>Innovation 2k22</b>
-                                has successfully completed on 4th December 2023
-                            </p>
-                            <small class="text-muted">
-                                15 Days ago
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="admin.js"></script>
