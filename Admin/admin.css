@@ -567,7 +567,7 @@ header .current-date{
 
 @media screen and (max-width: 768px) {
     .wrapper{
-      width: 370px; /* Adjusted width */
+      width: 360px; /* Adjusted width */
     }
   
     header .icons span{
