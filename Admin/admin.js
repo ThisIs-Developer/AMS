@@ -69,3 +69,31 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menuItems = document.querySelectorAll(".sidebar a");
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            menuItems.forEach(item => {
+                item.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            const allContents = document.querySelectorAll(".content");
+            allContents.forEach(content => {
+                content.style.display = "none";
+            });
+
+            const contentId = this.getAttribute("id").replace("-menu", "-content");
+            const contentToShow = document.getElementById(contentId);
+            if (contentToShow) {
+                contentToShow.style.display = "block";
+            }
+        });
+    });
+});
+

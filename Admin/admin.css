@@ -225,21 +225,29 @@ aside .sidebar a:hover span {
     margin-left: 1rem;
 }
 
-main .dashboard .right-top {
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+.right-top {
     margin-top:1.4rem;
 }
 
-main .dashboard .right-top .top {
+.right-top .top {
     display: flex;
     justify-content: end;
     gap: 2rem;
 }
 
-main .dashboard .right-top .top button {
+.right-top .top button {
     display: none;
 }
 
-main .dashboard .right-top .theme-toggler {
+.right-top .theme-toggler {
     background: var(--color-light);
     display: flex;
     justify-content: space-between;
@@ -252,7 +260,7 @@ main .dashboard .right-top .theme-toggler {
     height: 1.9rem;
 }
 
-main .dashboard .right-top .theme-toggler span{
+.right-top .theme-toggler span{
     font-size: 1.2rem;
     width: 50%;
     height: 100%;
@@ -261,34 +269,34 @@ main .dashboard .right-top .theme-toggler span{
     align-items: center;
 }
 
-main .dashboard .right-top .theme-toggler span.active {
+.right-top .theme-toggler span.active {
     background: var(--color-primary);
     color: white;
     /* border-radius: var(--border-radius-1); */
     border-radius: 50px;
 }
 
-main .dashboard .right-top .top .profile {
+.right-top .top .profile {
     display: flex;
     gap: 2rem;
     text-align: right;
 }
 
-main .dashboard .dash-con {
+main #dashboard-content .dash-con {
     display: flex;
     flex-wrap: wrap;
     gap: 1.8rem;
 }
 
-main .dashboard .right .recent-updates {
+main #dashboard-content .right .recent-updates {
     margin-top: 1rem;   
 }
 
-main .dashboard .right .recent-updates h2 {
+main #dashboard-content .right .recent-updates h2 {
     margin-bottom: 0.8rem;
 }
 
-main .dashboard .right .recent-updates .updates {
+main #dashboard-content .right .recent-updates .updates {
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -296,11 +304,11 @@ main .dashboard .right .recent-updates .updates {
     transition: all 300ms ease;
 }
 
-main .dashboard .right .recent-updates .updates:hover {
+main #dashboard-content .right .recent-updates .updates:hover {
     box-shadow: none;
 }
 
-main .dashboard .right .recent-updates .updates .update {
+main #dashboard-content .right .recent-updates .updates .update {
     /* display: grid;
     grid-template-columns: 2.6rem auto; */
     gap: 1rem;
@@ -388,12 +396,12 @@ main .dashboard .right .recent-updates .updates .update {
         padding: 0 1rem;
     }
 
-    main .dashboard .right {
+    .right {
         width: 94%;
         margin: 0 auto 4rem;
     }
 
-    main .dashboard .right-top .top {
+    .right-top .top {
         position: fixed;
         top: 0;
         left: 0;
@@ -407,17 +415,17 @@ main .dashboard .right .recent-updates .updates .update {
         box-shadow: 0 1rem 1rem var(--color-light);
     }
 
-    main .dashboard .right-top .top .theme-toggler {
+    .right-top .top .theme-toggler {
         width: 4.4rem;
         position: absolute;
         left: 66%;
     }
 
-    main .dashboard .right-top .profile .info {
+    .right-top .profile .info {
         display: none;
     }
 
-    main .dashboard .right-top .top button {
+    .right-top .top button {
         display: inline-block;
         cursor: pointer;
         background: transparent;
@@ -426,15 +434,14 @@ main .dashboard .right .recent-updates .updates .update {
         left: 1rem
     }
 
-    main .dashboard .right-top .top button span {
+    .right-top .top button span {
         font-size: 2rem;
     }
 }
 
 .dark-theme-variables h2 {
-    color: var(--color-dark); /* or any other color you prefer */
+    color: var(--color-dark);
 }
-
 
 .dark-theme-variables main h1 {
     color: var(--color-dark);
@@ -549,9 +556,11 @@ header .current-date{
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
 .days li.active::before{
   background: var(--color-primary);
 }
+
 .days li:not(.active):hover::before{
   background: #f2f2f2;
 }
