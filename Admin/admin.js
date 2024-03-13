@@ -97,3 +97,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.querySelectorAll('.top #menu-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        sideMenu.style.display = 'block';
+    });
+});
+
+document.querySelectorAll('.top #close-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        sideMenu.style.display = 'none';
+    });
+});

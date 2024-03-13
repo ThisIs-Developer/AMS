@@ -282,21 +282,21 @@ aside .sidebar a:hover span {
     text-align: right;
 }
 
-main #dashboard-content .dash-con {
+#dashboard-content .dash-con {
     display: flex;
     flex-wrap: wrap;
     gap: 1.8rem;
 }
 
-main #dashboard-content .right .recent-updates {
+#dashboard-content .right .recent-updates {
     margin-top: 1rem;   
 }
 
-main #dashboard-content .right .recent-updates h2 {
+#dashboard-content .right .recent-updates h2 {
     margin-bottom: 0.8rem;
 }
 
-main #dashboard-content .right .recent-updates .updates {
+#dashboard-content .right .recent-updates .updates {
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -304,11 +304,11 @@ main #dashboard-content .right .recent-updates .updates {
     transition: all 300ms ease;
 }
 
-main #dashboard-content .right .recent-updates .updates:hover {
+#dashboard-content .right .recent-updates .updates:hover {
     box-shadow: none;
 }
 
-main #dashboard-content .right .recent-updates .updates .update {
+#dashboard-content .right .recent-updates .updates .update {
     /* display: grid;
     grid-template-columns: 2.6rem auto; */
     gap: 1rem;
