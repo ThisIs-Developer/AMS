@@ -564,3 +564,33 @@ header .current-date{
 .days li:not(.active):hover::before{
   background: #f2f2f2;
 }
+
+@media screen and (max-width: 768px) {
+    .wrapper{
+      width: 384px; /* Adjusted width */
+    }
+  
+    header .icons span{
+      height: 32px; /* Adjusted height */
+      width: 32px; /* Adjusted width */
+      line-height: 32px; /* Adjusted line-height */
+      font-size: 1.6rem; /* Adjusted font-size */
+    }
+  
+    header .current-date{
+      font-size: 1.2rem; /* Adjusted font-size */
+    }
+  
+    .calendar li{
+      font-size: 1rem; /* Adjusted font-size */
+    }
+  
+    .calendar .days li{
+      margin-top: 20px; /* Adjusted margin-top */
+    }
+  
+    .days li::before{
+      height: 32px; /* Adjusted height */
+      width: 32px; /* Adjusted width */
+    }
+  }
