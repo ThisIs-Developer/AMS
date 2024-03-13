@@ -108,3 +108,9 @@ document.querySelectorAll('.top #close-btn').forEach(button => {
         sideMenu.style.display = 'none';
     });
 });
+
+document.getElementById('logout-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href = this.getAttribute('href');
+});

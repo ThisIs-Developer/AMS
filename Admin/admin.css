@@ -567,30 +567,30 @@ header .current-date{
 
 @media screen and (max-width: 768px) {
     .wrapper{
-      width: 360px; /* Adjusted width */
+      width: 360px; 
     }
   
     header .icons span{
-      height: 32px; /* Adjusted height */
-      width: 32px; /* Adjusted width */
-      line-height: 32px; /* Adjusted line-height */
-      font-size: 1.6rem; /* Adjusted font-size */
+      height: 32px; 
+      width: 32px;
+      line-height: 32px;
+      font-size: 1.6rem;
     }
   
     header .current-date{
-      font-size: 1.2rem; /* Adjusted font-size */
+      font-size: 1.2rem;
     }
   
     .calendar li{
-      font-size: 1rem; /* Adjusted font-size */
+      font-size: 1rem;
     }
   
     .calendar .days li{
-      margin-top: 20px; /* Adjusted margin-top */
+      margin-top: 20px;
     }
   
     .days li::before{
-      height: 32px; /* Adjusted height */
-      width: 32px; /* Adjusted width */
+      height: 32px; 
+      width: 32px;
     }
   }
