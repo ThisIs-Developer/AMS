@@ -593,4 +593,9 @@ header .current-date{
       height: 32px; 
       width: 32px;
     }
-  }
+}
+
+  .show-more {
+    margin-top: 20px;
+    text-align: center;
+}
