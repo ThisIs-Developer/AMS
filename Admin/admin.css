@@ -451,6 +451,9 @@ aside .sidebar a:hover span {
     color: var(--color-dark);
 }
 
+.dark-theme-variables .close {
+    color: var(--color-dark); /* Change the color to white */
+}
 
 /* Import Google font - Poppins */
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
