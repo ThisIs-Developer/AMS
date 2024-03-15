@@ -150,7 +150,7 @@ fetch('updates.json')
             updatesContainer.appendChild(updateDiv);
         });
 
-        showMoreLink.href = 'Updates/all_updates.html';
+        showMoreLink.href = 'Updates/updates.html';
     })
     .catch(error => console.error('Error fetching data:', error));
 
