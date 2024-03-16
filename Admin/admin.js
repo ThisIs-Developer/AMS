@@ -163,3 +163,14 @@ function formatTimeAgo(days, hours) {
         return 'Just now';
     }
 }
+
+document.getElementById('rollNumber').addEventListener('input', function() {
+    var rollNumberInput = this.value;
+    var warningMessage = document.getElementById('warningMessage');
+
+    if (/[a-zA-Z]/.test(rollNumberInput) || /[^a-zA-Z0-9]/.test(rollNumberInput)) {
+        warningMessage.style.display = 'inline';
+    } else {
+        warningMessage.style.display = 'none';
+    }
+});

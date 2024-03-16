@@ -452,31 +452,14 @@ aside .sidebar a:hover span {
 }
 
 .dark-theme-variables .close {
-    color: var(--color-dark); /* Change the color to white */
+    color: var(--color-dark);
 }
 
-/* Import Google font - Poppins */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body{
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  justify-content: center;
-  min-height: 100vh;
-  background: #9B59B6;
-} */
 .wrapper{
   margin-top: 2rem;
   width: 450px;
   background: var(--color-white);
   border-radius: 10px;
-  /* box-shadow: 0 15px 40px rgba(0,0,0,0.12); */
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
 }
@@ -484,15 +467,18 @@ body{
 .wrapper:hover{
     box-shadow: none;
 }
+
 .wrapper header{
   display: flex;
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
+
 header .icons{
   display: flex;
 }
+
 header .icons span{
   height: 38px;
   width: 38px;
@@ -505,49 +491,61 @@ header .icons span{
   user-select: none;
   border-radius: 50%;
 }
+
 .icons span:last-child{
   margin-right: -10px;
 }
+
 header .icons span:hover{
   background: #f2f2f2;
 }
+
 header .current-date{
   font-size: 1.45rem;
   font-weight: 500;
 }
+
 .calendar{
   padding: 20px;
 }
+
 .calendar ul{
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
 }
+
 .calendar .days{
   margin-bottom: 20px;
 }
+
 .calendar li{
   color: var(--color-dark);
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
+
 .calendar .weeks li{
   font-weight: 500;
   cursor: default;
 }
+
 .calendar .days li{
   z-index: 1;
   cursor: pointer;
   position: relative;
   margin-top: 30px;
 }
+
 .days li.inactive{
   color: #aaa;
 }
+
 .days li.active{
   color: #fff;
 }
+
 .days li::before{
   position: absolute;
   content: "";
@@ -601,4 +599,107 @@ header .current-date{
   .show-more {
     margin-top: 20px;
     text-align: center;
+}
+
+.stud {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.stud:hover {
+    box-shadow: none;
+}
+
+.stud form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.stud .roll {
+    margin-bottom: 20px;
+}
+
+.stud label {
+    color: var(--color-dark);
+}
+
+.stud input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.stud button.stdBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .stud {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .stud form {
+        padding: 20px;
+    }
+
+    .stud input[type="text"] {
+        width: 90%;
+    }
+
+    .stud button.stdBtn {
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stud {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .stud form {
+        padding: 15px;
+    }
+
+    .stud input[type="text"] {
+        width: 85%;
+    }
+
+    .stud button.stdBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+}
+
+.stud {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-top: 20vh;
+}
+
+#warningMessage {
+    color: red;
+    display: none;
 }
