@@ -137,8 +137,6 @@
                                         <small class="text-muted"></small>
                                     </div>
                                 </div>
-
-                                
                             </div>
                             <div class="show-more">
                                 <a href="Updates/updates.html">Show More</a>
@@ -149,6 +147,18 @@
             </div>
             <div id="student-details-content" class="content">
                 <h1>Student Details</h1>
+                <div class="stud">
+                    <form id="rollNumberForm" action="/submit" method="post">
+                        <div class="roll">
+                            <label for="rollNumber">Enter Roll Number: </label>
+                            <input type="text" id="rollNumber" name="rollNumber" placeholder="Search" minlength="12" maxlength="12" required>
+                            <span id="warningMessage" style="color: red; display: none;">Please enter numeric characters only.</span>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="stdBtn">Submit</button>
+                    </form>
+                </div>
             </div>
             <div id="class-details-content" class="content">
                 <h1>Class Details</h1>
