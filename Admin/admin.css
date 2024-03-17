@@ -252,10 +252,8 @@ aside .sidebar a:hover span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* height: 1.6rem;*/
     width: 4.2rem;
     cursor: pointer;
-    /* border-radius: var(--border-radius-1); */
     border-radius: 50px;
     height: 1.9rem;
 }
@@ -272,7 +270,6 @@ aside .sidebar a:hover span {
 .right-top .theme-toggler span.active {
     background: var(--color-primary);
     color: white;
-    /* border-radius: var(--border-radius-1); */
     border-radius: 50px;
 }
 
@@ -309,8 +306,6 @@ aside .sidebar a:hover span {
 }
 
 #dashboard-content .right .recent-updates .updates .update {
-    /* display: grid;
-    grid-template-columns: 2.6rem auto; */
     gap: 1rem;
     margin-bottom: 1rem;
 }
@@ -452,16 +447,14 @@ aside .sidebar a:hover span {
 }
 
 .dark-theme-variables .close {
-    color: var(--color-dark); /* Change the color to white */
+    color: var(--color-dark);
 }
-
 
 .wrapper{
   margin-top: 2rem;
   width: 450px;
   background: var(--color-white);
   border-radius: 10px;
-  /* box-shadow: 0 15px 40px rgba(0,0,0,0.12); */
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
 }
@@ -469,15 +462,18 @@ aside .sidebar a:hover span {
 .wrapper:hover{
     box-shadow: none;
 }
+
 .wrapper header{
   display: flex;
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
+
 header .icons{
   display: flex;
 }
+
 header .icons span{
   height: 38px;
   width: 38px;
@@ -490,49 +486,61 @@ header .icons span{
   user-select: none;
   border-radius: 50%;
 }
+
 .icons span:last-child{
   margin-right: -10px;
 }
+
 header .icons span:hover{
   background: #f2f2f2;
 }
+
 header .current-date{
   font-size: 1.45rem;
   font-weight: 500;
 }
+
 .calendar{
   padding: 20px;
 }
+
 .calendar ul{
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
 }
+
 .calendar .days{
   margin-bottom: 20px;
 }
+
 .calendar li{
   color: var(--color-dark);
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
+
 .calendar .weeks li{
   font-weight: 500;
   cursor: default;
 }
+
 .calendar .days li{
   z-index: 1;
   cursor: pointer;
   position: relative;
   margin-top: 30px;
 }
+
 .days li.inactive{
   color: #aaa;
 }
+
 .days li.active{
   color: #fff;
 }
+
 .days li::before{
   position: absolute;
   content: "";
