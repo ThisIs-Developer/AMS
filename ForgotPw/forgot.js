@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.forgot-form');
     const emailInput = document.querySelector('input[name="id"]');
+    const otpInput = document.querySelector('input[name="otp"]');
     const forgotMailSection = document.querySelector('.forgot-mail');
     const checkMailSection = document.querySelector('.check-mail');
+    const warningMessage = document.getElementById('warningMessage-pass');
+    const verifyOTPButton = document.querySelector('.check-mail button');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -14,6 +17,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         checkMailSection.style.display = 'block';
         checkMailSection.querySelector('span').textContent = submittedEmail;
+    });
+
+    verifyOTPButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const submittedOTP = otpInput.value.trim();
+
+        if (submittedOTP !== '1234') {
+            warningMessage.style.display = 'block';
+            setTimeout(function() {
+                warningMessage.style.display = 'none';
+            }, 3000);
+            return;
+        }
     });
 });
 

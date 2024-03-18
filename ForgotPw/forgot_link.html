@@ -25,20 +25,27 @@
                 <div class="row align-items-center">
                     <div class="header-text mb-4 forgot-mail">
                         <h2>Forgot Password</h2>
-                        <p>No problem. A password reset link will be sent to your email address</p>
+                        <p>We will send you a <span style="font-weight: bold;">One Time Password</span> on your register email address</p>
                     </div>
                     <form action="/submit" method="post" class="forgot-form">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email address" name="id" required>
+                            <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email address" name="id" required>
                         </div>
                         <div class="input-group mb-3" style="margin-top: 40px;">
                             <button type="submit" class="btn btn-lg btn-primary w-100 fs-6 " style="background-color: #176B87;">Submit</button>
                         </div>
                     </form>
                     <div class="header-text mb-4 check-mail" style="display: none;">
-                        <h2>Check Your Email</h2>
-                        <p>Please check the email address <span style="color: #007bff;"></span> to reset your password</p>
-                        <button type="button" class="btn btn-secondary mt-3" onclick="window.location.reload();" style="background-color: #176B87;">Resend Email</button>
+                        <h2>OPT Verification</h2>
+                        <p>Please enter the 4-digit verification coed that was sent to <span style="color: #007bff;"></span></p>
+                        <p>The code is valid for 30 minutes.</p>
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Enter OTP code" name="otp" maxlength="4" minlength="4">
+                        </div>
+                        <span id="warningMessage-pass" style="color: red; display: none; font-size: small;">OTP didn't match</span>
+                        <div class="input-group mb-3" style="margin-top: 30px;">
+                            <button type="submit" class="btn btn-lg btn-primary w-100 fs-6 " style="background-color: #176B87;">Verify OTP</button>
+                        </div>
                     </div>
                     </div>
                 </div>
