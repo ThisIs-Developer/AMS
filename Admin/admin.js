@@ -174,3 +174,67 @@ document.getElementById('rollNumber').addEventListener('input', function() {
         warningMessage.style.display = 'none';
     }
 });
+
+fetch('teachers.json')
+    .then(response => response.json())
+    .then(data => {
+        const teacherSelect = document.getElementById('teacher');
+        data.forEach(teacher => {
+            const option = document.createElement('option');
+            option.value = teacher.id;
+            option.textContent = teacher.name;
+            teacherSelect.appendChild(option);
+        });
+    });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const assignForm1 = document.getElementById('assignForm1');
+    const assignForm2 = document.getElementById('assignForm2');
+    const subjectSelect = document.getElementById('subject');
+
+    assignForm1.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const batch = formData.get('batch');
+        const semester = formData.get('semester');
+
+        if (!batch || !semester) {
+            alert('Please select both batch and semester.');
+            return;
+        }
+
+        try {
+            const response = await fetch('subjects.json');
+            const data = await response.json();
+
+            if (data.hasOwnProperty(batch) && data[batch].hasOwnProperty(semester)) {
+                const subjects = data[batch][semester];
+                subjectSelect.innerHTML = '';
+
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
+
+                assignForm1.style.display = 'none';
+                assignForm2.style.display = 'block';
+            } else {
+                alert('Subjects not found for the selected batch and semester.');
+            }
+        } catch (error) {
+            console.error('Error fetching subjects:', error);
+            alert('Error fetching subjects. Please try again later.');
+        }
+    });
+
+    const cancelButton = document.querySelector('#assignForm2 button[type="reset"]');
+    cancelButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        assignForm1.style.display = 'block';
+        assignForm2.style.display = 'none';
+        assignForm1.reset();
+        assignForm2.reset();
+    });
+});

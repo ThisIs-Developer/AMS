@@ -167,7 +167,7 @@
                         <div class="class-view">
                             <label for="batch">Select Batch:</label>
                             <select id="batch" name="batch">
-                                <option value="">Select Batch</option>
+                                <option value="">Search</option>
                                 <option value="2020-2024">2020 - 2024</option>
                                 <option value="2021-2025">2021 - 2025</option>
                                 <option value="2022-2026">2022 - 2026</option>
@@ -177,7 +177,7 @@
                 
                             <label for="semester">Select Semester:</label>
                             <select id="semester" name="semester">
-                                <option value="">Select Semester</option>
+                                <option value="">Search</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -190,7 +190,7 @@
                 
                             <label for="section">Select Section:</label>
                             <select id="section" name="section">
-                                <option value="">Select Section</option>
+                                <option value="">Search</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>
@@ -208,14 +208,69 @@
             </div>
             <div id="assign-faculty-content" class="content">
                 <h1>Assign Faculty</h1>
+                <div class="assign">
+                    <form id="assignForm1" action="/submit" method="post">
+                        <div class="assign-view1">
+                            <label for="batch">Select Batch:</label>
+                            <select id="batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+                
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="stdBtn">Submit</button>
+                    </form>
+                    <form id="assignForm2" action="/submit" method="post" style="display: none;">
+                        <div class="assign-view2">
+                            <label for="section">Select Section:</label>
+                            <select id="section" name="section">
+                                <option value="">Search</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                
+                            <label for="subject">Select Subject:</label>
+                            <select id="subject" name="subject">
+                                <option value="">Search</option>
+                            </select>
+                
+                            <label for="teacher">Select Teacher:</label>
+                            <select id="teacher" name="teacher">
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="stdBtn">Submit</button>
+                        <button type="reset" class="stdBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                </div>
             </div>
             <div id="substitute-faculty-content" class="content">
                 <h1>Substitute Faculty</h1>
             </div>
         </main>
-
     </div>
-
     <script src="admin.js"></script>
 </body>
 </html>
