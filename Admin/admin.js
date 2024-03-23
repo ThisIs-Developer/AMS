@@ -175,30 +175,40 @@ document.getElementById('rollNumber').addEventListener('input', function() {
     }
 });
 
-fetch('teachers.json')
-    .then(response => response.json())
-    .then(data => {
-        const teacherSelect = document.getElementById('teacher');
-        data.forEach(teacher => {
-            const option = document.createElement('option');
-            option.value = teacher.id;
-            option.textContent = teacher.name;
-            teacherSelect.appendChild(option);
-        });
-    });
-
 document.addEventListener('DOMContentLoaded', () => {
     const assignForm1 = document.getElementById('assignForm1');
     const assignForm2 = document.getElementById('assignForm2');
     const subjectSelect = document.getElementById('subject');
+    const reportBatch = document.getElementById('reportBatch');
+    const reportSemester = document.getElementById('reportSemester');
+    const reportSection = document.getElementById('reportSection');
+    const reportSubject = document.getElementById('reportSubject');
+    const reportTeacher = document.getElementById('reportTeacher');
+    const reportDiv = document.querySelector('.report');
+    const homeButton = document.querySelector('.report .stdBtn');
+
+    let selectedBatch = '';
+    let selectedSemester = '';
+
+    fetch('teachers.json')
+        .then(response => response.json())
+        .then(data => {
+            const teacherSelect = document.getElementById('teacher');
+            data.forEach(teacher => {
+                const option = document.createElement('option');
+                option.value = teacher.id;
+                option.textContent = teacher.name;
+                teacherSelect.appendChild(option);
+            });
+        });
 
     assignForm1.addEventListener('submit', async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const batch = formData.get('batch');
-        const semester = formData.get('semester');
+        selectedBatch = formData.get('batch');
+        selectedSemester = formData.get('semester');
 
-        if (!batch || !semester) {
+        if (!selectedBatch || !selectedSemester) {
             alert('Please select both batch and semester.');
             return;
         }
@@ -207,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('subjects.json');
             const data = await response.json();
 
-            if (data.hasOwnProperty(batch) && data[batch].hasOwnProperty(semester)) {
-                const subjects = data[batch][semester];
+            if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
+                const subjects = data[selectedBatch][selectedSemester];
                 subjectSelect.innerHTML = '';
 
                 subjects.forEach(subject => {
@@ -229,6 +239,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    assignForm2.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const section = formData.get('section');
+        const subject = formData.get('subject');
+        const teacherId = formData.get('teacher');
+
+        if (!section || !subject || !teacherId) {
+            alert('Please select section, subject, and teacher.');
+            return;
+        }
+
+        try {
+            const teacherSelect = document.getElementById('teacher');
+            const selectedTeacher = teacherSelect.querySelector(`option[value="${teacherId}"]`).textContent;
+
+            reportBatch.textContent = selectedBatch;
+            reportSemester.textContent = selectedSemester;
+            reportSection.textContent = section;
+            reportSubject.textContent = subject;
+            reportTeacher.textContent = selectedTeacher;
+
+            alert('Successfully assigned teacher.');
+        } catch (error) {
+            console.error('Error assigning teacher:', error);
+            alert('Error assigning teacher. Please try again.');
+        }
+
+        reportDiv.style.display = 'block';
+        assignForm2.style.display = 'none';
+    });
+
+    homeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
     const cancelButton = document.querySelector('#assignForm2 button[type="reset"]');
     cancelButton.addEventListener('click', (event) => {
         event.preventDefault();
@@ -236,5 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         assignForm2.style.display = 'none';
         assignForm1.reset();
         assignForm2.reset();
+
+        reportDiv.style.display = 'none';
     });
 });
