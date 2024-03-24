@@ -114,7 +114,7 @@ document.getElementById('logout-link').addEventListener('click', function (event
     window.location.href = this.getAttribute('href');
 });
 
-fetch('updates.json')
+fetch('../json/updates.json')
     .then(response => response.json())
     .then(data => {
         const updatesContainer = document.querySelector('.recent-updates .updates');
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedBatch = '';
     let selectedSemester = '';
 
-    fetch('teachers.json')
+    fetch('../json/teachers.json')
         .then(response => response.json())
         .then(data => {
             const teacherSelect = document.getElementById('teacher');
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('subjects.json');
+            const response = await fetch('../json/subjects.json');
             const data = await response.json();
 
             if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {

@@ -1,4 +1,4 @@
-fetch('../updates.json')
+fetch('../../json/updates.json')
     .then(response => response.json())
     .then(data => {
         const updatesContainer = document.querySelector('.recent-updates .updates');
