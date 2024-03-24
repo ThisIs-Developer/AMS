@@ -329,8 +329,8 @@ aside .sidebar a:hover span {
     }
 
     aside .sidebar a:last-child {
-        position: relative;
-        margin-top: 1.8rem;
+        position: absolute;
+        bottom: 5rem;
     }
 }
 
