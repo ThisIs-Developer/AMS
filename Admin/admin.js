@@ -286,3 +286,115 @@ document.addEventListener('DOMContentLoaded', () => {
         reportDiv.style.display = 'none';
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const substituteForm1 = document.getElementById('substituteForm1');
+    const substituteForm2 = document.getElementById('substituteForm2');
+    const substituteSelectTeacher = document.getElementById('substitute-teacher');
+    const substituteSelectSubject = document.getElementById('substitute-subject');
+    const substituteReportBatch = document.getElementById('substitute-reportBatch');
+    const substituteReportSemester = document.getElementById('substitute-reportSemester');
+    const substituteReportSection = document.getElementById('substitute-reportSection');
+    const substituteReportSubject = document.getElementById('substitute-reportSubject');
+    const substituteReportTeacher = document.getElementById('substitute-reportTeacher');
+    const substituteReportDiv = document.querySelector('.substitute-report');
+    const substituteHomeButton = document.querySelector('.substitute-report .substituteBtn');
+
+    let selectedSubstituteBatch = '';
+    let selectedSubstituteSemester = '';
+
+    fetch('../json/teachers.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(teacher => {
+                const option = document.createElement('option');
+                option.value = teacher.id;
+                option.textContent = teacher.name;
+                substituteSelectTeacher.appendChild(option);
+            });
+        });
+
+    substituteForm1.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        selectedSubstituteBatch = formData.get('batch');
+        selectedSubstituteSemester = formData.get('semester');
+
+        if (!selectedSubstituteBatch || !selectedSubstituteSemester) {
+            alert('Please select both batch and semester.');
+            return;
+        }
+
+        try {
+            const response = await fetch('../json/subjects.json');
+            const data = await response.json();
+
+            if (data.hasOwnProperty(selectedSubstituteBatch) && data[selectedSubstituteBatch].hasOwnProperty(selectedSubstituteSemester)) {
+                const subjects = data[selectedSubstituteBatch][selectedSubstituteSemester];
+                substituteSelectSubject.innerHTML = '';
+
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject;
+                    substituteSelectSubject.appendChild(option);
+                });
+
+                substituteForm1.style.display = 'none';
+                substituteForm2.style.display = 'block';
+            } else {
+                alert('Subjects not found for the selected batch and semester.');
+            }
+        } catch (error) {
+            console.error('Error fetching subjects:', error);
+            alert('Error fetching subjects. Please try again later.');
+        }
+    });
+
+    substituteForm2.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const section = formData.get('section');
+        const subject = formData.get('subject');
+        const teacherId = formData.get('teacher');
+
+        if (!section || !subject || !teacherId) {
+            alert('Please select section, subject, and teacher.');
+            return;
+        }
+
+        try {
+            const teacherSelect = document.getElementById('substitute-teacher');
+            const selectedTeacher = teacherSelect.querySelector(`option[value="${teacherId}"]`).textContent;
+
+            substituteReportBatch.textContent = selectedSubstituteBatch;
+            substituteReportSemester.textContent = selectedSubstituteSemester;
+            substituteReportSection.textContent = section;
+            substituteReportSubject.textContent = subject;
+            substituteReportTeacher.textContent = selectedTeacher;
+
+            alert('Successfully assigned substitute teacher.');
+        } catch (error) {
+            console.error('Error assigning substitute teacher:', error);
+            alert('Error assigning substitute teacher. Please try again.');
+        }
+
+        substituteReportDiv.style.display = 'block';
+        substituteForm2.style.display = 'none';
+    });
+
+    substituteHomeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+    const substituteCancelButton = document.querySelector('#substituteForm2 button[type="reset"]');
+    substituteCancelButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        substituteForm1.style.display = 'block';
+        substituteForm2.style.display = 'none';
+        substituteForm1.reset();
+        substituteForm2.reset();
+
+        substituteReportDiv.style.display = 'none';
+    });
+});

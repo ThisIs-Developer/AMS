@@ -292,7 +292,89 @@
             </div>
             <div id="substitute-faculty-content" class="content">
                 <h1>Substitute Faculty</h1>
+                <div class="subsitute">
+                    <form id="substituteForm1" action="/submit" method="post">
+                        <div class="substitute-view1">
+                            <label for="substitute-batch">Select Batch:</label>
+                            <select id="substitute-batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+            
+                            <label for="substitute-semester">Select Semester:</label>
+                            <select id="substitute-semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="substituteBtn">Submit</button>
+                    </form>
+                    <form id="substituteForm2" action="/submit" method="post" style="display: none;">
+                        <div class="substitute-view2">
+                            <label for="substitute-section">Select Section:</label>
+                            <select id="substitute-section" name="section">
+                                <option value="">Search</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+            
+                            <label for="substitute-subject">Select Subject:</label>
+                            <select id="substitute-subject" name="subject">
+                                <option value="">Search</option>
+                            </select>
+            
+                            <label for="substitute-teacher">Select Teacher:</label>
+                            <select id="substitute-teacher" name="teacher">
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="substituteBtn">Submit</button>
+                        <button type="reset" class="substituteBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <div class="substitute-report" style="display: none;">
+                        <p>Substitute Details</p>
+                        <div>
+                            <label for="substitute-reportBatch">Batch:</label>
+                            <span id="substitute-reportBatch"></span>
+                        </div>
+                        <div>
+                            <label for="substitute-reportSemester">Semester:</label>
+                            <span id="substitute-reportSemester"></span>
+                        </div>
+                        <div>
+                            <label for="substitute-reportSection">Section:</label>
+                            <span id="substitute-reportSection"></span>
+                        </div>
+                        <div>
+                            <label for="substitute-reportSubject">Subject:</label>
+                            <span id="substitute-reportSubject"></span>
+                        </div>
+                        <div>
+                            <label for="substitute-reportTeacher">Teacher:</label>
+                            <span id="substitute-reportTeacher"></span>
+                        </div>
+                        <button type="button" class="substituteBtn">Home</button>
+                    </div>
+                </div>
             </div>
+            
         </main>
     </div>
     <script src="admin.js"></script>
