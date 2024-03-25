@@ -1042,3 +1042,192 @@ header .current-date{
     margin-bottom: 10px;
     color: var(--color-dark);
 }
+
+.manage {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.manage:hover {
+    box-shadow: none;
+}
+
+.manage form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.manage label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.manage select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.manage button.stdBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.manage input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.manage input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+@media screen and (max-width: 1200px) {
+    .manage {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .manage form {
+        padding: 20px;
+    }
+
+    .manage select {
+        width: 90%;
+    }
+
+    .manage button.stdBtn {
+        margin-top: 15px;
+    }
+
+    .manage input[type="text"] {
+        width: 90%;
+    }
+
+    .manage input[type="email"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .manage {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .manage form {
+        padding: 15px;
+    }
+
+    .manage select {
+        width: 85%;
+    }
+
+    .manage button.stdBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .manage input[type="text"] {
+        width: 85%;
+    }
+
+    .manage input[type="email"] {
+        width: 85%;
+    }
+}
+
+.manage {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-top: 15vh;
+}
+
+
+.manage-report-add {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.manage-report-add p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.manage-report-add label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.manage-report-add div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.manage-report-add .manage-report-add-Btn{
+    background-color: var(--color-primary);
+}
+
+.manage-report-remove {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.manage-report-remove p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.manage-report-remove label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.manage-report-remove div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}

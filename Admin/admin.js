@@ -398,3 +398,103 @@ document.addEventListener('DOMContentLoaded', () => {
         substituteReportDiv.style.display = 'none';
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const manageFacultyForm = document.getElementById('manageFacultyForm');
+    const addFacultyForm = document.getElementById('addFacultyForm');
+    const removeFacultyForm = document.getElementById('removeFacultyForm');
+    const addFacultyReport = document.querySelector('.manage-report-add');
+    const removeFacultyReport = document.querySelector('.manage-report-remove');
+
+    const hideAllFormsAndReports = () => {
+        const formsAndReports = [manageFacultyForm, addFacultyForm, removeFacultyForm, addFacultyReport, removeFacultyReport];
+        formsAndReports.forEach(element => {
+            element.style.display = 'none';
+        });
+    };
+
+    const showFormAndHideOthers = (formToShow) => {
+        hideAllFormsAndReports();
+        formToShow.style.display = 'block';
+    };
+
+    document.querySelector('.op[value="addFaculty"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(addFacultyForm);
+    });
+
+    document.querySelector('.op[value="removeFaculty"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(removeFacultyForm);
+
+        fetch('../json/teachers.json')
+            .then(response => response.json())
+            .then(data => {
+                const teacherSelect = document.getElementById('teacherSelect');
+                teacherSelect.innerHTML = '<option value="">Search</option>';
+                data.forEach(teacher => {
+                    const option = document.createElement('option');
+                    option.value = teacher.name; // Using teacher name as value
+                    option.textContent = teacher.name;
+                    teacherSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching teacher data:', error));
+    });
+
+    addFacultyForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const facultyName = formData.get('facultyName');
+        const facultyEmail = formData.get('facultyEmail');
+
+        const isSuccess = true;
+
+        if (isSuccess) {
+            alert('Successful Add Faculty!');
+            document.getElementById('manage-report-add-name').textContent = facultyName;
+            document.getElementById('manage-report-add-email').textContent = facultyEmail;
+
+            showFormAndHideOthers(addFacultyReport);
+        } else {
+            alert('Failed to Add Faculty!');
+        }
+    });
+
+    removeFacultyForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const teacherSelect = formData.get('teacherSelect');
+
+        const isSuccess = true;
+
+        if (isSuccess) {
+            alert('Successful Remove Faculty!');
+            document.getElementById('manage-report-add-remove').textContent = teacherSelect;
+
+            showFormAndHideOthers(removeFacultyReport);
+        } else {
+            alert('Failed to Remove Faculty!');
+        }
+    });
+
+    document.querySelector('.manage-report-add button').addEventListener('click', () => {
+        location.reload();
+    });
+
+    document.querySelector('.manage-report-remove button').addEventListener('click', () => {
+        location.reload();
+    });
+
+    document.querySelector('#addFacultyForm button[type="reset"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(manageFacultyForm);
+        addFacultyForm.reset();
+    });
+
+    document.querySelector('#removeFacultyForm button[type="reset"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(manageFacultyForm);
+        removeFacultyForm.reset();
+    });
+});
