@@ -887,8 +887,7 @@ header .current-date{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 2rem;
-    margin-top: 10vh;
+    margin-top: 16vh;
 }
 
 .report {
@@ -1011,8 +1010,7 @@ header .current-date{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 2rem;
-    margin-top: 10vh;
+    margin-top: 16vh;
 }
 
 .substitute-report {
