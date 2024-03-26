@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #ededed;
+    /* text-decoration: none; */
+}
+
+.dashboard {
+    position: relative;
+    background-color: #ffffff3b;
+    box-sizing: border-box;
+
+    /* .... */
+
+    width: 20%;
+    height: 100vh;
+    float: left;
+    box-shadow: 2px 2px 2px #9f9f9f;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid #b9b1b1;
+}
+
+#profile_icon {
+    width: 90px;
+    margin: 20px auto;
+}
+
+.close {
+    display: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.profile_p {
+    background: #fafafa;
+    border: 1px solid #9a9494;
+    border-radius: 6px;
+    text-align: center;
+    height: 22px;
+    padding: 0px 15px;
+    /* font-style: ; */
+
+    /* ... */
+    height: 38px;
+    display: flex;
+    /* justify-self: center; */
+    align-self: center;
+    align-items: center;
+}
+#form_semester{
+    display: none;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    text-decoration: none;
+    color: #2a2a2ae3;
+    transition: all 300ms ease;
+    gap: 6px;
+}
+
+.logout span {
+    font-size: 1rem;
+}
+
+.logout:hover {
+    margin-left: 0.5rem;
+    /* border:1px groove; */
+}
+
+.semester {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: auto;
+    box-shadow: 4px 3px 5px #c2b1c5bf;
+    height: 20px;
+    padding: 12px 0;
+    border-bottom: 2px solid #c4c4c4ab;
+    margin-bottom: 6px;
+    background: #fafafa;
+    transition: all 300ms ease;
+}
+
+.sem {
+    color: black;
+    text-decoration: none;
+    padding-bottom: 32px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+}
+
+.sem:hover {
+    border-bottom: 2px solid #ff0202;
+}
+#menu-btn{
+    display: none;
+}
+#menu{
+    display: none;
+}
+
+.box {
+    width: 74vw;
+    box-shadow: 4px 3px 5px #c2b1c5bf;
+    display: flex;
+    /* height: 7%; */
+    background-color: #ffffffad;
+    top: 6px;
+    padding: 5px;
+    border-radius: 7px;
+    /* justify-content: space-around; */
+
+
+    /* ... */
+    position: relative;
+    left: 26px;
+    /* margin-right: 3px; */
+}
+
+.nav {
+    position: relative;
+    margin-left: 13px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+
+#attendanceTable {
+    /* left: 20%;
+    position: absolute;
+    width: 74vw;
+    margin: 13px 31px; */
+    /* display: none; */
+    border-spacing: 0cap;
+
+    /* ..0. */
+    width: 70%;
+    height: 70%;
+    /* float: right; */
+    top: 13%;
+    left: 20%;
+    position: absolute;
+    width: 74vw;
+    margin: 20px 31px;
+}
+
+#attendanceTable:target {
+    display: table;
+
+}
+
+th {
+    color: #2a2a2ae3;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #a2a2a2;
+    /* border-left: 1px solid #ddd; */
+}
+
+td {
+    font-weight: bold;
+    background: #ffffffbd;
+    text-align: center;
+}
+
+th {
+    background-color: #ffffffbd;
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+tr:nth-child(odd) {
+    color: #677991;
+}
+
+tr:nth-child(even) {
+    color: #9c4268;
+}
+
+tbody :not(thead):hover {
+    color: #dc0202;
+
+}
+
+/* @media only screen and (min-width: 600px) {
+    For desktops and laptops
+    .dashboard {
+    }
+    .profile_p{
+    }
+    
+    .box{
+    }
+    #attendanceTable {
+    }
+} */
+
+
+
+/* @media only screen and (max-width: 1200px) {
+    #attendanceTable {
+        top: 8%;
+    }
+} */
+
+@media only screen and (max-width: 768px) {
+
+    /* For mobile devices */
+    .dashboard {
+        /* height: 20vh;
+        width: 100%;
+        margin-bottom: 7px;
+        box-shadow: 0px 2px 3px #9f9f9f; */
+
+
+        /* ....0 */
+        position: fixed;
+        left: 0;
+        width: 12rem;
+        background: white;
+        z-index: 4;
+        height: 100vh;
+        /* padding-right: 10px; */
+        display: none;
+    }
+
+    #profile_icon {
+        width: 35px;
+        /* margin: 20px auto; */
+    }
+
+    .close {
+        display: inline-block;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* padding-bottom: 5%; */
+
+    }
+    #form_semester{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    #logout {
+        align-self: center;
+    }
+    .semester{
+        display: none;
+    }
+    #menu-btn{
+        display: flex;
+        background: white;
+        border: none;
+        cursor: pointer;
+    }
+    #menu{
+        display: inline-block;
+        left:10px;
+    }
+    .box {
+        /* display: inline-block; */
+        /* width: 100%; */
+        /* margin-left: 6px; */
+        margin-right: 3px;
+        width: 100%;
+        left: 0px;
+    }
+    #attendanceTable {
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        top: 10%;
+        /* margin-top: 13px; */
+        margin: 13px 0px;
+    }
+}

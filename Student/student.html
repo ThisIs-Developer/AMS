@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Dashboard</title>
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard" id="dashboard">
+        <div class="profile">
+            <img src="assets/profile_icon.png" alt="Profile Icon" id="profile_icon">
+            <div class="close">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+        </div>
+        <div class="container">
+            <p id="studentName" class="profile_p">Ayan Chatterjee</p>
+            <p id="batch" class="profile_p">2021-2025</p>
+            <form action="form.js" id="form_semester">
+                <label for="semester">Select semester:-</label>
+                <select name="semester" id="">
+                <option value="sem1">Semester 1</option>
+                <option value="sem2">Semester 2</option>
+                <option value="sem3">Semester 3</option>
+                <option value="sem4">Semester 4</option>
+                <option value="sem5">Semester 5</option>
+                <option value="sem6">Semester 6</option>
+                <option value="sem7">Semester 7</option>
+                <option value="sem8">Semester 8</option>
+            </select>
+            </form>
+            <a href="#" class="logout">
+                <span class="material-symbols-outlined">
+                    logout
+                </span>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+    </div>
+    <div class="semester">
+        <a href="#" id="sem1" class="sem" onclick="onClicked(1)">Sem 1</a>
+        <a href="#" id="sem2" class="sem" onclick="onClicked(2)">Sem 2</a>
+        <a href="#" id="sem3" class="sem" onclick="onClicked(3)">Sem 3</a>
+        <a href="#" id="sem4" class="sem" onclick="onClicked(4)">Sem 4</a>
+        <a href="#" id="sem5" class="sem" onclick="onClicked(5)">Sem 5</a>
+        <a href="#" id="sem6" class="sem" onclick="onClicked(6)">Sem 6</a>
+        <a href="#" id="sem7" class="sem" onclick="onClicked(7)">Sem 7</a>
+        <a href="#" id="sem8" class="sem" onclick="onClicked(8)">Sem 8</a>
+    </div>
+    <!-- <span class="menu">
+        
+    </span> -->
+    <section class="box">
+        <button id="menu-btn">
+            <span class="material-symbols-outlined" id="menu">menu</span>
+        </button>
+        <div class="nav">
+            ATTENDENCE LIST
+        </div>
+    </section>
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>SubjectID</th>
+                <th>Subject Name</th>
+                <th>Class Present</th>
+                <th>Total Classes</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script src="student.js"></script>
+    </body>
+    
+    </html>
