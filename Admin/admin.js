@@ -405,6 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const removeFacultyForm = document.getElementById('removeFacultyForm');
     const addFacultyReport = document.querySelector('.manage-report-add');
     const removeFacultyReport = document.querySelector('.manage-report-remove');
+    let facultyMap = new Map();
 
     const hideAllFormsAndReports = () => {
         const formsAndReports = [manageFacultyForm, addFacultyForm, removeFacultyForm, addFacultyReport, removeFacultyReport];
@@ -427,19 +428,25 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         showFormAndHideOthers(removeFacultyForm);
 
-        fetch('../json/teachers.json')
+        fetch('http://localhost:8080/admin/faculty/all')
             .then(response => response.json())
             .then(data => {
+                facultyMap = new Map();
+                data.forEach(faculty => {
+                    facultyMap.set(faculty.name, faculty.mailId);
+                });
+
                 const teacherSelect = document.getElementById('teacherSelect');
                 teacherSelect.innerHTML = '<option value="">Search</option>';
-                data.forEach(teacher => {
+
+                facultyMap.forEach((mailId, name) => {
                     const option = document.createElement('option');
-                    option.value = teacher.name; // Using teacher name as value
-                    option.textContent = teacher.name;
+                    option.value = name;
+                    option.textContent = name;
                     teacherSelect.appendChild(option);
                 });
             })
-            .catch(error => console.error('Error fetching teacher data:', error));
+            .catch(error => console.error('Error fetching faculty data:', error));
     });
 
     addFacultyForm.addEventListener('submit', (event) => {
@@ -451,8 +458,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const teacherData = {
             name: facultyName,
             mailId: facultyEmail
-        };    
-        
+        };
+
         fetch('http://localhost:8080/admin/faculty', {
             method: 'POST',
             body: JSON.stringify(teacherData),
@@ -477,20 +484,33 @@ document.addEventListener('DOMContentLoaded', () => {
     removeFacultyForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const teacherSelect = formData.get('teacherSelect');
-
-        const isSuccess = true;
-
-        if (isSuccess) {
-            alert('Successful Remove Faculty!');
-            document.getElementById('manage-report-add-remove').textContent = teacherSelect;
-
-            showFormAndHideOthers(removeFacultyReport);
+        const facultyName = formData.get('teacherSelect');
+    
+        if (facultyMap.has(facultyName)) {
+            const facultyEmail = facultyMap.get(facultyName);
+    
+            fetch(`http://localhost:8080/admin/faculty/${facultyEmail}`, {
+                method: 'DELETE'
+            }).then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Failed to delete faculty');
+                }
+            }).then(data => {
+                console.log('Backend Response:', data);
+                document.getElementById('manage-report-add-remove').textContent = facultyName;
+            }).catch(error => {
+                console.error('Error deleting faculty:', error);
+                alert('Error deleting faculty. Please try again later.');
+            });
         } else {
-            alert('Failed to Remove Faculty!');
+            console.error('Faculty Email not found for selected name:', facultyName);
         }
+    
+        showFormAndHideOthers(removeFacultyReport);
     });
-
+    
     document.querySelector('.manage-report-add button').addEventListener('click', () => {
         location.reload();
     });
