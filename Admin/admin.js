@@ -448,17 +448,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const facultyName = formData.get('facultyName');
         const facultyEmail = formData.get('facultyEmail');
 
-        const isSuccess = true;
-
-        if (isSuccess) {
-            alert('Successful Add Faculty!');
-            document.getElementById('manage-report-add-name').textContent = facultyName;
-            document.getElementById('manage-report-add-email').textContent = facultyEmail;
-
-            showFormAndHideOthers(addFacultyReport);
-        } else {
+        const teacherData = {
+            name: facultyName,
+            mailId: facultyEmail
+        };    
+        
+        fetch('http://localhost:8080/admin/faculty', {
+            method: 'POST',
+            body: JSON.stringify(teacherData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.status === 201) {
+                alert('Successful Add Faculty!');
+                document.getElementById('manage-report-add-name').textContent = facultyName;
+                document.getElementById('manage-report-add-email').textContent = facultyEmail;
+                showFormAndHideOthers(addFacultyReport);
+            } else {
+                alert('Failed to Add Faculty!');
+            }
+        }).catch(error => {
+            console.error(error);
             alert('Failed to Add Faculty!');
-        }
+        });
     });
 
     removeFacultyForm.addEventListener('submit', (event) => {
