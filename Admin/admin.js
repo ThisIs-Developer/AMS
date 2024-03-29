@@ -202,34 +202,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        assignForm1.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            selectedBatch = formData.get('batch');
-            selectedSemester = formData.get('semester');
-        
-            if (!selectedBatch || !selectedSemester) {
-                alert('https://localhost:8080/admin/assign');
-                return;
+    assignForm1.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        selectedBatch = formData.get('batch');
+        selectedSemester = formData.get('semester');
+
+        if (!selectedBatch || !selectedSemester) {
+            alert('Please select both batch and semester.');
+            return;
+        }
+
+        try {
+            const response = await fetch('../json/subjects.json');
+            const data = await response.json();
+
+            if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
+                const subjects = data[selectedBatch][selectedSemester];
+                subjectSelect.innerHTML = '';
+
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
+
+                assignForm1.style.display = 'none';
+                assignForm2.style.display = 'block';
+            } else {
+                alert('Subjects not found for the selected batch and semester.');
             }
-        
-            try {
-                const response = await fetch(`http://localhost:8080/admin/assign/subjects/${selectedBatch}/${selectedSemester}`);
-                const data = await response.json();
-        
-                if (data && data.length > 0) {
-                    console.log('Subjects for Batch:', selectedBatch, 'Semester:', selectedSemester);
-                    data.forEach(subject => {
-                        console.log(subject);
-                    });
-                } else {
-                    alert('Subjects not found for the selected batch and semester.');
-                }
-            } catch (error) {
-                console.error('Error fetching subjects:', error);
-                alert('Error fetching subjects. Please try again later.');
-            }
-        });
+        } catch (error) {
+            console.error('Error fetching subjects:', error);
+            alert('Error fetching subjects. Please try again later.');
+        }
+    });
 
     assignForm2.addEventListener('submit', (event) => {
         event.preventDefault();
