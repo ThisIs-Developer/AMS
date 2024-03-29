@@ -472,8 +472,14 @@
                     </form>
                     <form id="addsubjectsForm2" action="/submit" method="post" style="display: none;">
                         <div class="subjects-view2">
-                            <label for="subject">Enter Subject Name:</label>
-                            <input type="text" id="subject" name="subject" placeholder="Code Name" required>
+                            <div>
+                                <label for="code">Enter Subject Code:</label>
+                                <input type="text" id="code" name="code" placeholder="Paper Code" required>
+                            </div>
+                            <div class="extra-gap">
+                                <label for="subject">Enter Subject Name:</label>
+                                <input type="text" id="subject" name="subject" placeholder="Paper Name" required>
+                            </div>
                             <br>
                             <small class="text-muted">*Check before submit</small>
                         </div>
@@ -489,6 +495,10 @@
                         <div>
                             <label for="addsubjects-reportSemester">Semester:</label>
                             <span id="addsubjects-reportSemester"></span>
+                        </div>
+                        <div>
+                            <label for="addsubjects-reportCode">Code:</label>
+                            <span id="addsubjects-reportCode"></span>
                         </div>
                         <div>
                             <label for="addsubjects-reportSubject">Subject:</label>
