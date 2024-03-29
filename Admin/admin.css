@@ -1229,3 +1229,142 @@ header .current-date{
     margin-bottom: 10px;
     color: var(--color-dark);
 }
+
+.addsubjects {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.addsubjects:hover {
+    box-shadow: none;
+}
+
+.addsubjects form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.addsubjects label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.addsubjects input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.addsubjects select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.addsubjects button.addsubjectsBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .addsubjects {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .addsubjects form {
+        padding: 20px;
+    }
+
+    .addsubjects select {
+        width: 90%;
+    }
+
+    .addsubjects button.addsubjectsBtn {
+        margin-top: 15px;
+    }
+
+    .addsubjects input[type="text"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .addsubjects {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .addsubjects form {
+        padding: 15px;
+    }
+
+    .addsubjects select {
+        width: 85%;
+    }
+
+    .addsubjects button.addsubjectsBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .addsubjects input[type="text"] {
+        width: 85%;
+    }
+}
+
+.addsubjects {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16vh;
+}
+
+.addsubjects-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.addsubjects-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.addsubjects-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.addsubjects-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}

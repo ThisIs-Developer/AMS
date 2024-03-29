@@ -66,6 +66,12 @@
                     </span>
                     <h3>Substitute Faculty</h3>
                 </a>
+                <a href="#" id="add-subjects-menu">
+                    <span class="material-symbols-outlined">
+                        book
+                    </span>
+                    <h3>Add Subjects</h3>
+                </a>
                 <a href="../Logout/logout.html" id="logout-link">
                     <span class="material-symbols-outlined">
                         logout
@@ -432,7 +438,66 @@
                     </div>
                 </div>
             </div>
-            
+            <div id="add-subjects-content" class="content">
+                <h1>Add Subjects</h1>
+                <div class="addsubjects">
+                    <form id="addsubjectsForm1" action="/submit" method="post">
+                        <div class="addsubjects-view1">
+                            <label for="batch">Select Batch:</label>
+                            <select id="batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+                
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="addsubjectsBtn">Submit</button>
+                    </form>
+                    <form id="addsubjectsForm2" action="/submit" method="post" style="display: none;">
+                        <div class="subjects-view2">
+                            <label for="subject">Enter Subject Name:</label>
+                            <input type="text" id="subject" name="subject" placeholder="Code Name" required>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="addsubjectsBtn">Submit</button>
+                        <button type="reset" class="addsubjectsBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <div class="addsubjects-report" style="display: none;">
+                        <p>Assign Details</p>
+                        <div>
+                            <label for="addsubjects-reportBatch">Batch:</label>
+                            <span id="addsubjects-reportBatch"></span>
+                        </div>
+                        <div>
+                            <label for="addsubjects-reportSemester">Semester:</label>
+                            <span id="addsubjects-reportSemester"></span>
+                        </div>
+                        <div>
+                            <label for="addsubjects-reportSubject">Subject:</label>
+                            <span id="addsubjects-reportSubject"></span>
+                        </div>
+                        <button type="button" class="addsubjectsBtn">Home</button>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <script src="admin.js"></script>

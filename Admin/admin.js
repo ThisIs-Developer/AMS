@@ -532,3 +532,70 @@ document.addEventListener('DOMContentLoaded', () => {
         removeFacultyForm.reset();
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const addsubjectsForm1 = document.getElementById('addsubjectsForm1');
+    const addsubjectsForm2 = document.getElementById('addsubjectsForm2');
+    const addsubjectsReport = document.querySelector('.addsubjects-report');
+    const homeButton = document.querySelector('.addsubjects-report .addsubjectsBtn');
+    const cancelButton = document.querySelector('#addsubjectsForm2 button[type="reset"]');
+
+    let selectedBatch = '';
+    let selectedSemester = '';
+    let selectedSubject = '';
+
+    addsubjectsForm1.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        selectedBatch = formData.get('batch');
+        selectedSemester = formData.get('semester');
+
+        if (!selectedBatch || !selectedSemester) {
+            alert('Please select both batch and semester.');
+            return;
+        }
+
+        addsubjectsForm1.style.display = 'none';
+        addsubjectsForm2.style.display = 'block';
+    });
+
+    addsubjectsForm2.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        selectedSubject = formData.get('subject');
+
+        if (!selectedSubject) {
+            alert('Please enter the subject name.');
+            return;
+        }
+
+        const reportBatchSpan = document.getElementById('addsubjects-reportBatch');
+        const reportSemesterSpan = document.getElementById('reportSemester');
+        const reportSubjectSpan = document.getElementById('addsubjects-reportSubject');
+
+        reportBatchSpan.textContent = selectedBatch;
+        reportSemesterSpan.textContent = selectedSemester;
+        reportSubjectSpan.textContent = selectedSubject;
+
+        addsubjectsForm2.style.display = 'none';
+        addsubjectsReport.style.display = 'block';
+    });
+
+    homeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+    cancelButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        addsubjectsForm1.style.display = 'block';
+        addsubjectsForm2.style.display = 'none';
+        addsubjectsForm1.reset();
+    });
+
+    document.querySelector('#addsubjectsForm2 button[type="reset"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        addsubjectsForm1.style.display = 'block';
+        addsubjectsForm2.style.display = 'none';
+        addsubjectsForm1.reset();
+    });
+});
