@@ -1,0 +1,107 @@
+/* Global font family */
+body, input, button, label {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Container styling */
+.container {
+  margin: 5px;
+  padding: 5px;
+}
+
+/* Form styling */
+form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Heading styling */
+.heading {
+  text-align: center;
+}
+
+/* Row styling */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute space between boxes */
+}
+
+/* Box styling */
+.box {
+  width: calc(20% - 10px); /* Adjust width for five boxes with spacing */
+  margin-bottom: 20px; /* Add spacing between rows */
+  border-radius: 8px; /* Rounded edges */
+  margin-right: 10px; /* Add spacing between boxes */
+}
+
+/* Input styling */
+input[type="text"],
+input[type="date"] {
+  width: calc(100% - 24px); /* Adjust width for padding and border */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Table container styling */
+.table-container {
+  overflow-x: auto;
+  max-height: 320px; /* Adjust max height according to your needs */
+  border-radius: inherit;
+}
+
+/* Table styling */
+#data-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+  border-radius: 10px; /* Rounded corners for table */
+}
+
+#data-table th,
+#data-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#data-table th {
+  background-color: #007bff;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+#data-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Submit button container styling */
+.submit-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  width: 150px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Label styling */
+label {
+  font-family: 'Poppins', sans-serif;
+}

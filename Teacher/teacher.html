@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Added for responsiveness -->
+    <title>Attendance Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <center><h3>Teacher Details</h3></center>
+      <form action="post">
+        <div class="form-group">
+          <label for="batch">Batch</label>
+          <select name="batch" id="batch">
+            <option value=""></option>
+            <option value="Batch 2021-2025">Batch 2021-2025</option>
+            <option value="Batch 2022-2026">Batch 2022-2026</option>
+            <option value="Batch 2023-2027">Batch 2023-2027</option>
+            <option value="Batch 2024-2028">Batch 2024-2028</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Sem">Semester</label>
+          <select name="Sem" id="Sem">
+            <option value=""></option>
+            <option value="Sem 1">Sem 1</option>
+            <option value="Sem 2">Sem 2</option>
+            <option value="Sem 3">Sem 3</option>
+            <option value="Sem 4">Sem 4</option>
+            <option value="Sem 5">Sem 5</option>
+            <option value="Sem 6">Sem 6</option>
+            <option value="Sem 7">Sem 7</option>
+            <option value="Sem 8">Sem 8</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Section">Section</label>
+          <select name="Section" id="Section">
+            <option value=""></option>
+            <option value="CSE 3(A)">CSE 3(A)</option>
+            <option value="CSE 3(B)">CSE 3(B)</option>
+            <option value="CSE 3(C)">CSE 3(C)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select name="subject" id="subject">
+            <option value=""></option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Computer Networks">Computer Networks</option>
+            <option value="Internet Of Things">Internet Of Things</option>
+            <option value="Web Technology">Web Technology</option>
+            <option value="Soft Computing">Soft Computing</option>
+            <option value="Web Technology Lab">Web Technology Lab</option>
+            <option value="Computer Networks Lab">Computer Networks Lab</option>
+            <option value="Software Engineering Lab">
+              Software Engineering Lab
+            </option>
+          </select>
+        </div>
+        <div class="form-group" style="text-align: center">
+          <button type="submit" id="submit" onclick="transferData()">
+            <a href="index2.html">Submit</a>
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
