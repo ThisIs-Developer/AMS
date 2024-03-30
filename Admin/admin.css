@@ -795,6 +795,50 @@ header .current-date{
     margin-top: 15vh;
 }
 
+.class-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.class-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.class-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.class-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.class-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.class-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.class-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
 .assign {
     margin-top: 2rem;
     width: 450px;

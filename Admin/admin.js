@@ -597,3 +597,66 @@ document.addEventListener('DOMContentLoaded', () => {
         addsubjectsForm2.reset();
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const classForm = document.getElementById('classForm');
+    const classReport = document.querySelector('.class-report');
+    const tableBody = document.getElementById('tableBody');
+    const classBatchSpan = document.getElementById('classBatch-report');
+    const classSemesterSpan = document.getElementById('classSemes-reportter');
+    const classSectionSpan = document.getElementById('classSecti-reporton');
+
+    classReport.style.display = 'none';
+
+    classForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedBatch = formData.get('batch');
+        const selectedSemester = formData.get('semester');
+        const selectedSection = formData.get('section');
+
+        try {
+            const response = await fetch('../json/class.json');
+            const data = await response.json();
+
+            if (data[selectedBatch] && data[selectedBatch][selectedSemester] && data[selectedBatch][selectedSemester][selectedSection]) {
+                const classDetails = data[selectedBatch][selectedSemester][selectedSection];
+                tableBody.innerHTML = '';
+
+                classBatchSpan.textContent = selectedBatch;
+                classSemesterSpan.textContent = selectedSemester;
+                classSectionSpan.textContent = selectedSection;
+
+                classDetails.forEach(detail => {
+                    const row = document.createElement('tr');
+                    const courseNameCell = document.createElement('td');
+                    courseNameCell.textContent = detail.course_name;
+                    row.appendChild(courseNameCell);
+
+                    const totalClassesCell = document.createElement('td');
+                    totalClassesCell.textContent = detail.total_classes;
+                    row.appendChild(totalClassesCell);
+
+                    const teacherNameCell = document.createElement('td');
+                    teacherNameCell.textContent = detail.teacher_name;
+                    row.appendChild(teacherNameCell);
+
+                    tableBody.appendChild(row);
+                });
+
+                classReport.style.display = 'block';
+                classForm.style.display = 'none';
+            } else {
+                alert('Class details not found for the selected batch, semester, or section.');
+            }
+        } catch (error) {
+            console.error('Error fetching class data:', error);
+            alert('Error fetching class details. Please try again later.');
+        }
+    });
+
+    const homeButton = document.querySelector('.class-report .stdBtn');
+    homeButton.addEventListener('click', () => {
+        location.reload();
+    });
+});

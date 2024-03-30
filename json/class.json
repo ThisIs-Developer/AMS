@@ -1,0 +1,213 @@
+{
+    "2020-2024": {
+      "1": {
+        "A": [
+          {
+            "course_name": "M 101 Mathematics - I",
+            "total_classes": 2,
+            "teacher_name": "Dr. Jyotsna Kumar Mondal"
+          },
+          {
+            "course_name": "C 101 Introduction to Computer Science",
+            "total_classes": 3,
+            "teacher_name": "Prof. (Dr). Atal Chaudhuri"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "M 101 Mathematics - I",
+            "total_classes": 2,
+            "teacher_name": "Dr. Jyotsna Kumar Mondal"
+          },
+          {
+            "course_name": "C 101 Introduction to Computer Science",
+            "total_classes": 3,
+            "teacher_name": "Prof. (Dr). Atal Chaudhuri"
+          }
+        ]
+      },
+      "2": {
+        "A": [
+          {
+            "course_name": "P 101 Physics - I",
+            "total_classes": 2,
+            "teacher_name": "Prof. (Dr). Susanta Chakrabarti"
+          },
+          {
+            "course_name": "E 101 English Communication",
+            "total_classes": 3,
+            "teacher_name": "Dr. Sourav Dutta"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "P 101 Physics - I",
+            "total_classes": 2,
+            "teacher_name": "Prof. (Dr). Susanta Chakrabarti"
+          },
+          {
+            "course_name": "E 101 English Communication",
+            "total_classes": 3,
+            "teacher_name": "Dr. Sourav Dutta"
+          }
+        ]
+      },
+      "3": {
+        "A": [
+          {
+            "course_name": "M 102 Mathematics - II",
+            "total_classes": 2,
+            "teacher_name": "Mr. Shanka Chattejee"
+          },
+          {
+            "course_name": "C 102 Data Structures",
+            "total_classes": 3,
+            "teacher_name": "Dr. Dharmpal Singh"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "M 102 Mathematics - II",
+            "total_classes": 2,
+            "teacher_name": "Mr. Shanka Chattejee"
+          },
+          {
+            "course_name": "C 102 Data Structures",
+            "total_classes": 3,
+            "teacher_name": "Dr. Dharmpal Singh"
+          }
+        ]
+      },
+      "4": {
+        "A": [
+          {
+            "course_name": "P 102 Physics - II",
+            "total_classes": 2,
+            "teacher_name": "Dr. Bikramjit Sarkar"
+          },
+          {
+            "course_name": "E 102 Technical Writing",
+            "total_classes": 3,
+            "teacher_name": "Dr. Pranati Rakshit"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "P 102 Physics - II",
+            "total_classes": 2,
+            "teacher_name": "Dr. Bikramjit Sarkar"
+          },
+          {
+            "course_name": "E 102 Technical Writing",
+            "total_classes": 3,
+            "teacher_name": "Dr. Pranati Rakshit"
+          }
+        ]
+      },
+      "5": {
+        "A": [
+          {
+            "course_name": "M 201 Discrete Mathematics",
+            "total_classes": 2,
+            "teacher_name": "Mr. Apurba Paul"
+          },
+          {
+            "course_name": "C 201 Algorithms",
+            "total_classes": 3,
+            "teacher_name": "Mrs. Sonali Bhattacharya"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "M 201 Discrete Mathematics",
+            "total_classes": 2,
+            "teacher_name": "Mr. Apurba Paul"
+          },
+          {
+            "course_name": "C 201 Algorithms",
+            "total_classes": 3,
+            "teacher_name": "Mrs. Sonali Bhattacharya"
+          }
+        ]
+      },
+      "6": {
+        "A": [
+          {
+            "course_name": "P 201 Electronics",
+            "total_classes": 2,
+            "teacher_name": "Mrs. Ira Nath"
+          },
+          {
+            "course_name": "E 201 Professional Communication",
+            "total_classes": 3,
+            "teacher_name": "Dr. Sudipta Sahana"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "P 201 Electronics",
+            "total_classes": 2,
+            "teacher_name": "Mrs. Ira Nath"
+          },
+          {
+            "course_name": "E 201 Professional Communication",
+            "total_classes": 3,
+            "teacher_name": "Dr. Sudipta Sahana"
+          }
+        ]
+      },
+      "7": {
+        "A": [
+          {
+            "course_name": "M 202 Calculus",
+            "total_classes": 2,
+            "teacher_name": "Mr. Sumanta Chatterjee"
+          },
+          {
+            "course_name": "C 202 Operating Systems",
+            "total_classes": 3,
+            "teacher_name": "Ms. Debasree Mitra"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "M 202 Calculus",
+            "total_classes": 2,
+            "teacher_name": "Mr. Sumanta Chatterjee"
+          },
+          {
+            "course_name": "C 202 Operating Systems",
+            "total_classes": 3,
+            "teacher_name": "Ms. Debasree Mitra"
+          }
+        ]
+      },
+      "8": {
+        "A": [
+          {
+            "course_name": "P 202 Thermodynamics",
+            "total_classes": 2,
+            "teacher_name": "Mr. Amit Majumder"
+          },
+          {
+            "course_name": "E 202 Technical Report Writing",
+            "total_classes": 3,
+            "teacher_name": "Ms. Jhumpa Mistri"
+          }
+        ],
+        "B": [
+          {
+            "course_name": "P 202 Thermodynamics",
+            "total_classes": 2,
+            "teacher_name": "Mr. Amit Majumder"
+          },
+          {
+            "course_name": "E 202 Technical Report Writing",
+            "total_classes": 3,
+            "teacher_name": "Ms. Jhumpa Mistri"
+          }
+        ]
+      }
+    }
+  }
+  
