@@ -1,5 +1,8 @@
 /* Global font family */
-body, input, button, label {
+body,
+input,
+button,
+label {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -47,16 +50,16 @@ input[type="date"] {
 
 /* Table container styling */
 .table-container {
-  overflow-x: auto;
+  position: relative; /* Set position to relative */
   max-height: 320px; /* Adjust max height according to your needs */
   border-radius: inherit;
+  overflow-y: auto; /* Add scroll if content exceeds height */
 }
 
 /* Table styling */
 #data-table {
   width: 100%;
   border-collapse: collapse;
-  overflow-y: auto;
   border-radius: 10px; /* Rounded corners for table */
 }
 
@@ -78,22 +81,20 @@ input[type="date"] {
   background-color: #f2f2f2;
 }
 
-/* Submit button container styling */
+/* Submit button styling */
 .submit-button-container {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 20px; /* Adjust margin to create space between table and button */
 }
 
-/* Submit button styling */
 button[type="submit"] {
-  width: 150px;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 25px; /* Rounded corners */
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem; /* Responsive font size */
   transition: background-color 0.3s ease;
 }
 
@@ -101,7 +102,51 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Label styling */
-label {
-  font-family: 'Poppins', sans-serif;
+button[type="submit"] a {
+  color: #fff; /* White hyperlink color */
+  text-decoration: none;
+}
+
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 767px) {
+  /* Styles for mobile devices (up to 767px wide) */
+
+  /* Make the container a single column layout */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Adjust the width of each box to occupy full width */
+  .box {
+    width: 100%;
+  }
+
+  /* Force Batch and Semester to be in the same row */
+  #Batch,
+  #Sem {
+    width: 100%; /* Each input occupies 50% of the row */
+    box-sizing: border-box; /* Include padding and border in the width */
+    float: right; /* Float inputs to the left */
+  }
+
+  /* Make Subject and Total Class in one row */
+  #Subject,
+  #TotalClass {
+    width: 100%; /* Each input occupies 50% of the row */
+    box-sizing: border-box; /* Include padding and border in the width */
+    float: right; /* Float inputs to the left */
+  }
+
+  /* Make Date occupy full width */
+  #Date {
+    width: 100%; /* Date input occupies full width */
+    box-sizing: border-box; /* Include padding and border in the width */
+    float: left; /* Float input to the left */
+  }
+
+  /* Adjust label alignment */
+  label {
+    text-align: left;
+  }
 }
