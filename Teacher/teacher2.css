@@ -150,3 +150,24 @@ button[type="submit"] a {
     text-align: left;
   }
 }
+
+/* Media query for tablet and foldable smartphone responsiveness */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  /* Styles for tablet and foldable smartphones (768px to 1199px wide) */
+
+  /* Set display and position properties for the table container */
+  .table-container {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange children in a column */
+    position: relative; /* Set position to relative */
+  }
+
+  /* Adjust margin for the submit button */
+  button[type="submit"] {
+    position: absolute; /* Set position to absolute */
+    bottom: 20px; /* Adjust distance from the bottom of the table */
+    left: 50%; /* Align button to the center */
+    transform: translateX(-50%); /* Center horizontally */
+  }
+}
+
