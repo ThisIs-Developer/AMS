@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSemester = formData.get('semester');
 
         if (!selectedBatch || !selectedSemester) {
-            alert('Please select both batch and semester.');
+            showErrorToast('Please select both batch and semester.');
             return;
         }
 
@@ -231,11 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 assignForm1.style.display = 'none';
                 assignForm2.style.display = 'block';
             } else {
-                alert('Subjects not found for the selected batch and semester.');
+                showErrorToast('Subjects not found for the selected batch and semester.');
             }
         } catch (error) {
             console.error('Error fetching subjects:', error);
-            alert('Error fetching subjects. Please try again later.');
+            showErrorToast('Error fetching subjects. Please try again later.');
         }
     });
 
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const teacherId = formData.get('teacher');
 
         if (!section || !subject || !teacherId) {
-            alert('Please select section, subject, and teacher.');
+            showErrorToast('Please select section, subject, and teacher.');
             return;
         }
 
@@ -261,10 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
             reportSubject.textContent = subject;
             reportTeacher.textContent = selectedTeacher;
 
-            alert('Successfully assigned teacher.');
+            showSuccessToast('Successfully assigned teacher.');
         } catch (error) {
             console.error('Error assigning teacher:', error);
-            alert('Error assigning teacher. Please try again.');
+            showErrorToast('Error assigning teacher. Please try again.');
         }
 
         reportDiv.style.display = 'block';
@@ -285,7 +285,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         reportDiv.style.display = 'none';
     });
+
+    const showSuccessToast = (message) => {
+        Toastify({
+            text: message,
+            duration: 3000,
+            gravity: 'top',
+            position: 'center',
+        backgroundColor: 'green',
+            style: {
+                maxWidth: '90%',
+            }
+        }).showToast();
+    };
+
+    const showErrorToast = (message) => {
+        Toastify({
+            text: message,
+            duration: 3000,
+            gravity: 'top',
+            position: 'center',
+            backgroundColor: 'red',
+            style: {
+                maxWidth: '90%',
+            }
+        }).showToast();
+    };
+
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const substituteForm1 = document.getElementById('substituteForm1');
