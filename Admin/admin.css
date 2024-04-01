@@ -1242,10 +1242,6 @@ header .current-date{
     color: var(--color-dark);
 }
 
-.manage-report-add .manage-report-add-Btn{
-    background-color: var(--color-primary);
-}
-
 .manage-report-remove {
     display: block;
     margin-top: 20px;
@@ -1493,6 +1489,175 @@ header .current-date{
 }
 
 .removesubjects-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.batch {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.batch:hover {
+    box-shadow: none;
+}
+
+.batch form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.batch label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.batch select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.batch button.batchBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.batch input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+@media screen and (max-width: 1200px) {
+    .batch {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .batch form {
+        padding: 20px;
+    }
+
+    .batch select {
+        width: 90%;
+    }
+
+    .batch button.batchBtn {
+        margin-top: 15px;
+    }
+
+    .batch input[type="text"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .batch {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .batch form {
+        padding: 15px;
+    }
+
+    .batch select {
+        width: 85%;
+    }
+
+    .batch button.batchBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .batch input[type="text"] {
+        width: 85%;
+    }
+}
+
+.batch {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-top: 15vh;
+}
+
+
+.batch-report-add {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.batch-report-add p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.batch-report-add label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.batch-report-add div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.batch-report-remove {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.batch-report-remove p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.batch-report-remove label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.batch-report-remove div {
     margin-bottom: 10px;
     color: var(--color-dark);
 }

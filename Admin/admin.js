@@ -821,3 +821,101 @@ document.addEventListener('DOMContentLoaded', () => {
         removesubjectsForm2.reset();
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const manageBatchForm = document.getElementById('managebatchForm');
+    const addBatchForm = document.getElementById('addBatchForm');
+    const removeBatchForm = document.getElementById('removeBatchForm');
+    const addBatchReport = document.querySelector('.batch-report-add');
+    const removeBatchReport = document.querySelector('.batch-report-remove');
+
+    const hideAllFormsAndReports = () => {
+        const formsAndReports = [manageBatchForm, addBatchForm, removeBatchForm, addBatchReport, removeBatchReport];
+        formsAndReports.forEach(element => {
+            element.style.display = 'none';
+        });
+    };
+
+    const showFormAndHideOthers = (formToShow) => {
+        hideAllFormsAndReports();
+        formToShow.style.display = 'block';
+    };
+
+    document.querySelector('.op[value="addBatch"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(addBatchForm);
+    });
+
+    document.querySelector('.op[value="removeBatch"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(removeBatchForm);
+
+        fetch('../json/batch.json')
+            .then(response => response.json())
+            .then(data => {
+                const batchSelect = document.getElementById('batchSelect');
+                batchSelect.innerHTML = '<option value="">Search</option>';
+                data.forEach(batch => {
+                    const option = document.createElement('option');
+                    option.value = batch.name; // Using batch name as value
+                    option.textContent = batch.name;
+                    batchSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching batch data:', error));
+    });
+
+    addBatchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const batchName = formData.get('batchName');
+
+        const isSuccess = true;
+
+        if (isSuccess) {
+            alert('Successful Add Batch!');
+            document.getElementById('batch-report-add-batch').textContent = batchName;
+
+            showFormAndHideOthers(addBatchReport);
+        } else {
+            alert('Failed to Add Batch!');
+        }
+    });
+
+    removeBatchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const batchSelect = formData.get('teacherSelect');
+
+        const isSuccess = true;
+
+        if (isSuccess) {
+            alert('Successful Remove Batch!');
+            document.getElementById('batch-report-add-remove').textContent = batchSelect;
+
+            showFormAndHideOthers(removeBatchReport);
+        } else {
+            alert('Failed to Remove Batch!');
+        }
+    });
+
+    document.querySelector('.batch-report-add button').addEventListener('click', () => {
+        location.reload();
+    });
+
+    document.querySelector('.batch-report-remove button').addEventListener('click', () => {
+        location.reload();
+    });
+
+    document.querySelector('#addBatchForm button[type="reset"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(manageBatchForm);
+        addBatchForm.reset();
+    });
+
+    document.querySelector('#removeBatchForm button[type="reset"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        showFormAndHideOthers(manageBatchForm);
+        removeBatchForm.reset();
+    });
+});

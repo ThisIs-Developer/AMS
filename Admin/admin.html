@@ -16,10 +16,7 @@
             <div class="top">
                 <div class="logo">
                     <img src="../assets/logo.png" alt="Logo">
-                    <h2>A 
-                        M
-                        S
-                    </h2>
+                    <h2>A M S</h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-symbols-outlined">
@@ -69,6 +66,12 @@
                         book
                     </span>
                     <h3>Manage Subjects</h3>
+                </a>
+                <a href="#" id="manage-batch-menu">
+                    <span class="material-symbols-outlined">
+                        format_list_bulleted
+                    </span>
+                    <h3>Manage Batch</h3>
                 </a>
                 <a href="../Logout/logout.html" id="logout-link">
                     <span class="material-symbols-outlined">
@@ -655,6 +658,56 @@
                             <span id="removesubjects-reportSubject"></span>
                         </div>
                         <button type="button" class="subjectBtn">Home</button>
+                    </div>
+                </div>
+            </div>
+            <div id="manage-batch-content" class="content">
+                <h1>Manage Batch</h1>
+                <div class="batch">
+                    <form id="managebatchForm" action="/submit" method="post">
+                        <div class="batch-from">
+                            <label class="first-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="addBatch" class="batchBtn op">Add Batch</button>
+                        <button type="submit" name="action" value="removeBatch" class="batchBtn op" style="background-color: #dc3545;">Remove Batch</button>
+                    </form>
+                    <form id="addBatchForm" action="/submit" method="post" style="display: none;">
+                        <div class="batch-from">
+                            <label for="batchName">Enter Batch Name:</label>
+                            <input type="text" id="batchName" name="batchName" placeholder="20XX - 20XX" required>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="batchBtn">Submit</button>
+                        <button type="reset" class="batchBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <form id="removeBatchForm" action="/submit" method="post" style="display: none;">
+                        <div class="batch-from">
+                            <label for="batchSelect">Select Batch:</label>
+                            <select id="batchSelect" name="teacherSelect" required>
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="reset" class="batchBtn" style="background-color: #969da3;">Cancel</button>
+                        <button type="submit" class="batchBtn" style="background-color: #dc3545;">Remove</button>
+                    </form>
+                    <div class="batch-report-add" style="display: none;">
+                        <p>Faculty Details</p>
+                        <div>
+                            <label for="batch-report-add-batch">Batch:</label>
+                            <span id="batch-report-add-batch"></span>
+                        </div>
+                        <button type="button" class="batchBtn">Home</button>
+                    </div>
+                    <div class="batch-report-remove" style="display: none;">
+                        <p>Faculty Details</p>
+                        <div>
+                            <label for="batch-report-add-remove">Name:</label>
+                            <span id="batch-report-add-remove"></span>
+                        </div>
+                        <button type="button" class="batchBtn">Home</button>
                     </div>
                 </div>
             </div>
