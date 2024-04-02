@@ -726,6 +726,11 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedBatchShow = formData.get('batch');
         selectedSemesterShow = formData.get('semester');
 
+        if (!selectedBatchAdd || !selectedSemesterAdd) {
+            showWarningToast('Please select both batch and semester.');
+            return;
+        }
+
         try {
             const response = await fetch('../json/showsubjects.json');
             const data = await response.json();
