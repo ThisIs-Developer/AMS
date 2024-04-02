@@ -175,6 +175,84 @@ document.getElementById('rollNumber').addEventListener('input', function() {
     }
 });
 
+const showSuccessToast = (message) => {
+    const toastContent = document.createElement('div');
+    toastContent.classList.add('toast-content');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-check-circle', 'toast-icon');
+    toastContent.appendChild(icon);
+
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+    toastContent.appendChild(messageElement);
+
+    Toastify({
+        node: toastContent,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: 'green',
+        close: true,
+        progressBar: true,
+        style: {
+            maxWidth: '90%',
+        }
+    }).showToast();
+};
+
+const showErrorToast = (message) => {
+    const toastContent = document.createElement('div');
+    toastContent.classList.add('toast-content');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-exclamation-circle', 'toast-icon');
+    toastContent.appendChild(icon);
+
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+    toastContent.appendChild(messageElement);
+
+    Toastify({
+        node: toastContent,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: 'red',
+        close: true,
+        progressBar: true,
+        style: {
+            maxWidth: '90%',
+        }
+    }).showToast();
+};
+
+const showWarningToast = (message) => {
+    const toastContent = document.createElement('div');
+    toastContent.classList.add('toast-content');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-exclamation-triangle', 'toast-icon');
+    toastContent.appendChild(icon);
+
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+    toastContent.appendChild(messageElement);
+
+    Toastify({
+        node: toastContent,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: '#f1a90f',
+        close: true,
+        progressBar: true,
+        style: {
+            maxWidth: '90%',
+        }
+    }).showToast();
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const assignForm1 = document.getElementById('assignForm1');
     const assignForm2 = document.getElementById('assignForm2');
@@ -209,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSemester = formData.get('semester');
 
         if (!selectedBatch || !selectedSemester) {
-            showErrorToast('Please select both batch and semester.');
+            showWarningToast('Please select both batch and semester.');
             return;
         }
 
@@ -247,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const teacherId = formData.get('teacher');
 
         if (!section || !subject || !teacherId) {
-            showErrorToast('Please select section, subject, and teacher.');
+            showWarningToast('Please select section, subject, and teacher.');
             return;
         }
 
@@ -285,35 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         reportDiv.style.display = 'none';
     });
-
-    const showSuccessToast = (message) => {
-        Toastify({
-            text: message,
-            duration: 3000,
-            gravity: 'top',
-            position: 'center',
-        backgroundColor: 'green',
-            style: {
-                maxWidth: '90%',
-            }
-        }).showToast();
-    };
-
-    const showErrorToast = (message) => {
-        Toastify({
-            text: message,
-            duration: 3000,
-            gravity: 'top',
-            position: 'center',
-            backgroundColor: 'red',
-            style: {
-                maxWidth: '90%',
-            }
-        }).showToast();
-    };
-
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const substituteForm1 = document.getElementById('substituteForm1');
@@ -349,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSubstituteSemester = formData.get('semester');
 
         if (!selectedSubstituteBatch || !selectedSubstituteSemester) {
-            alert('Please select both batch and semester.');
+            showWarningToast('Please select both batch and semester.');
             return;
         }
 
@@ -371,11 +421,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 substituteForm1.style.display = 'none';
                 substituteForm2.style.display = 'block';
             } else {
-                alert('Subjects not found for the selected batch and semester.');
+                showErrorToast('Subjects not found for the selected batch and semester.');
             }
         } catch (error) {
             console.error('Error fetching subjects:', error);
-            alert('Error fetching subjects. Please try again later.');
+            showErrorToast('Error fetching subjects. Please try again later.');
         }
     });
 
@@ -387,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const teacherId = formData.get('teacher');
 
         if (!section || !subject || !teacherId) {
-            alert('Please select section, subject, and teacher.');
+            showWarningToast('Please select section, subject, and teacher.');
             return;
         }
 
@@ -401,10 +451,10 @@ document.addEventListener('DOMContentLoaded', () => {
             substituteReportSubject.textContent = subject;
             substituteReportTeacher.textContent = selectedTeacher;
 
-            alert('Successfully assigned substitute teacher.');
+            showSuccessToast('Successfully assigned substitute teacher.');
         } catch (error) {
             console.error('Error assigning substitute teacher:', error);
-            alert('Error assigning substitute teacher. Please try again.');
+            showErrorToast('Error assigning substitute teacher. Please try again.');
         }
 
         substituteReportDiv.style.display = 'block';
@@ -496,16 +546,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }).then(response => {
             if (response.status === 201) {
-                alert('Successful Add Faculty!');
+                showSuccessToast('Successful Add Faculty!');
                 document.getElementById('manage-report-add-name').textContent = facultyName;
                 document.getElementById('manage-report-add-email').textContent = facultyEmail;
                 showFormAndHideOthers(addFacultyReport);
             } else {
-                alert('Failed to Add Faculty!');
+                showErrorToast('Failed to Add Faculty!');
             }
         }).catch(error => {
             console.error(error);
-            alert('Failed to Add Faculty!');
+            showErrorToast('Failed to Add Faculty!');
         });
     });
 
@@ -531,12 +581,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('manage-report-remove-email').textContent = facultyEmail;
             }).catch(error => {
                 console.error('Error deleting faculty:', error);
-                alert('Error deleting faculty. Please try again later.');
+                showErrorToast('Error deleting faculty. Please try again later.');
             });
         } else {
             console.error('Faculty Email not found for selected name:', facultyName);
         }
-    
+
         showFormAndHideOthers(removeFacultyReport);
     });
     
@@ -610,11 +660,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 classReport.style.display = 'block';
                 classForm.style.display = 'none';
             } else {
-                alert('Class details not found for the selected batch, semester, or section.');
+                showErrorToast('Class details not found for the selected batch, semester, or section.');
             }
         } catch (error) {
             console.error('Error fetching class data:', error);
-            alert('Error fetching class details. Please try again later.');
+            showErrorToast('Error fetching class details. Please try again later.');
         }
     });
 
@@ -705,11 +755,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 showsubjectsReportBatch.textContent = selectedBatchShow;
                 showsubjectsReportSemester.textContent = selectedSemesterShow;
             } else {
-                alert('Subjects not found for the selected batch and semester.');
+                showErrorToast('Subjects not found for the selected batch and semester.');
             }
         } catch (error) {
             console.error('Error fetching subjects:', error);
-            alert('Error fetching subjects. Please try again later.');
+            showErrorToast('Error fetching subjects. Please try again later.');
         }
     });
 
@@ -720,7 +770,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSemesterAdd = formData.get('semester');
 
         if (!selectedBatchAdd || !selectedSemesterAdd) {
-            alert('Please select both batch and semester.');
+            showWarningToast('Please select both batch and semester.');
             return;
         }
 
@@ -735,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSubject = formData.get('subject');
 
         if (!selectedCode || !selectedSubject) {
-            alert('Please enter both subject code and subject name.');
+            showWarningToast('Please enter both subject code and subject name.');
             return;
         }
 
@@ -760,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSemesterRemove = formData.get('semester');
 
         if (!selectedBatchRemove || !selectedSemesterRemove) {
-            alert('Please select both batch and semester.');
+            showWarningToast('Please select both batch and semester.');
             return;
         }
 
@@ -786,14 +836,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     removesubjectsForm2.style.display = 'block';
                 } else {
                     console.error('Error: Subject select element not found.');
-                    alert('Error fetching subjects. Please try again.');
+                    showErrorToast('Error fetching subjects. Please try again.');
                 }
             } else {
-                alert('No subjects found for the selected batch and semester.');
+                showErrorToast('No subjects found for the selected batch and semester.');
             }
         } catch (error) {
             console.error('Error fetching subjects:', error);
-            alert('Error fetching subjects. Please try again.');
+            showErrorToast('Error fetching subjects. Please try again.');
         }
     });
 
@@ -803,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSubject = formData.get('subject');
 
         if (!selectedSubject) {
-            alert('Please select a subject.');
+            showWarningToast('Please select a subject.');
             return;
         }
 
@@ -901,12 +951,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const isSuccess = true;
 
         if (isSuccess) {
-            alert('Successful Add Batch!');
+            showSuccessToast('Successful Add Batch!');
             document.getElementById('batch-report-add-batch').textContent = batchName;
 
             showFormAndHideOthers(addBatchReport);
         } else {
-            alert('Failed to Add Batch!');
+            showErrorToast('Failed to Add Batch!');
         }
     });
 
@@ -918,12 +968,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const isSuccess = true;
 
         if (isSuccess) {
-            alert('Successful Remove Batch!');
+            showSuccessToast('Successful Remove Batch!');
             document.getElementById('batch-report-add-remove').textContent = batchSelect;
 
             showFormAndHideOthers(removeBatchReport);
         } else {
-            alert('Failed to Remove Batch!');
+            showErrorToast('Failed to Remove Batch!');
         }
     });
 

@@ -1661,3 +1661,11 @@ header .current-date{
     margin-bottom: 10px;
     color: var(--color-dark);
 }
+
+.toast-content {
+    display: inline-flex;
+    align-items: center;
+}
+.toast-content .toast-icon {
+    margin-right: 10px;
+}
