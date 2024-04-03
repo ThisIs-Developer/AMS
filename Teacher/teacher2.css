@@ -8,8 +8,8 @@ label {
 
 /* Container styling */
 .container {
-  margin: 5px;
-  padding: 5px;
+  margin: 10px; /* Add margin from all sides */
+  padding: 10px;
 }
 
 /* Form styling */
@@ -51,9 +51,8 @@ input[type="date"] {
 /* Table container styling */
 .table-container {
   position: relative; /* Set position to relative */
-  max-height: 320px; /* Adjust max height according to your needs */
   border-radius: inherit;
-  overflow-y: auto; /* Add scroll if content exceeds height */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
 }
 
 /* Table styling */
@@ -85,6 +84,7 @@ input[type="date"] {
 .submit-button-container {
   text-align: center;
   margin-top: 20px; /* Adjust margin to create space between table and button */
+  margin-bottom: 20px; /* Add margin at the bottom */
 }
 
 button[type="submit"] {
@@ -107,67 +107,54 @@ button[type="submit"] a {
   text-decoration: none;
 }
 
-/* Media query for mobile responsiveness */
-@media only screen and (max-width: 767px) {
-  /* Styles for mobile devices (up to 767px wide) */
+/* Media query for smaller phones */
+@media only screen and (max-width: 480px) {
+  /* Styles for smaller phones */
 
-  /* Make the container a single column layout */
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Adjust the width of each box to occupy full width */
+  /* Adjust the width of each box */
   .box {
-    width: 100%;
+    width: calc(100% - 20px); /* Each box occupies full width with padding */
+    margin-right: 0; /* Remove right margin */
   }
 
-  /* Force Batch and Semester to be in the same row */
-  #Batch,
-  #Sem {
-    width: 100%; /* Each input occupies 50% of the row */
-    box-sizing: border-box; /* Include padding and border in the width */
-    float: right; /* Float inputs to the left */
-  }
-
-  /* Make Subject and Total Class in one row */
-  #Subject,
-  #TotalClass {
-    width: 100%; /* Each input occupies 50% of the row */
-    box-sizing: border-box; /* Include padding and border in the width */
-    float: right; /* Float inputs to the left */
-  }
-
-  /* Make Date occupy full width */
-  #Date {
-    width: 100%; /* Date input occupies full width */
-    box-sizing: border-box; /* Include padding and border in the width */
-    float: left; /* Float input to the left */
-  }
-
-  /* Adjust label alignment */
-  label {
-    text-align: left;
-  }
-}
-
-/* Media query for tablet and foldable smartphone responsiveness */
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
-  /* Styles for tablet and foldable smartphones (768px to 1199px wide) */
-
-  /* Set display and position properties for the table container */
+  /* Adjust margin for the table-container */
   .table-container {
-    display: flex; /* Use flexbox layout */
-    flex-direction: column; /* Arrange children in a column */
-    position: relative; /* Set position to relative */
+    margin-bottom: 15px; /* Adjust margin between table and submit button */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
   }
 
   /* Adjust margin for the submit button */
-  button[type="submit"] {
-    position: absolute; /* Set position to absolute */
-    bottom: 20px; /* Adjust distance from the bottom of the table */
-    left: 50%; /* Align button to the center */
-    transform: translateX(-50%); /* Center horizontally */
+  .submit-button-container {
+    text-align: center;
+    margin-top: 15px; /* Adjust margin from the last row of the table */
+    margin-bottom: 15px; /* Add margin at the bottom */
+  }
+
+  /* Align submit button after the last row of the dynamic table */
+  #data-table {
+    margin-bottom: 60px; /* Adjust bottom margin to make space for submit button */
+  }
+
+  /* Adjust view size of the table according to landscape and portrait modes */
+  @media only screen and (orientation: portrait) {
+    /* Styles for portrait mode */
+    #data-table {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (orientation: landscape) {
+    /* Styles for landscape mode */
+    #data-table {
+      width: calc(100% - 40px); /* Adjust width for landscape mode */
+    }
+  }
+
+  /* Ensure vertical scrolling for smaller phones */
+  body {
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding from all sides */
+    margin: 0; /* Reset margin */
   }
 }
-
