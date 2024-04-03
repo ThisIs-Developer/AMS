@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="icon" type="image/png" href="../assets/logo-favi.png">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="admin.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script> 
 </head>
 <body>
     <div class="container">
@@ -16,12 +20,7 @@
             <div class="top">
                 <div class="logo">
                     <img src="../assets/logo.png" alt="Logo">
-                    <h2>A 
-                        <span class="danger">
-                            M
-                        </span>
-                        S
-                    </h2>
+                    <h2>A M S</h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-symbols-outlined">
@@ -32,7 +31,7 @@
             <div class="sidebar">
                 <a href="#" class="active" id="dashboard-menu">
                     <span class="material-symbols-outlined">
-                        dashboard
+                        widgets
                     </span>
                     <h3>Dashboard</h3>
                 </a>
@@ -66,11 +65,17 @@
                     </span>
                     <h3>Substitute Faculty</h3>
                 </a>
-                <a href="#" id="add-subjects-menu">
+                <a href="#" id="manage-subjects-menu">
                     <span class="material-symbols-outlined">
                         book
                     </span>
-                    <h3>Add Subjects</h3>
+                    <h3>Manage Subjects</h3>
+                </a>
+                <a href="#" id="manage-batch-menu">
+                    <span class="material-symbols-outlined">
+                        format_list_bulleted
+                    </span>
+                    <h3>Manage Batch</h3>
                 </a>
                 <a href="../Logout/logout.html" id="logout-link">
                     <span class="material-symbols-outlined">
@@ -470,10 +475,47 @@
                     </div>
                 </div>
             </div>
-            <div id="add-subjects-content" class="content">
-                <h1>Add Subjects</h1>
-                <div class="addsubjects">
-                    <form id="addsubjectsForm1" action="/submit" method="post">
+            <div id="manage-subjects-content" class="content">
+                <h1>Manage Subjects</h1>
+                <div class="managesubjects">
+                    <form id="managesubjectsForm" action="/submit" method="post">
+                        <div class="manage-subjects-from">
+                            <label class="second-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="showsubjects" class="subjectBtn op">Show Subjects</button>
+                        <button type="submit" name="action" value="addsubjects" class="subjectBtn op" style="background-color: #28A745; padding-left: 1.7rem; padding-right: 1.7rem;">Add Subject</button>
+                        <button type="submit" name="action" value="removesubjects" class="subjectBtn op" style="background-color: #dc3545;">Remove Subject</button>
+                    </form>
+                    <form id="showsubjectsForm" action="/submit" method="post" style="display: none;">
+                        <div class="showsubjects-view">
+                            <label for="batch">Select Batch:</label>
+                            <select id="batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+                
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="subjectBtn">Submit</button>
+                    </form>
+                    <form id="addsubjectsForm1" action="/submit" method="post" style="display: none;">
                         <div class="addsubjects-view1">
                             <label for="batch">Select Batch:</label>
                             <select id="batch" name="batch">
@@ -500,7 +542,7 @@
                             <br>
                             <small class="text-muted">*Check before submit</small>
                         </div>
-                        <button type="submit" class="addsubjectsBtn">Submit</button>
+                        <button type="submit" class="subjectBtn">Submit</button>
                     </form>
                     <form id="addsubjectsForm2" action="/submit" method="post" style="display: none;">
                         <div class="subjects-view2">
@@ -515,9 +557,76 @@
                             <br>
                             <small class="text-muted">*Check before submit</small>
                         </div>
-                        <button type="submit" class="addsubjectsBtn">Submit</button>
-                        <button type="reset" class="addsubjectsBtn" style="background-color: #dc3545;">Cancel</button>
+                        <button type="submit" class="subjectBtn">Submit</button>
+                        <button type="reset" class="subjectBtn" style="background-color: #dc3545;">Cancel</button>
                     </form>
+                    <form id="removesubjectsForm1" action="/submit" method="post" style="display: none;">
+                        <div class="remove-subjects-view1">
+                            <label for="batch">Select Batch:</label>
+                            <select id="batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+                
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="subjectBtn">Submit</button>
+                    </form>
+                    <form id="removesubjectsForm2" action="/submit" method="post" style="display: none;">
+                        <div class="remove-subjects-view2">
+                            <label for="removesubjects-subject">Select Subject:</label>
+                            <select id="removesubjects-subject" name="subject">
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="subjectBtn">Submit</button>
+                        <button type="reset" class="subjectBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <div class="showsubjects-report" style="display: none;">
+                        <p>Subject Details</p>
+                        <div>
+                            <label for="showsubjects-reportBatch">Batch:</label>
+                            <span id="showsubjects-reportBatch"></span>
+                        </div>
+                        <div>
+                            <label for="showsubjects-reportSemester">Semester:</label>
+                            <span id="showsubjects-reportSemester"></span>
+                        </div>
+                        <table id="subjectTable">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show-subjects-tableBody">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="subjectBtn">Home</button>
+                    </div>
                     <div class="addsubjects-report" style="display: none;">
                         <p>Subject Details</p>
                         <div>
@@ -536,7 +645,73 @@
                             <label for="addsubjects-reportSubject">Subject:</label>
                             <span id="addsubjects-reportSubject"></span>
                         </div>
-                        <button type="button" class="addsubjectsBtn">Home</button>
+                        <button type="button" class="subjectBtn">Home</button>
+                    </div>
+                    <div class="removesubjects-report" style="display: none;">
+                        <p>Subject Details</p>
+                        <div>
+                            <label for="removesubjects-reportBatch">Batch:</label>
+                            <span id="removesubjects-reportBatch"></span>
+                        </div>
+                        <div>
+                            <label for="removesubjects-reportSemester">Semester:</label>
+                            <span id="removesubjects-reportSemester"></span>
+                        </div>
+                        <div>
+                            <label for="removesubjects-reportSubject">Subject:</label>
+                            <span id="removesubjects-reportSubject"></span>
+                        </div>
+                        <button type="button" class="subjectBtn">Home</button>
+                    </div>
+                </div>
+            </div>
+            <div id="manage-batch-content" class="content">
+                <h1>Manage Batch</h1>
+                <div class="batch">
+                    <form id="managebatchForm" action="/submit" method="post">
+                        <div class="batch-from">
+                            <label class="first-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="addBatch" class="batchBtn op">Add Batch</button>
+                        <button type="submit" name="action" value="removeBatch" class="batchBtn op" style="background-color: #dc3545;">Remove Batch</button>
+                    </form>
+                    <form id="addBatchForm" action="/submit" method="post" style="display: none;">
+                        <div class="batch-from">
+                            <label for="batchName">Enter Batch Name:</label>
+                            <input type="text" id="batchName" name="batchName" placeholder="20XX - 20XX" required>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="batchBtn">Submit</button>
+                        <button type="reset" class="batchBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <form id="removeBatchForm" action="/submit" method="post" style="display: none;">
+                        <div class="batch-from">
+                            <label for="batchSelect">Select Batch:</label>
+                            <select id="batchSelect" name="teacherSelect" required>
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="reset" class="batchBtn" style="background-color: #969da3;">Cancel</button>
+                        <button type="submit" class="batchBtn" style="background-color: #dc3545;">Remove</button>
+                    </form>
+                    <div class="batch-report-add" style="display: none;">
+                        <p>Faculty Details</p>
+                        <div>
+                            <label for="batch-report-add-batch">Batch:</label>
+                            <span id="batch-report-add-batch"></span>
+                        </div>
+                        <button type="button" class="batchBtn">Home</button>
+                    </div>
+                    <div class="batch-report-remove" style="display: none;">
+                        <p>Faculty Details</p>
+                        <div>
+                            <label for="batch-report-add-remove">Name:</label>
+                            <span id="batch-report-add-remove"></span>
+                        </div>
+                        <button type="button" class="batchBtn">Home</button>
                     </div>
                 </div>
             </div>

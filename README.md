@@ -20,4 +20,4 @@ AMS is a simple yet efficient system designed to manage attendance records for v
  * [@Ayan Kumar Dey](https://github.com/AyanKumarDey)
 
 ## License
-This project is licensed under the [MIT License](https://github.com/ThisIs-Developer/AMS/blob/main/LICENSE).
+This project is licensed under the [Apache-2.0 License](https://github.com/ThisIs-Developer/AMS/blob/main/LICENSE).

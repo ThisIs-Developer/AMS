@@ -153,8 +153,8 @@ aside .logo {
 }
 
 aside .logo img {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 2.5rem;
 }
 
 aside .logo h2{
@@ -1242,10 +1242,6 @@ header .current-date{
     color: var(--color-dark);
 }
 
-.manage-report-add .manage-report-add-Btn{
-    background-color: var(--color-primary);
-}
-
 .manage-report-remove {
     display: block;
     margin-top: 20px;
@@ -1274,7 +1270,7 @@ header .current-date{
     color: var(--color-dark);
 }
 
-.addsubjects {
+.managesubjects {
     margin-top: 2rem;
     width: 450px;
     box-shadow: var(--box-shadow);
@@ -1284,23 +1280,23 @@ header .current-date{
     transition: all 300ms ease;
 }
 
-.addsubjects:hover {
+.managesubjects:hover {
     box-shadow: none;
 }
 
-.addsubjects form {
+.managesubjects form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px 30px;
 }
 
-.addsubjects label {
+.managesubjects label {
     color: var(--color-dark);
     margin-bottom: 5px;
 }
 
-.addsubjects input[type="text"] {
+.managesubjects input[type="text"] {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -1308,7 +1304,7 @@ header .current-date{
     border-radius: var(--border-radius-3);
 }
 
-.addsubjects select {
+.managesubjects select {
     width: 100%;
     padding: 8px;
     margin-top: 0.2rem;
@@ -1317,7 +1313,7 @@ header .current-date{
     margin-bottom: 0.4rem;
 }
 
-.addsubjects button.addsubjectsBtn {
+.managesubjects button.subjectBtn {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: var(--color-primary);
@@ -1330,63 +1326,116 @@ header .current-date{
 }
 
 @media screen and (max-width: 1200px) {
-    .addsubjects {
+    .managesubjects {
         width: 450px;
         margin-top: 2rem;
     }
 
-    .addsubjects form {
+    .managesubjects form {
         padding: 20px;
     }
 
-    .addsubjects select {
+    .managesubjects select {
         width: 90%;
     }
 
-    .addsubjects button.addsubjectsBtn {
+    .managesubjects button.subjectBtn {
         margin-top: 15px;
     }
 
-    .addsubjects input[type="text"] {
+    .managesubjects input[type="text"] {
         width: 90%;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .addsubjects {
+    .managesubjects {
         width: 90%;
         margin-top: 2rem;
     }
 
-    .addsubjects form {
+    .managesubjects form {
         padding: 15px;
     }
 
-    .addsubjects select {
+    .managesubjects select {
         width: 85%;
     }
 
-    .addsubjects button.addsubjectsBtn {
+    .managesubjects button.subjectBtn {
         margin-top: 12px;
         padding: 6px 12px;
     }
 
-    .addsubjects input[type="text"] {
+    .managesubjects input[type="text"] {
         width: 85%;
     }
 }
 
-.addsubjects {
+.managesubjects {
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 16vh;
+    margin-bottom: 16vh;
 }
 
-.addsubjects .extra-gap {
+.managesubjects .extra-gap {
     margin-top: 0.6rem;
+}
+
+.showsubjects-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.showsubjects-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.showsubjects-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.showsubjects-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.showsubjects-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.showsubjects-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.showsubjects-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.showsubjects-report table td {
+    width: 25%;
+}
+
+.showsubjects-report table td:nth-child(even) {
+    width: 75%;
 }
 
 .addsubjects-report {
@@ -1415,4 +1464,211 @@ header .current-date{
 .addsubjects-report div {
     margin-bottom: 10px;
     color: var(--color-dark);
+}
+
+.removesubjects-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.removesubjects-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.removesubjects-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.removesubjects-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.batch {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.batch:hover {
+    box-shadow: none;
+}
+
+.batch form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.batch label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.batch select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.batch button.batchBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.batch input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+@media screen and (max-width: 1200px) {
+    .batch {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .batch form {
+        padding: 20px;
+    }
+
+    .batch select {
+        width: 90%;
+    }
+
+    .batch button.batchBtn {
+        margin-top: 15px;
+    }
+
+    .batch input[type="text"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .batch {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .batch form {
+        padding: 15px;
+    }
+
+    .batch select {
+        width: 85%;
+    }
+
+    .batch button.batchBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .batch input[type="text"] {
+        width: 85%;
+    }
+}
+
+.batch {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-top: 15vh;
+}
+
+
+.batch-report-add {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.batch-report-add p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.batch-report-add label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.batch-report-add div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.batch-report-remove {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.batch-report-remove p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.batch-report-remove label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.batch-report-remove div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.toast-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toast-content .toast-icon {
+    margin-right: 10px;
 }
