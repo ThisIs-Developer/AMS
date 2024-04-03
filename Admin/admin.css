@@ -1379,6 +1379,7 @@ header .current-date{
     align-items: center;
     flex-direction: column;
     margin-top: 16vh;
+    margin-bottom: 16vh;
 }
 
 .managesubjects .extra-gap {
@@ -1663,9 +1664,11 @@ header .current-date{
 }
 
 .toast-content {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+
 .toast-content .toast-icon {
     margin-right: 10px;
 }

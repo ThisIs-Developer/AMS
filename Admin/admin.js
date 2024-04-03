@@ -181,24 +181,40 @@ const showSuccessToast = (message) => {
 
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-check-circle', 'toast-icon');
+    icon.style.paddingLeft = '10px';
     toastContent.appendChild(icon);
 
     const messageElement = document.createElement('span');
     messageElement.textContent = message;
     toastContent.appendChild(messageElement);
 
-    Toastify({
+    const toast = Toastify({
         node: toastContent,
         duration: 3000,
         gravity: 'top',
         position: 'center',
         backgroundColor: 'green',
-        close: true,
         progressBar: true,
         style: {
-            maxWidth: '90%',
+            padding: '20px 2px',
+            borderRadius: '8px',
         }
-    }).showToast();
+    });
+
+    const setToastWidth = () => {
+        const messageWidth = message.length * 10;
+        toast.options.style.maxWidth = `${messageWidth}px`;
+
+        if (window.innerWidth <= 768) {
+            toast.options.style.margin = '0 15px';
+        }
+    };
+
+    setToastWidth();
+
+    window.addEventListener('resize', setToastWidth);
+
+    toast.showToast();
 };
 
 const showErrorToast = (message) => {
@@ -207,24 +223,40 @@ const showErrorToast = (message) => {
 
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-exclamation-circle', 'toast-icon');
+    icon.style.paddingLeft = '10px';
     toastContent.appendChild(icon);
 
     const messageElement = document.createElement('span');
     messageElement.textContent = message;
     toastContent.appendChild(messageElement);
 
-    Toastify({
+    const toast = Toastify({
         node: toastContent,
         duration: 3000,
         gravity: 'top',
         position: 'center',
         backgroundColor: 'red',
-        close: true,
         progressBar: true,
         style: {
-            maxWidth: '90%',
+            padding: '20px 2px',
+            borderRadius: '8px',
         }
-    }).showToast();
+    });
+
+    const setToastWidth = () => {
+        const messageWidth = message.length * 10;
+        toast.options.style.maxWidth = `${messageWidth}px`;
+
+        if (window.innerWidth <= 768) {
+            toast.options.style.margin = '0 15px';
+        }
+    };
+
+    setToastWidth();
+
+    window.addEventListener('resize', setToastWidth);
+
+    toast.showToast();
 };
 
 const showWarningToast = (message) => {
@@ -233,24 +265,40 @@ const showWarningToast = (message) => {
 
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-exclamation-triangle', 'toast-icon');
+    icon.style.paddingLeft = '10px';
     toastContent.appendChild(icon);
 
     const messageElement = document.createElement('span');
     messageElement.textContent = message;
     toastContent.appendChild(messageElement);
 
-    Toastify({
+    const toast = Toastify({
         node: toastContent,
         duration: 3000,
         gravity: 'top',
         position: 'center',
         backgroundColor: '#f1a90f',
-        close: true,
         progressBar: true,
         style: {
-            maxWidth: '90%',
+            padding: '20px 2px',
+            borderRadius: '8px',
         }
-    }).showToast();
+    });
+
+    const setToastWidth = () => {
+        const messageWidth = message.length * 10;
+        toast.options.style.maxWidth = `${messageWidth}px`;
+
+        if (window.innerWidth <= 768) {
+            toast.options.style.margin = '0 15px';
+        }
+    };
+
+    setToastWidth();
+
+    window.addEventListener('resize', setToastWidth);
+
+    toast.showToast();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -573,21 +621,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     return response.text();
                 } else {
-                    throw new Error('Failed to delete faculty');
+                    throw new Error('Failed to Remove faculty');
                 }
             }).then(data => {
                 console.log('Backend Response:', data);
                 document.getElementById('manage-report-add-remove').textContent = facultyName;
                 document.getElementById('manage-report-remove-email').textContent = facultyEmail;
+                showSuccessToast('Successful Remove Faculty!');
+                showFormAndHideOthers(removeFacultyReport);
             }).catch(error => {
                 console.error('Error deleting faculty:', error);
                 showErrorToast('Error deleting faculty. Please try again later.');
             });
         } else {
             console.error('Faculty Email not found for selected name:', facultyName);
+            showErrorToast('Faculty Email not found for selected name:');
         }
-
-        showFormAndHideOthers(removeFacultyReport);
     });
     
     document.querySelector('.manage-report-add button').addEventListener('click', () => {
@@ -627,6 +676,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedBatch = formData.get('batch');
         const selectedSemester = formData.get('semester');
         const selectedSection = formData.get('section');
+
+        if (!selectedBatch || !selectedSemester || !selectedSection) {
+            showWarningToast('Please enter batch, semester, and section.');
+            return;
+        }
 
         try {
             const response = await fetch('../json/class.json');
@@ -726,11 +780,6 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedBatchShow = formData.get('batch');
         selectedSemesterShow = formData.get('semester');
 
-        if (!selectedBatchAdd || !selectedSemesterAdd) {
-            showWarningToast('Please select both batch and semester.');
-            return;
-        }
-
         try {
             const response = await fetch('../json/showsubjects.json');
             const data = await response.json();
@@ -806,6 +855,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addsubjectsForm2.style.display = 'none';
         addsubjectsReport.style.display = 'block';
+
+        showSuccessToast('Subject added successfully!');
     });
 
     removesubjectsForm1.addEventListener('submit', async (event) => {
@@ -872,6 +923,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         removesubjectsForm2.style.display = 'none';
         removesubjectsReport.style.display = 'block';
+
+        showSuccessToast('Subject removed successfully!');
     });
 
     homeButtonShow.addEventListener('click', () => {
