@@ -1,0 +1,18 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id main
+id webView
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_background
+mipmap ic_launcher_foreground
+mipmap ic_launcher_monochrome
+string app_name
+style Base.Theme.AMS
+style Theme.AMS
+xml backup_rules
+xml data_extraction_rules
