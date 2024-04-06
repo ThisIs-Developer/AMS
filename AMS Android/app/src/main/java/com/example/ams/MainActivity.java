@@ -31,4 +31,13 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebViewClient(new webViewController());
     }
 
+    @Override
+    public void onBackPressed() {
+        if(webView.canGoBack()){
+            webView.goBack();
+        }else{
+            super.onBackPressed();
+        }
+    }
+
 }
