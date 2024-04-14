@@ -13,7 +13,7 @@ function transferData() {
   sessionStorage.setItem("date", date);
 
   // Redirect to index2.html
-  window.location.href = "index2.html";
+  window.location.href = "teacher2.html";
 }
 
 // Function to set input values in teacher2.html from sessionStorage
@@ -37,28 +37,22 @@ document.addEventListener("DOMContentLoaded", setInputValues);
 // Function to populate the table with dynamic data including checkboxes for the Attendance column
 function populateTable() {
   // Fetch dynamic data from database using AJAX
-  // Example: Replace "url_to_your_database_api" with your actual API endpoint
   fetch("url_to_your_database_api")
     .then((response) => response.json())
     .then((data) => {
-      // Get the table body
       var tbody = document.querySelector("#data-table tbody");
-      // Clear any existing rows
       tbody.innerHTML = "";
-      // Loop through the data and populate the table
       data.forEach(function (item) {
         var row = tbody.insertRow();
         Object.entries(item).forEach(function ([key, value]) {
           var cell = row.insertCell();
           if (key === "attendance") {
-            // For the "Attendance" column, create a checkbox
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-            checkbox.name = "attendance"; // Set name attribute for grouping
-            checkbox.value = "present"; // Set value attribute as needed
+            checkbox.name = "attendance";
+            checkbox.value = "present";
             cell.appendChild(checkbox);
           } else {
-            // For other columns, populate the text content
             cell.textContent = value;
           }
         });
@@ -67,14 +61,20 @@ function populateTable() {
     .catch((error) => console.error("Error fetching data:", error));
 }
 
-// Call populateTable() when the page loads to populate the table with dynamic data and checkboxes
 document.addEventListener("DOMContentLoaded", populateTable);
 
-// Function to set the maximum date for the date input field to today's date
+// Function to set the maximum date for the date input field based on the current IST date and time
 function setMaxDate() {
-  var today = new Date().toISOString().split("T")[0]; // Get today's date in "yyyy-mm-dd" format
-  document.getElementById("date").max = today;
+  var now = new Date(); // Current UTC date and time
+  var istOffset = 330; // IST offset in minutes (+5:30)
+  now.setMinutes(now.getMinutes() + istOffset); // Convert UTC to IST
+
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1); // Increment the day by 1
+
+  document.getElementById("date").max = tomorrow.toISOString().split("T")[0];
 }
 
-// Call setMaxDate() when the page loads to set the maximum date for the date input field
+// Set max date on page load and adjust as necessary
 document.addEventListener("DOMContentLoaded", setMaxDate);

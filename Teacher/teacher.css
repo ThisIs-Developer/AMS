@@ -7,37 +7,35 @@
 
 /* Body styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa; /* Light gray background */
+  font-family: 'Roboto', sans-serif; /* Use a material design font */
+  background-color: #f5f5f5; /* Use a light gray background */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Set height to full viewport height */
-  overflow: hidden; /* Prevent scrolling */
-  margin: 0;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Removing default margin */
+  padding: 0; /* Removing default padding */
 }
 
 /* Centering heading */
 h3 {
   text-align: center;
-  margin-top: 2rem; /* Using rem for consistent scaling */
-  margin-bottom: 1.5rem; /* Consistent bottom margin */
-  color: #333; /* Dark gray */
-  font-size: 1.5rem; /* Responsive font size */
+  margin-top: 1rem;
+  margin-bottom: 1.3rem;
+  color: #333;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
 /* Centering container div */
 .container {
-  width: 90%; /* Set container width to 90% of viewport width */
-  max-width: 500px; /* Set maximum width for larger screens */
-  padding: 20px; /* Equal padding from all sides */
-  margin: auto; /* Center container horizontally */
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow for subtlety */
   transition: transform 0.3s; /* Smooth scaling */
-  overflow: hidden; /* Prevent overflowing content */
 }
 
 .container:hover {
@@ -50,9 +48,15 @@ form {
   flex-direction: column;
 }
 
-/* Form group styling - Updated for alignment */
+/* Form group styling */
 .form-group {
-  margin: 10px 0; /* Updated margin for spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns items to the start */
+  margin: 10px; /* Consistent margin for spacing */
+  width: 90%; /* Matches the select box width */
+  margin-left: auto; /* Centers the form group */
+  margin-right: auto;
 }
 
 /* Label styling */
@@ -60,35 +64,36 @@ label {
   font-weight: bold;
   margin-bottom: 0.5rem; /* Responsive space between label and select box */
   color: #555;
+  font-size: 14px;
 }
 
 /* Select styling for responsive design */
 select,
 input[type="date"] {
-  width: 100%; /* Full width of form-group */
+  width: 100%; /* Full width of form-group, adjusted for flex-start alignment */
   padding: 0.5rem; /* Slightly larger padding for touch targets */
   border: 1px solid #ccc;
   border-radius: 20px;
-  font-size: 1rem; /* Responsive font size */
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  font-size: 13px; /* Responsive font size */
+  background-color: #f5f5f5; /* Use a light gray background */
 }
 
 /* Submit button styling */
 button[type="submit"] {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: rgb(72, 72, 255); /* Use a material design green color */
   color: #fff;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 1rem; /* Responsive font size */
+  font-size: 15px; /* Responsive font size */
   transition: background-color 0.3s ease;
   display: block; /* Ensure the button is block level for margin auto to work */
-  margin: 20px auto 0; /* Adjusted margin for spacing */
+  margin: 0 auto; /* Centers the button horizontally */
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #392f83; /* Use a darker material design green color */
 }
 
 button[type="submit"] a {
@@ -96,16 +101,26 @@ button[type="submit"] a {
   text-decoration: none;
 }
 
-/* Media queries for responsiveness */
-@media only screen and (max-width: 600px), (max-height: 600px), (display-mode: folded) {
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 10px; /* Adding some padding to ensure content does not touch the edges */
+    height: 100vh; /* Maintain full viewport height */
+  }
+
   .container {
-    width: 90%; /* Set container width to 90% of viewport width for smaller screens */
-    max-width: 90%; /* Set maximum width for smaller screens */
-    padding: 15px; /* Adjust padding for smaller screens */
+    width: 100%; /* Use full width for better utilization of small screens */
+    max-width: 100%; /* Override max-width to fit the device width */
+    margin: auto;
+    padding: 15px; /* Sufficient padding for touch interaction */
+    box-shadow: none; /* Optionally remove shadow for a cleaner look on small devices */
+  }
+
+  h3 {
+    font-size: 1.2rem; /* Adjust font size for readability on small devices */
   }
 
   select,
   input[type="date"] {
-    padding: 0.8rem; /* Adjust padding for smaller screens */
+    padding: 0.5rem; /* Adjust padding for easier interaction on touch devices */
   }
 }
