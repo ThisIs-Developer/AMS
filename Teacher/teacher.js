@@ -1,10 +1,19 @@
 // Function to transfer data from teacher.html to index2.html
-function transferData() {
+function transferData(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
   // Get selected values from teacher.html
   var batch = document.getElementById("batch").value;
   var sem = document.getElementById("Sem").value;
   var subject = document.getElementById("subject").value;
   var date = document.getElementById("date").value;
+
+  // Check if any of the required fields are not selected
+  if (!batch || !sem || !subject || !date) {
+    showWarningToast('Please select all required fields.');
+    return false; // Stop the form submission
+  }
 
   // Save data to sessionStorage to transfer to index2.html
   sessionStorage.setItem("batch", batch);
@@ -14,6 +23,13 @@ function transferData() {
 
   // Redirect to index2.html
   window.location.href = "teacher2.html";
+
+  return true; // Allow the form submission
+}
+
+// Function to show a warning toast message
+function showWarningToast(message) {
+  alert(message);
 }
 
 // Function to set input values in teacher2.html from sessionStorage
@@ -34,35 +50,6 @@ function setInputValues() {
 // Call setInputValues() when the page loads to populate input fields
 document.addEventListener("DOMContentLoaded", setInputValues);
 
-// Function to populate the table with dynamic data including checkboxes for the Attendance column
-function populateTable() {
-  // Fetch dynamic data from database using AJAX
-  fetch("url_to_your_database_api")
-    .then((response) => response.json())
-    .then((data) => {
-      var tbody = document.querySelector("#data-table tbody");
-      tbody.innerHTML = "";
-      data.forEach(function (item) {
-        var row = tbody.insertRow();
-        Object.entries(item).forEach(function ([key, value]) {
-          var cell = row.insertCell();
-          if (key === "attendance") {
-            var checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.name = "attendance";
-            checkbox.value = "present";
-            cell.appendChild(checkbox);
-          } else {
-            cell.textContent = value;
-          }
-        });
-      });
-    })
-    .catch((error) => console.error("Error fetching data:", error));
-}
-
-document.addEventListener("DOMContentLoaded", populateTable);
-
 // Function to set the maximum date for the date input field based on the current IST date and time
 function setMaxDate() {
   var now = new Date(); // Current UTC date and time
@@ -78,3 +65,8 @@ function setMaxDate() {
 
 // Set max date on page load and adjust as necessary
 document.addEventListener("DOMContentLoaded", setMaxDate);
+
+// Attach the transferData() function to the form's submit event
+document.getElementById("submit").addEventListener("click", function(event) {
+  transferData(event);
+});
