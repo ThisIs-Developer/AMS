@@ -53,7 +53,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Aligns items to the start */
-  margin: 10px; /* Consistent margin for spacing */
+  margin: 5px; /* Consistent margin for spacing */
   width: 90%; /* Matches the select box width */
   margin-left: auto; /* Centers the form group */
   margin-right: auto;
@@ -62,7 +62,7 @@ form {
 /* Label styling */
 label {
   font-weight: bold;
-  margin-bottom: 0.5rem; /* Responsive space between label and select box */
+  margin-bottom: 0.25rem; /* Responsive space between label and select box */
   color: #555;
   font-size: 14px;
 }
