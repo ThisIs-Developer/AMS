@@ -1,30 +1,34 @@
-// Function to transfer data from index.html to index2.html
+// Function to transfer data from teacher.html to index2.html
 function transferData() {
-  // Get selected values from index.html
+  // Get selected values from teacher.html
   var batch = document.getElementById("batch").value;
   var sem = document.getElementById("Sem").value;
   var subject = document.getElementById("subject").value;
+  var date = document.getElementById("date").value;
 
   // Save data to sessionStorage to transfer to index2.html
   sessionStorage.setItem("batch", batch);
   sessionStorage.setItem("sem", sem);
   sessionStorage.setItem("subject", subject);
+  sessionStorage.setItem("date", date);
 
   // Redirect to index2.html
   window.location.href = "index2.html";
 }
 
-// Function to set input values in index2.html from sessionStorage
+// Function to set input values in teacher2.html from sessionStorage
 function setInputValues() {
   // Retrieve stored data from sessionStorage
   var batch = sessionStorage.getItem("batch");
   var sem = sessionStorage.getItem("sem");
   var subject = sessionStorage.getItem("subject");
+  var date = sessionStorage.getItem("date");
 
-  // Populate the input fields in index2.html
+  // Populate the input fields in teacher2.html
   document.getElementById("Batch").value = batch;
   document.getElementById("Sem").value = sem;
   document.getElementById("Subject").value = subject;
+  document.getElementById("Date").value = date;
 }
 
 // Call setInputValues() when the page loads to populate input fields
@@ -66,12 +70,11 @@ function populateTable() {
 // Call populateTable() when the page loads to populate the table with dynamic data and checkboxes
 document.addEventListener("DOMContentLoaded", populateTable);
 
-// Function to get current date and populate Date input field
-function setCurrentDate() {
-  var dateInput = document.getElementById("Date");
-  var currentDate = new Date().toISOString().split("T")[0]; // Get current date in "yyyy-mm-dd" format
-  dateInput.value = currentDate;
+// Function to set the maximum date for the date input field to today's date
+function setMaxDate() {
+  var today = new Date().toISOString().split("T")[0]; // Get today's date in "yyyy-mm-dd" format
+  document.getElementById("date").max = today;
 }
 
-// Call setCurrentDate() when the page loads to populate Date input field
-document.addEventListener("DOMContentLoaded", setCurrentDate);
+// Call setMaxDate() when the page loads to set the maximum date for the date input field
+document.addEventListener("DOMContentLoaded", setMaxDate);
