@@ -1,315 +1,514 @@
-body {
-    margin: 0;
+:root{
+    --dashboard-background:  linear-gradient(174.2deg, rgba(255, 244, 228, 1) 7.1%, rgba(240, 246, 238, 1) 67.4%);
+    --main-body-background:  linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
+    --footer-background: linear-gradient(174.2deg, rgba(255, 244, 228, 1) 7.1%, rgba(240, 246, 238, 1) 67.4%);
+    --nav-background: #d6dadd;
+    --box-background: rgb(193, 193, 245);
+    --attribute-background:#000000 ;
+    --attribute-color: white;
+    --button-background:white ;
+    --button-color:black ;
+    --icon-color: black;
+    --sem-link-color:black ;
+    --box-color:black ;
+    --h-color:black;
+    --box-shadow:16px 11px 14px #444242 ;
+    --border-bottom-right:rgb(0, 0, 0) ;
+    --profile-border:rgba(255, 255, 255, 0);
+}
+
+.dark-theme-variable{
+    --dashboard-background: black ;
+    --main-body-background:  linear-gradient(to bottom right, #000000,#4e4e4e);
+    --footer-background:black ;
+    --nav-background: #0a4775;
+    --box-background: linear-gradient( 109.6deg,  rgba(254,253,205,1) 11.2%, rgba(163,230,255,1) 91.1% );
+    --attribute-background:#ffffff ;
+    --attribute-color: rgb(0, 0, 0);
+    --button-background:rgb(0, 0, 0) ;
+    --button-color:rgb(255, 255, 255) ;
+    --icon-color: rgb(255, 255, 255);
+    --sem-link-color:rgb(255, 255, 255) ;
+    --box-color: ;
+    --h-color:white;
+    --box-shadow:16px 11px 14px #444242 ;
+    --border-bottom-right:rgb(255, 255, 255) ;
+    --profile-border:white;
+}
+
+
+* {
     padding: 0;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    background-color: #ededed;
-    /* text-decoration: none; */
+    margin: 0;
 }
 
-.dashboard {
-    position: relative;
-    background-color: #ffffff3b;
-    box-sizing: border-box;
+body {
+    display: flex;
+    overflow: hidden;
+}
 
-    /* .... */
 
-    width: 20%;
+
+
+/* ------------ Dashboard------------ */
+
+
+
+#dashboard {
+    background: var(--dashboard-background);
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
     height: 100vh;
-    float: left;
-    box-shadow: 2px 2px 2px #9f9f9f;
+    overflow-y: auto;
+    border-right: var(--border-bottom-right);
 }
 
-.profile {
+.profile_image {
     display: flex;
     justify-content: center;
-    border-bottom: 3px solid #b9b1b1;
 }
 
 #profile_icon {
-    width: 90px;
-    margin: 20px auto;
+    border: 2px solid var(--profile-border);
+    border-radius: 50%;
+    margin-top: 6px;
+    height: 80px;
 }
 
-.close {
-    display: none;
+.attribute {
+    border-radius: 10px;
+    margin: 1.5rem 1.5rem;
+    padding: 5px;
+    text-align: center;
+    background: var(--attribute-background);
+    color: var(--attribute-color);
 }
 
-.container {
+.profile_detail {
+    border-bottom: 2px solid #969696;
+}
+
+.dash_btns {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-}
-
-.profile_p {
-    background: #fafafa;
-    border: 1px solid #9a9494;
-    border-radius: 6px;
-    text-align: center;
-    height: 22px;
-    padding: 0px 15px;
-    /* font-style: ; */
-
-    /* ... */
-    height: 38px;
-    display: flex;
-    /* justify-self: center; */
-    align-self: center;
+    align-content: center;
     align-items: center;
 }
-#form_semester{
+
+#my_space {
+    text-decoration: none;
+    color: var(--button-color);
+    background-color:var(--button-background);
+}
+
+.dash_button {
+    cursor: pointer;
+    margin: 20px 0;
+    padding: 3px 12px;
+    border-radius: 40px;
+    border: 1px solid #8080808f;
+    background: var(--button-background);
+}
+
+#home {
     display: none;
 }
 
 .logout {
-    display: flex;
-    justify-content: center;
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 12px;
     text-decoration: none;
-    color: #2a2a2ae3;
-    transition: all 300ms ease;
-    gap: 6px;
+    font-size: 17px;
+    display: flex;
+    border: 1px solid grey;
+    padding: 2px 10px;
+    border-radius: 40px;
+    color: var(--button-color);
+    background: var(--button-background);
 }
 
-.logout span {
-    font-size: 1rem;
+#logout_icon {
+    color: var(--icon-color);
+    font-size: 17px;
 }
 
-.logout:hover {
-    margin-left: 0.5rem;
-    /* border:1px groove; */
+.logo {
+    display: none;
 }
 
-.semester {
+
+
+
+
+
+
+/* ---------------------dark mode --------------- */
+
+#mode {
+    width: 70px;
+    height: 25px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 200px;
+    cursor: pointer;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgb(255, 255, 255, 0.4);
+}
+
+#mode:after {
+    content: "";
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 122px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#darkmode-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#darkmode-toggle:checked+#mode {
+    background: #242424;
+}
+
+#darkmode-toggle:checked+#mode:after {
+    left: 67px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #b8b6b6, #3a3a3a);
+}
+
+#mode,
+#mode:after {
+    transition: 0.8s;
+}
+
+#mode:active:after {
+    width: 26px;
+}
+
+
+/* ...................... */
+
+#darkmode-toggle:checked + #mode +  #dashboard{
+    background-color: #01ff09;
+    color: rgb(190, 14, 14);
+}
+
+
+.sun {
+    font-size: 17px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+    color: #fff;
+    transition: 0.8s;
+    z-index: 100;
+}
+
+.moon {
+    font-size:17px;
+    position: relative;
+    top: 3px;
+    left: 27px;
+    color: #7e7e7e;
+    transition: 0.8s;
+    z-index: 100;
+}
+
+#darkmode-toggle:checked+#mode .sun {
+    color: #d9c8c8;
+}
+
+#darkmode-toggle:checked+#mode .moon {
+    color: #e3e3e3;
+}
+
+
+
+
+
+/*----------------- main body ----------------*/
+
+#main_body {
+    width: 75vw;
+    background: var(--main-body-background);
+    overflow-y: auto;
+}
+
+
+
+.nav {
+    background: var(--nav-background);
     display: flex;
     justify-content: space-evenly;
-    margin-left: auto;
-    box-shadow: 4px 3px 5px #c2b1c5bf;
-    height: 20px;
-    padding: 12px 0;
-    border-bottom: 2px solid #c4c4c4ab;
-    margin-bottom: 6px;
-    background: #fafafa;
-    transition: all 300ms ease;
+    padding: 9px 0px;
+    border-bottom: 2px solid gray;
+    box-sizing: content-box;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 3px #c7c6c6;
 }
 
-.sem {
-    color: black;
+.nav a {
+    color: var(--sem-link-color);
     text-decoration: none;
-    padding-bottom: 32px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0);
 }
 
-.sem:hover {
-    border-bottom: 2px solid #ff0202;
+
+#heading h3 {
+    color: var(--h-color);
+    text-align: center;
 }
-#menu-btn{
-    display: none;
-}
-#menu{
-    display: none;
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
 }
 
 .box {
-    width: 74vw;
-    box-shadow: 4px 3px 5px #c2b1c5bf;
+    background: var(--box-background);
+    margin: 22px;
+    height: 350px;
+    width: 350px;
+    justify-content: space-evenly;
+    align-items: center;
     display: flex;
-    /* height: 7%; */
-    background-color: #ffffffad;
-    top: 6px;
-    padding: 5px;
-    border-radius: 7px;
-    /* justify-content: space-around; */
-
-
-    /* ... */
-    position: relative;
-    left: 26px;
-    /* margin-right: 3px; */
+    border-radius: 50px;
+    box-shadow: var(--box-shadow);
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-.nav {
-    position: relative;
-    margin-left: 13px;
-    font-weight: bold;
-    width: 100%;
+
+
+
+
+
+/* ----------------Semester_mob-Display---------- */
+
+
+
+.Semester_mob {
+    display: none;
+    background-color: var(--nav-background);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 5.2rem;
+    margin-bottom: 2px;
+    left: 3.5rem;
+    width: 140px;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.Semester_mob a {
+    text-decoration: none;
+    color: var(--sem-link-color);
+}
+
+
+
+
+
+/* -----------------Table Display-------------- */
+table{
+    display: none;
     text-align: center;
 }
+table, th, td {
+    border:1px solid rgb(145, 145, 145);
+}
 
 
-#attendanceTable {
-    /* left: 20%;
+
+
+
+/* --------------------Footer--------------- */
+
+
+
+footer {
+    display: none;
+
+    background: var(--footer-background);
+    width: 100vw;
+    height: 8vh;
     position: absolute;
-    width: 74vw;
-    margin: 13px 31px; */
-    /* display: none; */
-    border-spacing: 0cap;
-
-    /* ..0. */
-    width: 70%;
-    height: 70%;
-    /* float: right; */
-    top: 13%;
-    left: 20%;
-    position: absolute;
-    width: 74vw;
-    margin: 20px 31px;
+    bottom: 1px;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#attendanceTable:target {
-    display: table;
 
-}
 
-th {
-    color: #2a2a2ae3;
-}
 
-th,
-td {
-    padding: 8px;
-    border: 1px solid #a2a2a2;
-    /* border-left: 1px solid #ddd; */
-}
 
-td {
-    font-weight: bold;
-    background: #ffffffbd;
-    text-align: center;
-}
 
-th {
-    background-color: #ffffffbd;
-}
 
-tr:first-child th:first-child {
-    border-top-left-radius: 15px;
-}
 
-tr:first-child th:last-child {
-    border-top-right-radius: 15px;
-}
 
-tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
 
-tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
 
-tr:nth-child(odd) {
-    color: #677991;
-}
 
-tr:nth-child(even) {
-    color: #9c4268;
-}
 
-tbody :not(thead):hover {
-    color: #dc0202;
+/* ----------------media queries-------------- */
 
-}
 
-/* @media only screen and (min-width: 600px) {
-    For desktops and laptops
-    .dashboard {
+
+
+@media screen and (max-width: 1200px) {
+    .box {
+        margin: 22px;
+        height: 350px;
+        width: 350px;
+        overflow-y: auto;
     }
-    .profile_p{
+
+    #dashboard {
+        width: 25vw;
     }
-    
-    .box{
+
+}
+
+@media screen and (max-width:767px) {
+    body {
+        flex-direction: column;
     }
-    #attendanceTable {
-    }
-} */
 
 
-
-/* @media only screen and (max-width: 1200px) {
-    #attendanceTable {
-        top: 8%;
-    }
-} */
-
-@media only screen and (max-width: 768px) {
-
-    /* For mobile devices */
-    .dashboard {
-        /* height: 20vh;
-        width: 100%;
-        margin-bottom: 7px;
-        box-shadow: 0px 2px 3px #9f9f9f; */
-
-
-        /* ....0 */
-        position: fixed;
-        left: 0;
-        width: 12rem;
-        background: white;
-        z-index: 4;
-        height: 100vh;
-        /* padding-right: 10px; */
+    .nav {
         display: none;
+    }
+
+
+    #heading {
+        display: none;
+    }
+
+    #dashboard {
+        width: 100vw;
+        height: 20vh;
+        border-bottom: 2px solid black;
+    }
+
+    .profile {
+        z-index: 1;
+        width: 100vw;
+        height: 10vh;
+        position: absolute;
+        top: 1px;
     }
 
     #profile_icon {
-        width: 35px;
-        /* margin: 20px auto; */
+        margin-top: 1.5rem;
     }
 
-    .close {
+    .profile_image {
         display: inline-block;
-        padding: 10px 0;
-        cursor: pointer;
+        margin: 2px 15px;
     }
+
+    .profile_detail {
+        display: inline-block;
+        width: 50%;
+        border-bottom: none;
+    }
+
+    .attribute {
+        margin: 12px 0px;
+    }
+
+
+    /*---------------------- main -------------------------*/
 
     .container {
+        box-sizing: border-box;
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        /* padding-bottom: 5%; */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        /* height: calc(100vh - 8rem); */
+        height: auto;
+        max-height: 100%;
+
+        padding: 0 1rem;
+        position: relative;
+        overflow-y: auto;
 
     }
-    #form_semester{
+
+    .box {
+        margin: 22px;
+        flex: 0 1 300px;
+        justify-content: space-evenly;
+        align-items: center;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
-        margin: auto;
     }
-    #logout {
-        align-self: center;
+
+
+
+    /*------------------ footer------------------- */
+
+    footer {
+        display: flex;
+        
     }
-    .semester{
+
+    #my_space {
         display: none;
     }
-    #menu-btn{
-        display: flex;
-        background: white;
-        border: none;
-        cursor: pointer;
-    }
-    #menu{
+
+    #home {
+        color: var(--icon-color);
         display: inline-block;
-        left:10px;
+        border-radius: 15px;
     }
-    .box {
-        /* display: inline-block; */
-        /* width: 100%; */
-        /* margin-left: 6px; */
-        margin-right: 3px;
-        width: 100%;
-        left: 0px;
+
+    .logout {
+        position: fixed;
+        top: 15px;
+        right: 10px;
+        height: 20px;
+        background: var(--button-background);
+        color: var(--button-color);
     }
-    #attendanceTable {
-        position: absolute;
-        left: 0px;
-        width: 100%;
-        top: 10%;
-        /* margin-top: 13px; */
-        margin: 13px 0px;
+
+    #attendence {
+        padding: 3px 8px;
     }
+
+    #mode {
+        display: flex;
+        position: fixed;
+        top: 4rem;
+        right: 3%;
+        margin: 0 0 0 8px;
+    }
+
+    .logo {
+        display: inline-block;
+    }
+
+    .logo img {
+        width: 70px;
+        border-radius: 40%;
+    }
+
 }

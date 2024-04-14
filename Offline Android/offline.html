@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Offline Page</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 50px;
+    }
+    p {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      display: block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: bold;
+      background-color: #7380ec;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <img src="../assets/offline.png" alt="Offline">
+  <h1>Can't connect</h1>
+  <p>You need an Internet connection to use AMS.</p>
+  <button onclick="window.location.reload()">Retry</button>
+</body>
+</html>
