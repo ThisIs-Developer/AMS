@@ -108,11 +108,17 @@ button[type="submit"] a {
   }
 
   .container {
-    width: 100%; /* Use full width for better utilization of small screens */
+    width: 90%; /* Use full width for better utilization of small screens */
     max-width: 100%; /* Override max-width to fit the device width */
     margin: auto;
     padding: 15px; /* Sufficient padding for touch interaction */
     box-shadow: none; /* Optionally remove shadow for a cleaner look on small devices */
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow for subtlety */
+    transition: transform 0.3s; /* Smooth scaling */
+  }
+
+  .container:hover {
+    transform: scale(1.05);
   }
 
   h3 {
