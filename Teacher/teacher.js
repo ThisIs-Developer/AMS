@@ -1,3 +1,33 @@
+// Function to show a warning toast message using Toastify
+const showWarningToast = (message) => {
+  const toastContent = document.createElement('div');
+  toastContent.classList.add('toast-content');
+
+  const icon = document.createElement('i');
+  icon.classList.add('fas', 'fa-exclamation-triangle', 'toast-icon');
+  icon.style.paddingLeft = '10px';
+  toastContent.appendChild(icon);
+
+  const messageElement = document.createElement('span');
+  messageElement.textContent = message;
+  toastContent.appendChild(messageElement);
+
+  const toast = Toastify({
+      node: toastContent,
+      duration: 3000,
+      gravity: 'top',
+      position: 'center',
+      backgroundColor: '#f1a90f',
+      progressBar: true,
+      style: {
+          padding: '20px 2px',
+          borderRadius: '8px',
+      }
+  });
+
+  toast.showToast();
+}
+
 // Function to transfer data from teacher.html to index2.html
 function transferData(event) {
   // Prevent the default form submission behavior
@@ -11,8 +41,8 @@ function transferData(event) {
 
   // Check if any of the required fields are not selected
   if (!batch || !sem || !subject || !date) {
-    showWarningToast('Please select all required fields.');
-    return false; // Stop the form submission
+      showWarningToast('Please select all required fields.');
+      return false; // Stop the form submission
   }
 
   // Save data to sessionStorage to transfer to index2.html
@@ -25,11 +55,6 @@ function transferData(event) {
   window.location.href = "teacher2.html";
 
   return true; // Allow the form submission
-}
-
-// Function to show a warning toast message
-function showWarningToast(message) {
-  alert(message);
 }
 
 // Function to set input values in teacher2.html from sessionStorage

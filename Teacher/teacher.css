@@ -130,3 +130,15 @@ button[type="submit"] a {
     padding: 0.5rem; /* Adjust padding for easier interaction on touch devices */
   }
 }
+
+.toast-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.toast-content .toast-icon {
+  margin-right: 10px;
+}
