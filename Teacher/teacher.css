@@ -89,7 +89,7 @@ button[type="submit"] {
   font-size: 15px; /* Responsive font size */
   transition: background-color 0.3s ease;
   display: block; /* Ensure the button is block level for margin auto to work */
-  margin: 0 auto; /* Centers the button horizontally */
+  margin: 15px auto ; /* Centers the button horizontally */
 }
 
 button[type="submit"]:hover {
