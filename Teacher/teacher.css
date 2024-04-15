@@ -53,7 +53,11 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Aligns items to the start */
+<<<<<<< HEAD
   margin: 6px; /* Consistent margin for spacing */
+=======
+  margin: 5px; /* Consistent margin for spacing */
+>>>>>>> f47b6dd386a4d256499f3e1d1416f619799d308b
   width: 90%; /* Matches the select box width */
   margin-left: auto; /* Centers the form group */
   margin-right: auto;
@@ -63,8 +67,12 @@ form {
 /* Label styling */
 label {
   font-weight: bold;
+<<<<<<< HEAD
   margin-top: 0.2rem; /* Top margin to match bottom padding of form-group */
   margin-bottom: 0.2rem; /* Responsive space between label and select box */
+=======
+  margin-bottom: 0.25rem; /* Responsive space between label and select box */
+>>>>>>> f47b6dd386a4d256499f3e1d1416f619799d308b
   color: #555;
   font-size: 14px;
 }
@@ -91,7 +99,7 @@ button[type="submit"] {
   font-size: 15px; /* Responsive font size */
   transition: background-color 0.3s ease;
   display: block; /* Ensure the button is block level for margin auto to work */
-  margin: 0 auto; /* Centers the button horizontally */
+  margin: 15px auto ; /* Centers the button horizontally */
 }
 
 button[type="submit"]:hover {
@@ -110,11 +118,21 @@ button[type="submit"] a {
   }
 
   .container {
-    width: 100%; /* Use full width for better utilization of small screens */
+    width: 90%; /* Use full width for better utilization of small screens */
     max-width: 100%; /* Override max-width to fit the device width */
     margin: auto;
     padding: 15px; /* Sufficient padding for touch interaction */
+<<<<<<< HEAD
     box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Optionally remove shadow for a cleaner look on small devices */
+=======
+    box-shadow: none; /* Optionally remove shadow for a cleaner look on small devices */
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow for subtlety */
+    transition: transform 0.3s; /* Smooth scaling */
+  }
+
+  .container:hover {
+    transform: scale(1.05);
+>>>>>>> f47b6dd386a4d256499f3e1d1416f619799d308b
   }
 
   h3 {
@@ -125,4 +143,16 @@ button[type="submit"] a {
   input[type="date"] {
     padding: 0.5rem; /* Adjust padding for easier interaction on touch devices */
   }
+}
+
+.toast-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.toast-content .toast-icon {
+  margin-right: 10px;
 }
