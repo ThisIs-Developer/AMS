@@ -29,7 +29,7 @@ h3 {
 
 /* Centering container div */
 .container {
-  width: 90%;
+  width: 80%;
   max-width: 500px;
   padding: 20px;
   background-color: #fff;
@@ -53,16 +53,18 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Aligns items to the start */
-  margin: 10px; /* Consistent margin for spacing */
+  margin: 6px; /* Consistent margin for spacing */
   width: 90%; /* Matches the select box width */
   margin-left: auto; /* Centers the form group */
   margin-right: auto;
+  padding-bottom: 0px; /* Consistent bottom padding for all form groups */
 }
 
 /* Label styling */
 label {
   font-weight: bold;
-  margin-bottom: 0.5rem; /* Responsive space between label and select box */
+  margin-top: 0.2rem; /* Top margin to match bottom padding of form-group */
+  margin-bottom: 0.2rem; /* Responsive space between label and select box */
   color: #555;
   font-size: 14px;
 }
@@ -71,7 +73,7 @@ label {
 select,
 input[type="date"] {
   width: 100%; /* Full width of form-group, adjusted for flex-start alignment */
-  padding: 0.5rem; /* Slightly larger padding for touch targets */
+  padding: 0.4rem; /* Slightly larger padding for touch targets */
   border: 1px solid #ccc;
   border-radius: 20px;
   font-size: 13px; /* Responsive font size */
@@ -112,7 +114,7 @@ button[type="submit"] a {
     max-width: 100%; /* Override max-width to fit the device width */
     margin: auto;
     padding: 15px; /* Sufficient padding for touch interaction */
-    box-shadow: none; /* Optionally remove shadow for a cleaner look on small devices */
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Optionally remove shadow for a cleaner look on small devices */
   }
 
   h3 {
