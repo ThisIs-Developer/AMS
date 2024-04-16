@@ -1,151 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/png" href="../assets/logo-favi.png">
+    <title>Dashboard</title>
     <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-    <section id="dashboard">
-        <div class="profile">
-            <div class="profile_image">
-                <img src="assects/profile_icon.png" alt="profile_icon" id="profile_icon">
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="assects/logo2.png" alt="Logo">
+                    <h2>A M S</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-outlined">
+                    close
+                    </span>
+                </div>
             </div>
-            <div class="profile_detail">
-                <div id="name" class="attribute">Ayan Chatterjee</div>
-                <div id="batch" class="attribute">Batch 2021-2025</div>
+            <div class="sidebar">
+                <a href="#" class="active" id="dashboard-menu">
+                    <span class="material-symbols-outlined active">
+                        badge
+                    </span>
+                    <h3>Account Details</h3>
+                </a>
+                <a href="#" id="attendence-menu">
+                    <span class="material-symbols-outlined">
+                        overview
+                    </span>
+                    <h3>Attendence</h3>
+                </a>
+                <a href="../Logout/logout.html" id="logout-link">
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+                    <h3>Log out</h3>
+                </a>
             </div>
-        </div>
-        <div class="dash_btns">
-            <a href="#" id="my_space" class="dash_button">My Space</a>
-           <input type="checkbox" id="darkmode-toggle">
-            <label for="darkmode-toggle" id="mode">
-                <span class="sun material-symbols-outlined">
-                    light_mode
-                </span>
-                <span class="moon material-symbols-outlined">
-                    dark_mode
-                </span>
-            </label>
-            <a href="Logout page" class="logout">
-                <span class="material-symbols-outlined" id="logout_icon">
-                    logout
-                </span>
-                <span>Logout</span>
-            </a>
-        </div>
-    </section>
-    <section id="main_body">
-        <div class="nav">
-            <a href="" class="sem" id="sem-1" onclick="showTable('1')">Sem 1</a>
-            <a href="" class="sem" id="sem-2" onclick="showTable('2')">Sem 2</a>
-            <a href="" class="sem" id="sem-3" onclick="showTable('3')">Sem 3</a>
-            <a href="" class="sem" id="sem-4" onclick="showTable('4')">Sem 4</a>
-            <a href="" class="sem" id="sem-5" onclick="showTable('5')">Sem 5</a>
-            <a href="" class="sem" id="sem-6" onclick="showTable('6')">Sem 6</a>
-            <a href="" class="sem" id="sem-7" onclick="showTable('7')">Sem 7</a>
-            <a href="" class="sem" id="sem-8" onclick="showTable('8')">Sem 8</a>
-        </div>
-        <div id="heading">
-            <h3>Your Profile</h3>
-        </div>
-        <div class="container">
-            <div class="box" id="box1">
-                <div class="box_item-1">Name</div>
-                <div class="box_item-2">Roll no.</div>
-                <div class="box_item-3">Registration No.</div>
-                <div class="box_item-4">College ID</div>
-                <div class="box_item-5">Class</div>
-                <div class="box_item-6">Current Semester</div>
+        </aside>
+
+        <main>
+            <div class="right-top">
+                <div class="top">
+                    <button id="menu-btn">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </button>
+                    <input type="checkbox" id="darkmode-toggle">
+                    <label for="darkmode-toggle" id="mode">
+                        <span class="sun material-symbols-outlined">light_mode</span>
+                        <span class="moon material-symbols-outlined">dark_mode</span>
+                    </label>
+                    <div class="profile">
+                        <div class="profile-photo">
+                            <img src="assects/logo2.png" alt="profile-photo">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="box" id="box2">
-                <div class="box_item-1">Guardian Name</div>
-                <div class="box_item-2">Guardian Ph. No.</div>
-                <div class="box_item-3">Your Phone No.</div>
-                <div class="box_item-4">Email ID</div>
-                <div class="box_item-5">Address</div>
+
+
+            <div class="dashboard">
+                <h1>Account Details</h1>
+                <div class="dashboard-content" id="student-det">
+                    <div class="box">
+                        <label for="">Student's Name:</label>
+                        <input type="text" value="Ayan Chatterjee" readonly>
+                    </div>
+                    <div class="box"><label for="">Department & Batch:</label>
+                        <input type="text" value="CSE(2021-2025)" readonly>
+                    </div>
+                    <div class="box"><label for="">Semester:</label>
+                        <input type="text" value="6" readonly>
+                    </div>
+                    <div class="box"><label for="">Roll No:</label>
+                        <input type="text" value="123211003039" readonly>
+                    </div>
+                    <div class="box"><label for="">Registration No:</label>
+                        <input type="text" value="211230100110052" readonly>
+                    </div>
+                </div>
+
+                <!---------- det-start-btn------------- -->
+                <div class="dashboard-content" id="det-start-btn">
+                    <button type="button" id="Personal" onclick="dashStartBtn('#Personal')">Personal Details</button>
+                    <button type="button" id="Guardian" onclick="dashStartBtn('#Guardian')">Guardian Details</button>
+                    <button type="button" id="Semester_Results" onclick="dashStartBtn('#Semester_Results')">Semester
+                        Results</button>
+                </div>
+                <!---------- det-start-btn ends------------- -->
+                <div class="dashboard-content" id="address">
+                    <h2>From Admission Records</h2>
+
+                    <div class="outer_box">
+                        <div class="box"><label for="">Present Address:</label>
+                            <input type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui"
+                                readonly>
+                        </div>
+                        <div class="box"><label for="">City:</label>
+                            <input type="text" value="Ranaghat" readonly>
+                        </div>
+                        <div class="box"><label for="">Pin No:</label>
+                            <input type="text" value="741127" readonly>
+                        </div>
+                    </div>
+                    <div class="outer_box">
+                        <div class="box"><label for="">Permanent Address:</label>
+                            <input type="text" value="VILL:-KHARDAPARA; PO:-BIRNAGAR ; PS;-TAHERPUR ;" readonly>
+                        </div>
+                        <div class="box"><label for="">City:</label>
+                            <input type="text" value="Ranaghat" readonly>
+                        </div>
+                        <div class="box"><label for="">Pin No:</label>
+                            <input type="text" value="741127" readonly>
+                        </div>
+                    </div>
+                    <div class="outer_box">
+                        <div class="box"><label for="">Mobile No:</label>
+                            <input type="text" value="8001669243" readonly>
+                        </div>
+                        <div class="box"><label for="">Email:</label>
+                            <input type="text" value="ayanchatterjee789@gmail.com" readonly>
+                        </div>
+                        <div class="box"><label for="">Date of Birth:</label>
+                            <input type="text" value="04-10-2002" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content" id="total-marks">
+                    <h2>% of Marks</h2>
+
+                    <div class="outer_box">
+                        <div class="box"><label for="">Class X:</label>
+                            <input type="text" value="79%" readonly>
+                        </div>
+                        <div class="box"><label for="">Class XII:</label>
+                            <input type="text" value="85.5%" readonly>
+                        </div>
+                        <div class="box"><label for="">Diploma:</label>
+                            <input type="text" value="N/A" readonly>
+                        </div>
+                        <div class="box"><label for="">Graduate:</label>
+                            <input type="text" value="8.65" readonly>
+                        </div>
+                        <div class="box"><label for="">Post Graduate:</label>
+                            <input type="text" value="N/A" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content" id="hs-marks">
+                    <h2>HS Marks</h2>
+                    <div class="external_box">
+                        <div class="outer_box" id="eng">
+                            <h3>English</h3>
+                            <div class="outer_box">
+                                <div class="box"><label for="">Full Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                                <div class="box"><label for="">Obtained Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer_box" id="phy">
+                            <h3>Physics</h3>
+                            <div class="outer_box">
+                                <div class="box"><label for="">Full Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                                <div class="box"><label for="">Obtained Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer_box" id="chem">
+                            <h3>Chemisty</h3>
+                            <div class="outer_box">
+                                <div class="box"><label for="">Full Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                                <div class="box"><label for="">Obtained Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer_box" id="math">
+                            <h3>Mathametics</h3>
+                            <div class="outer_box">
+                                <div class="box"><label for="">Full Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                                <div class="box"><label for="">Obtained Marks:</label>
+                                    <input type="text" value="N/A" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content" id="present-details">
+                    <h2>Current Co-ordinates</h2>
+
+                    <label for="" id="current-address-label">Current Address:</label>
+                    <input type="text" placeholder="Enter Current Address" id="current-address">
+
+                    <div class="outer_box">
+                        <div class="box"><label for="">Current Mobile No:</label>
+                            <input type="text" value="8001669243">
+                        </div>
+                        <div class="box"><label for="">Current Email:</label>
+                            <input type="text" value="ayanchatterjee789@gmail.com">
+                        </div>
+                        <div class="box"><label for="">Blood Group:</label>
+                            <input type="text" value="O+">
+                        </div>
+                        <div class="box"><label for="">Date of Birth:</label>
+                            <input type="text" value="04-10-2002">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-------------------------- hidden dashboard contents--------------------->
+                <div class="dashboard-content" id="guardian-det">
+                    <h2>Guardian Details</h2>
+                    <div class="outer_box">
+                        <div class="box">
+                            <label for="">Guardian's Name</label>
+                            <input type="text" value="Uttam Chatterjee" readonly>
+                        </div>
+                        <div class="box">
+                            <label for="">Mobile NO.</label>
+                            <input type="text" value="XXXXXXXXXX" readonly>
+                        </div>
+                        <div class="box"><label for="">Emsil ID</label>
+                            <input type="text" value="N/A" readonly>
+                        </div>
+                        <div class="box">
+                            <label for="">Address</label>
+                            <input type="text" value="N/A">
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content" id="sem-result">
+                    <h2>SGPA up to last published semester results</h2>
+                    <div class="outer_box">
+                        <div class="box">
+                            <label for="">Semester 1</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 2</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 3</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 4</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 5</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 6</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 7</label>
+                            <input type="number" value="0.0">
+                        </div>
+                        <div class="box">
+                            <label for="">Semester 8</label>
+                            <input type="number" value="0.0">
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!----------- hidden dashboard content ends -------------->
+
+
+                
+                <div class="dashboard-content" id="det-end-btn">
+                    <button type="submit" id="submit">Submit</button>
+                    <button id="back">Back</button>
+                </div>
+                
+
+
+            </div> <!-------------------- dashboard ends here ------------------->
+            <div class="sem-submit">
+                <form action="/submit" method="post">
+                    <label for="choose sem">Select Semester</label>
+                    <select name="choose sem">
+                        <option value="">Search</option>
+                        <option value="sem-1">Semester 1</option>
+                        <option value="sem-2">Semester 2</option>
+                        <option value="sem-3">Semester 3</option>
+                        <option value="sem-4">Semester 4</option>
+                        <option value="sem-5">Semester 5</option>
+                        <option value="sem-6">Semester 6</option>
+                        <option value="sem-7">Semester 7</option>
+                        <option value="sem-8">Semester 8</option>
+                    </select>
+                    <button id="sem-form-submit">Submit</button>
+                </form>
             </div>
-        </div>
-    </section>
-    <div class="Semester_mob">
-        <a href="" class="sem_mob" id="sem_mob-1" >Sem 1</a>
-        <a href="" class="sem_mob" id="sem_mob-2" >Sem 2</a>
-        <a href="" class="sem_mob" id="sem_mob-3" >Sem 3</a>
-        <a href="" class="sem_mob" id="sem_mob-4" >Sem 4</a>
-        <a href="" class="sem_mob" id="sem_mob-5" >Sem 5</a>
-        <a href="" class="sem_mob" id="sem_mob-6" >Sem 6</a>
-        <a href="" class="sem_mob" id="sem_mob-7" >Sem 7</a>
-        <a href="" class="sem_mob" id="sem_mob-8" >Sem 8</a>
+
+
+
+            <div id="table-container">
+                <h1>ATTENDENCE REPORT</h1>
+                <table id="Attendence-table">
+                    <thead>
+                        <tr>
+                            <td>Subject ID</td>
+                            <td>Subject Name</td>
+                            <td>Total Class</td>
+                            <td>Class Present</td>
+                            <td>Attendence %</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
-
-    <table id="table">
-        <thead>
-            <tr>
-                <th>Subject Id</th>
-                <th>Subject Name</th>
-                <th>Class Present</th>
-                <th>Total Class</th>
-                <th>Attendence Percentage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-        </tbody>
-
-    </table>
-    <footer>
-        <div class="attendence">
-            <button id="attendence">Attendence</button>
-        </div>
-        <div class="logo">
-            <img src="assects/A.jpg" alt="Logo">
-        </div>
-        <a href="#" id="home">
-            <span class="material-symbols-outlined">
-                home
-            </span>
-        </a>
-    </footer>
-
     <script src="student.js"></script>
 </body>
 
