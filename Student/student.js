@@ -2,7 +2,7 @@ document.getElementById('Personal').addEventListener('click', showOnlyPersonalDe
 document.getElementById('Guardian').addEventListener('click', showOnlyGuardianDetails);
 document.getElementById('Semester_Results').addEventListener('click', showOnlySemesterResults);
 
-document.getElementById('attendence').addEventListener('click',showOnlyAttendence);
+document.getElementById('attendence-menu').addEventListener('click',showOnlyAttendence);
 document.getElementById('dashboard-menu').addEventListener('click',showDashboard);
 // const dashboard=document.querySelector('.dashboard');
 
@@ -61,7 +61,7 @@ function showOnlyPersonalDetails() {
     document.getElementById('present-details').style.display = 'flex';
 
     // Change background color of active button
-    document.getElementById('Personal').style.backgroundColor = '#45d6a6';
+    document.getElementById('Personal').style.backgroundColor = '#28a745';
     document.getElementById('Guardian').style.backgroundColor = ''; // Reset other buttons
     document.getElementById('Semester_Results').style.backgroundColor = ''; // Reset other buttons
 }
@@ -73,7 +73,7 @@ function showOnlyGuardianDetails() {
 
   // Change background color of active button
   document.getElementById('Personal').style.backgroundColor = 'var(--color-primary)'; // Reset other buttons
-  document.getElementById('Guardian').style.backgroundColor = '#45d6a6';
+  document.getElementById('Guardian').style.backgroundColor = '#28a745';
   document.getElementById('Semester_Results').style.backgroundColor = ''; // Reset other buttons
     
 }
@@ -87,7 +87,7 @@ function showOnlySemesterResults() {
     // Change background color of active button
     document.getElementById('Personal').style.backgroundColor = 'var(--color-primary)'; // Reset other buttons
     document.getElementById('Guardian').style.backgroundColor = ''; // Reset other buttons
-    document.getElementById('Semester_Results').style.backgroundColor = '#45d6a6';
+    document.getElementById('Semester_Results').style.backgroundColor = '#28a745';
 }
 
 
@@ -101,3 +101,61 @@ const themeToggler=document.querySelector('#mode');
 themeToggler.addEventListener('click',()=>{
     document.body.classList.toggle('dark-theme-variables');
 })
+
+const sideMenu = document.querySelector('aside');
+const menuBtn = document.querySelector('#menu-btn');
+const closeBtn = document.querySelector('#close-btn');
+
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuItems = document.querySelectorAll(".sidebar a");
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            menuItems.forEach(item => {
+                item.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            const allContents = document.querySelectorAll(".content");
+            allContents.forEach(content => {
+                content.style.display = "none";
+            });
+
+            const contentId = this.getAttribute("id").replace("-menu", "-content");
+            const contentToShow = document.getElementById(contentId);
+            if (contentToShow) {
+                contentToShow.style.display = "block";
+            }
+        });
+    });
+});
+
+document.querySelectorAll('.top #menu-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        sideMenu.style.display = 'block';
+    });
+});
+
+document.querySelectorAll('.top #close-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        sideMenu.style.display = 'none';
+    });
+});
+
+document.getElementById('logout-link').addEventListener('click', function (event) {
+    event.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href = this.getAttribute('href');
+});
