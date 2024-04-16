@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>4.html</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/logo-favi.png">
+    <title>Dashboard</title>
     <link rel="stylesheet" href="student.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -16,6 +18,11 @@
                     <img src="assects/logo2.png" alt="Logo">
                     <h2>A M S</h2>
                 </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-outlined">
+                    close
+                    </span>
+                </div>
             </div>
             <div class="sidebar">
                 <a href="#" class="active" id="dashboard-menu">
@@ -24,7 +31,7 @@
                     </span>
                     <h3>Account Details</h3>
                 </a>
-                <a href="#" id="attendence">
+                <a href="#" id="attendence-menu">
                     <span class="material-symbols-outlined">
                         overview
                     </span>
@@ -42,20 +49,17 @@
         <main>
             <div class="right-top">
                 <div class="top">
-                    <!-- <div class="theme-toggler">
-                        <span class="material-symbols-outlined active">light_mode</span>
-                        <span class="material-symbols-outlined">dark_mode</span>
-                    </div> -->
+                    <button id="menu-btn">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </button>
                     <input type="checkbox" id="darkmode-toggle">
                     <label for="darkmode-toggle" id="mode">
                         <span class="sun material-symbols-outlined">light_mode</span>
                         <span class="moon material-symbols-outlined">dark_mode</span>
                     </label>
                     <div class="profile">
-                        <!-- <div class="info">
-                            <p>Hey, <b>User</b></p>
-                            <small class="text-muted">Admin</small>
-                        </div> -->
                         <div class="profile-photo">
                             <img src="assects/logo2.png" alt="profile-photo">
                         </div>
@@ -94,7 +98,7 @@
                 </div>
                 <!---------- det-start-btn ends------------- -->
                 <div class="dashboard-content" id="address">
-                    <h3>From Admission Records</h3>
+                    <h2>From Admission Records</h2>
 
                     <div class="outer_box">
                         <div class="box"><label for="">Present Address:</label>
@@ -132,7 +136,7 @@
                     </div>
                 </div>
                 <div class="dashboard-content" id="total-marks">
-                    <h3>% of Marks</h3>
+                    <h2>% of Marks</h2>
 
                     <div class="outer_box">
                         <div class="box"><label for="">Class X:</label>
@@ -153,7 +157,7 @@
                     </div>
                 </div>
                 <div class="dashboard-content" id="hs-marks">
-                    <h3>HS Marks</h3>
+                    <h2>HS Marks</h2>
                     <div class="external_box">
                         <div class="outer_box" id="eng">
                             <h3>English</h3>
@@ -202,7 +206,7 @@
                     </div>
                 </div>
                 <div class="dashboard-content" id="present-details">
-                    <h3>Current Co-ordinates</h3>
+                    <h2>Current Co-ordinates</h2>
 
                     <label for="" id="current-address-label">Current Address:</label>
                     <input type="text" placeholder="Enter Current Address" id="current-address">
@@ -229,7 +233,7 @@
 
                 <!-------------------------- hidden dashboard contents--------------------->
                 <div class="dashboard-content" id="guardian-det">
-                    <h3>Guardian Details</h3>
+                    <h2>Guardian Details</h2>
                     <div class="outer_box">
                         <div class="box">
                             <label for="">Guardian's Name</label>
@@ -249,38 +253,38 @@
                     </div>
                 </div>
                 <div class="dashboard-content" id="sem-result">
-                    <h3>SGPA up to last published semester results</h3>
+                    <h2>SGPA up to last published semester results</h2>
                     <div class="outer_box">
                         <div class="box">
-                            <label for="">Sem-1</label>
+                            <label for="">Semester 1</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-2</label>
+                            <label for="">Semester 2</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-3</label>
+                            <label for="">Semester 3</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-4</label>
+                            <label for="">Semester 4</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-5</label>
+                            <label for="">Semester 5</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-6</label>
+                            <label for="">Semester 6</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-7</label>
+                            <label for="">Semester 7</label>
                             <input type="number" value="0.0">
                         </div>
                         <div class="box">
-                            <label for="">Sem-8</label>
+                            <label for="">Semester 8</label>
                             <input type="number" value="0.0">
                         </div>
 
@@ -303,6 +307,7 @@
                 <form action="/submit" method="post">
                     <label for="choose sem">Select Semester</label>
                     <select name="choose sem">
+                        <option value="">Search</option>
                         <option value="sem-1">Semester 1</option>
                         <option value="sem-2">Semester 2</option>
                         <option value="sem-3">Semester 3</option>
