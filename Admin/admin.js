@@ -192,6 +192,202 @@ document.getElementById('rollNumber').addEventListener('input', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const attendanceForm = document.getElementById('attendanceForm');
+    const studentAttendanceForm = document.getElementById('studentAttendanceForm');
+    const classAttendanceForm = document.getElementById('classAttendanceForm');
+    const subjectsAttendanceForm = document.getElementById('subjectsAttendanceForm');
+
+    const studentAttendanceReport = document.querySelector('.student-attendance-report');
+    const classAttendanceReport = document.querySelector('.class-attendance-report');
+    const subjectsAttendanceReport = document.querySelector('.subjects-attendance-report');
+
+    const rollNumberInput = document.getElementById('rollNumber');
+
+    const attendanceTableBody = document.getElementById('attendanceTable').getElementsByTagName('tbody')[0];
+    const classAttendanceTableBody = document.getElementById('classAttendanceTable').getElementsByTagName('tbody')[0];
+    const subjectsAttendanceTableBody = document.getElementById('subjectsAttendanceTable').getElementsByTagName('tbody')[0];
+
+    const homeButtonStudent = document.querySelector('.student-attendance-report .attendanceBtn');
+    const homeButtonClass = document.querySelector('.class-attendance-report .attendanceBtn');
+    const homeButtonSubjects = document.querySelector('.subjects-attendance-report .attendanceBtn');
+
+    const cancelButtons = document.querySelectorAll('.attendanceBtn[type="reset"]');
+
+    attendanceForm.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetBtn = event.target;
+        const action = targetBtn.value;
+
+        attendanceForm.style.display = 'none';
+
+        if (action === 'studentAttendance') {
+            studentAttendanceForm.style.display = 'block';
+        } else if (action === 'classAttendance') {
+            classAttendanceForm.style.display = 'block';
+        } else if (action === 'subjectsAttendance') {
+            subjectsAttendanceForm.style.display = 'block';
+        }
+    });
+
+    studentAttendanceForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const rollNumber = rollNumberInput.value.trim();
+
+        try {
+            const response = await fetch('../json/studentAttendance.json');
+            const data = await response.json();
+
+            const student = data.students.find(student => student.roll_number === rollNumber);
+            if (student) {
+                const {
+                    name,
+                    batch,
+                    semester,
+                    section,
+                    subjects
+                } = student;
+
+                document.getElementById('student-attendance-report-name').textContent = name;
+                document.getElementById('student-attendance-report-roll').textContent = rollNumber;
+                document.getElementById('student-attendance-report-batch').textContent = batch;
+                document.getElementById('student-attendance-report-semester').textContent = semester;
+                document.getElementById('student-attendance-report-section').textContent = section;
+
+                attendanceTableBody.innerHTML = '';
+                subjects.forEach(subject => {
+                    const row = attendanceTableBody.insertRow();
+                    const subjectCell = row.insertCell(0);
+                    const attendanceCell = row.insertCell(1);
+
+                    subjectCell.textContent = subject.subject;
+                    attendanceCell.textContent = subject.attendance;
+                });
+
+                studentAttendanceReport.style.display = 'block';
+                studentAttendanceForm.style.display = 'none';
+            } else {
+                alert('Student with the provided roll number not found.');
+            }
+        } catch (error) {
+            console.error('Error fetching student details:', error);
+            alert('Error fetching student details. Please try again later.');
+        }
+    });
+
+    classAttendanceForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const batch = classAttendanceForm.querySelector('#batch').value;
+        const semester = classAttendanceForm.querySelector('#semester').value;
+        const section = classAttendanceForm.querySelector('#section').value;
+
+        if (!batch || !semester || !section) {
+            showWarningToast('Please enter batch, semester, and section.');
+            return;
+        }
+
+        try {
+            const response = await fetch('../json/classAttendance.json');
+            const data = await response.json();
+
+            const classDetails = data[batch][semester][section];
+            if (classDetails) {
+                document.getElementById('class-attendance-report-batch').textContent = batch;
+                document.getElementById('class-attendance-report-semester').textContent = semester;
+                document.getElementById('class-attendance-report-section').textContent = section;
+
+                classAttendanceTableBody.innerHTML = '';
+                classDetails.forEach(student => {
+                    const row = classAttendanceTableBody.insertRow();
+                    const nameCell = row.insertCell(0);
+                    const rollNumberCell = row.insertCell(1);
+                    const attendanceCell = row.insertCell(2);
+
+                    nameCell.textContent = student.student_name;
+                    rollNumberCell.textContent = student.roll_number;
+                    attendanceCell.textContent = student.attendance;
+                });
+
+                classAttendanceReport.style.display = 'block';
+                classAttendanceForm.style.display = 'none';
+            } else {
+                showErrorToast('Class details not found for the selected batch, semester, or section.');
+            }
+        } catch (error) {
+            console.error('Error fetching class attendance details:', error);
+            showErrorToast('Error fetching class attendance details. Please try again later.');
+        }
+    });
+
+    subjectsAttendanceForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const batch = subjectsAttendanceForm.querySelector('#batch').value;
+        const semester = subjectsAttendanceForm.querySelector('#semester').value;
+        const section = subjectsAttendanceForm.querySelector('#section').value;
+
+        if (!batch || !semester || !section) {
+            showWarningToast('Please enter batch, semester, and section.');
+            return;
+        }
+
+        try {
+            const response = await fetch('../json/subjectsAttendance.json');
+            const data = await response.json();
+
+            const subjectsDetails = data[batch][semester][section];
+            if (subjectsDetails) {
+                document.getElementById('subjects-attendance-report-batch').textContent = batch;
+                document.getElementById('subjects-attendance-report-semester').textContent = semester;
+                document.getElementById('subjects-attendance-report-section').textContent = section;
+
+                subjectsAttendanceTableBody.innerHTML = '';
+                subjectsDetails.forEach(subject => {
+                    const row = subjectsAttendanceTableBody.insertRow();
+                    const subjectCell = row.insertCell(0);
+                    const attendanceCell = row.insertCell(1);
+
+                    subjectCell.textContent = subject.subject;
+                    attendanceCell.textContent = subject.attendance;
+                });
+
+                subjectsAttendanceReport.style.display = 'block';
+                subjectsAttendanceForm.style.display = 'none';
+            } else {
+                showErrorToast('Class details not found for the selected batch, semester, or section.');
+            }
+        } catch (error) {
+            console.error('Error fetching subjects attendance details:', error);
+            showErrorToast('Error fetching subjects attendance details. Please try again later.');
+        }
+    });
+
+    homeButtonStudent.addEventListener('click', () => {
+        location.reload();
+    });
+
+    homeButtonClass.addEventListener('click', () => {
+        location.reload();
+    });
+
+    homeButtonSubjects.addEventListener('click', () => {
+        location.reload();
+    });
+
+    cancelButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            attendanceForm.style.display = 'block';
+            studentAttendanceForm.style.display = 'none';
+            classAttendanceForm.style.display = 'none';
+            subjectsAttendanceForm.style.display = 'none';
+
+            studentAttendanceForm.reset();
+            classAttendanceForm.reset();
+            subjectsAttendanceForm.reset();
+        });
+    });
+});
+
 const showSuccessToast = (message) => {
     const toastContent = document.createElement('div');
     toastContent.classList.add('toast-content');
@@ -317,230 +513,6 @@ const showWarningToast = (message) => {
 
     toast.showToast();
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-    const assignForm1 = document.getElementById('assignForm1');
-    const assignForm2 = document.getElementById('assignForm2');
-    const subjectSelect = document.getElementById('subject');
-    const reportBatch = document.getElementById('reportBatch');
-    const reportSemester = document.getElementById('reportSemester');
-    const reportSection = document.getElementById('reportSection');
-    const reportSubject = document.getElementById('reportSubject');
-    const reportTeacher = document.getElementById('reportTeacher');
-    const reportDiv = document.querySelector('.report');
-    const homeButton = document.querySelector('.report .stdBtn');
-
-    let selectedBatch = '';
-    let selectedSemester = '';
-
-    fetch('../json/teachers.json')
-        .then(response => response.json())
-        .then(data => {
-            const teacherSelect = document.getElementById('teacher');
-            data.forEach(teacher => {
-                const option = document.createElement('option');
-                option.value = teacher.id;
-                option.textContent = teacher.name;
-                teacherSelect.appendChild(option);
-            });
-        });
-
-    assignForm1.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        selectedBatch = formData.get('batch');
-        selectedSemester = formData.get('semester');
-
-        if (!selectedBatch || !selectedSemester) {
-            showWarningToast('Please select both batch and semester.');
-            return;
-        }
-
-        try {
-            const response = await fetch('../json/subjects.json');
-            const data = await response.json();
-
-            if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
-                const subjects = data[selectedBatch][selectedSemester];
-                subjectSelect.innerHTML = '';
-
-                subjects.forEach(subject => {
-                    const option = document.createElement('option');
-                    option.value = subject;
-                    option.textContent = subject;
-                    subjectSelect.appendChild(option);
-                });
-
-                assignForm1.style.display = 'none';
-                assignForm2.style.display = 'block';
-            } else {
-                showErrorToast('Subjects not found for the selected batch and semester.');
-            }
-        } catch (error) {
-            console.error('Error fetching subjects:', error);
-            showErrorToast('Error fetching subjects. Please try again later.');
-        }
-    });
-
-    assignForm2.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const section = formData.get('section');
-        const subject = formData.get('subject');
-        const teacherId = formData.get('teacher');
-
-        if (!section || !subject || !teacherId) {
-            showWarningToast('Please select section, subject, and teacher.');
-            return;
-        }
-
-        try {
-            const teacherSelect = document.getElementById('teacher');
-            const selectedTeacher = teacherSelect.querySelector(`option[value="${teacherId}"]`).textContent;
-
-            reportBatch.textContent = selectedBatch;
-            reportSemester.textContent = selectedSemester;
-            reportSection.textContent = section;
-            reportSubject.textContent = subject;
-            reportTeacher.textContent = selectedTeacher;
-
-            showSuccessToast('Successfully assigned teacher.');
-        } catch (error) {
-            console.error('Error assigning teacher:', error);
-            showErrorToast('Error assigning teacher. Please try again.');
-        }
-
-        reportDiv.style.display = 'block';
-        assignForm2.style.display = 'none';
-    });
-
-    homeButton.addEventListener('click', () => {
-        location.reload();
-    });
-
-    const cancelButton = document.querySelector('#assignForm2 button[type="reset"]');
-    cancelButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        assignForm1.style.display = 'block';
-        assignForm2.style.display = 'none';
-        assignForm1.reset();
-        assignForm2.reset();
-
-        reportDiv.style.display = 'none';
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const substituteForm1 = document.getElementById('substituteForm1');
-    const substituteForm2 = document.getElementById('substituteForm2');
-    const substituteSelectTeacher = document.getElementById('substitute-teacher');
-    const substituteSelectSubject = document.getElementById('substitute-subject');
-    const substituteReportBatch = document.getElementById('substitute-reportBatch');
-    const substituteReportSemester = document.getElementById('substitute-reportSemester');
-    const substituteReportSection = document.getElementById('substitute-reportSection');
-    const substituteReportSubject = document.getElementById('substitute-reportSubject');
-    const substituteReportTeacher = document.getElementById('substitute-reportTeacher');
-    const substituteReportDiv = document.querySelector('.substitute-report');
-    const substituteHomeButton = document.querySelector('.substitute-report .substituteBtn');
-
-    let selectedSubstituteBatch = '';
-    let selectedSubstituteSemester = '';
-
-    fetch('../json/teachers.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(teacher => {
-                const option = document.createElement('option');
-                option.value = teacher.id;
-                option.textContent = teacher.name;
-                substituteSelectTeacher.appendChild(option);
-            });
-        });
-
-    substituteForm1.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        selectedSubstituteBatch = formData.get('batch');
-        selectedSubstituteSemester = formData.get('semester');
-
-        if (!selectedSubstituteBatch || !selectedSubstituteSemester) {
-            showWarningToast('Please select both batch and semester.');
-            return;
-        }
-
-        try {
-            const response = await fetch('../json/subjects.json');
-            const data = await response.json();
-
-            if (data.hasOwnProperty(selectedSubstituteBatch) && data[selectedSubstituteBatch].hasOwnProperty(selectedSubstituteSemester)) {
-                const subjects = data[selectedSubstituteBatch][selectedSubstituteSemester];
-                substituteSelectSubject.innerHTML = '';
-
-                subjects.forEach(subject => {
-                    const option = document.createElement('option');
-                    option.value = subject;
-                    option.textContent = subject;
-                    substituteSelectSubject.appendChild(option);
-                });
-
-                substituteForm1.style.display = 'none';
-                substituteForm2.style.display = 'block';
-            } else {
-                showErrorToast('Subjects not found for the selected batch and semester.');
-            }
-        } catch (error) {
-            console.error('Error fetching subjects:', error);
-            showErrorToast('Error fetching subjects. Please try again later.');
-        }
-    });
-
-    substituteForm2.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const section = formData.get('section');
-        const subject = formData.get('subject');
-        const teacherId = formData.get('teacher');
-
-        if (!section || !subject || !teacherId) {
-            showWarningToast('Please select section, subject, and teacher.');
-            return;
-        }
-
-        try {
-            const teacherSelect = document.getElementById('substitute-teacher');
-            const selectedTeacher = teacherSelect.querySelector(`option[value="${teacherId}"]`).textContent;
-
-            substituteReportBatch.textContent = selectedSubstituteBatch;
-            substituteReportSemester.textContent = selectedSubstituteSemester;
-            substituteReportSection.textContent = section;
-            substituteReportSubject.textContent = subject;
-            substituteReportTeacher.textContent = selectedTeacher;
-
-            showSuccessToast('Successfully assigned substitute teacher.');
-        } catch (error) {
-            console.error('Error assigning substitute teacher:', error);
-            showErrorToast('Error assigning substitute teacher. Please try again.');
-        }
-
-        substituteReportDiv.style.display = 'block';
-        substituteForm2.style.display = 'none';
-    });
-
-    substituteHomeButton.addEventListener('click', () => {
-        location.reload();
-    });
-
-    const substituteCancelButton = document.querySelector('#substituteForm2 button[type="reset"]');
-    substituteCancelButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        substituteForm1.style.display = 'block';
-        substituteForm2.style.display = 'none';
-        substituteForm1.reset();
-        substituteForm2.reset();
-
-        substituteReportDiv.style.display = 'none';
-    });
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     const manageFacultyForm = document.getElementById('manageFacultyForm');
@@ -972,103 +944,5 @@ document.addEventListener('DOMContentLoaded', () => {
         removesubjectsForm2.style.display = 'none';
         removesubjectsForm1.reset();
         removesubjectsForm2.reset();
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const manageBatchForm = document.getElementById('managebatchForm');
-    const addBatchForm = document.getElementById('addBatchForm');
-    const removeBatchForm = document.getElementById('removeBatchForm');
-    const addBatchReport = document.querySelector('.batch-report-add');
-    const removeBatchReport = document.querySelector('.batch-report-remove');
-
-    const hideAllFormsAndReports = () => {
-        const formsAndReports = [manageBatchForm, addBatchForm, removeBatchForm, addBatchReport, removeBatchReport];
-        formsAndReports.forEach(element => {
-            element.style.display = 'none';
-        });
-    };
-
-    const showFormAndHideOthers = (formToShow) => {
-        hideAllFormsAndReports();
-        formToShow.style.display = 'block';
-    };
-
-    document.querySelector('.op[value="addBatch"]').addEventListener('click', (event) => {
-        event.preventDefault();
-        showFormAndHideOthers(addBatchForm);
-    });
-
-    document.querySelector('.op[value="removeBatch"]').addEventListener('click', (event) => {
-        event.preventDefault();
-        showFormAndHideOthers(removeBatchForm);
-
-        fetch('../json/batch.json')
-            .then(response => response.json())
-            .then(data => {
-                const batchSelect = document.getElementById('batchSelect');
-                batchSelect.innerHTML = '<option value="">Search</option>';
-                data.forEach(batch => {
-                    const option = document.createElement('option');
-                    option.value = batch.name; // Using batch name as value
-                    option.textContent = batch.name;
-                    batchSelect.appendChild(option);
-                });
-            })
-            .catch(error => console.error('Error fetching batch data:', error));
-    });
-
-    addBatchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const batchName = formData.get('batchName');
-
-        const isSuccess = true;
-
-        if (isSuccess) {
-            showSuccessToast('Successful Add Batch!');
-            document.getElementById('batch-report-add-batch').textContent = batchName;
-
-            showFormAndHideOthers(addBatchReport);
-        } else {
-            showErrorToast('Failed to Add Batch!');
-        }
-    });
-
-    removeBatchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const batchSelect = formData.get('teacherSelect');
-
-        const isSuccess = true;
-
-        if (isSuccess) {
-            showSuccessToast('Successful Remove Batch!');
-            document.getElementById('batch-report-add-remove').textContent = batchSelect;
-
-            showFormAndHideOthers(removeBatchReport);
-        } else {
-            showErrorToast('Failed to Remove Batch!');
-        }
-    });
-
-    document.querySelector('.batch-report-add button').addEventListener('click', () => {
-        location.reload();
-    });
-
-    document.querySelector('.batch-report-remove button').addEventListener('click', () => {
-        location.reload();
-    });
-
-    document.querySelector('#addBatchForm button[type="reset"]').addEventListener('click', (event) => {
-        event.preventDefault();
-        showFormAndHideOthers(manageBatchForm);
-        addBatchForm.reset();
-    });
-
-    document.querySelector('#removeBatchForm button[type="reset"]').addEventListener('click', (event) => {
-        event.preventDefault();
-        showFormAndHideOthers(manageBatchForm);
-        removeBatchForm.reset();
     });
 });

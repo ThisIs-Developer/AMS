@@ -1,0 +1,71 @@
+{
+    "students": [
+      {
+        "name": "Baivab Sarkar",
+        "roll_number": "123211003045",
+        "batch": "2021-2025",
+        "semester": "6",
+        "section": "A",
+        "subjects": [
+          { "subject": "HSMC 604 Economics for Engineers", "attendance": "10" },
+          { "subject": "PCC-CS601 Computer Networks", "attendance": "12" },
+          { "subject": "PCC-CS602 Software Engineering", "attendance": "8" },
+          { "subject": "PEC-CS-T-601 Microprocessor and Microcontroller", "attendance": "14" },
+          { "subject": "PEC-CS-S-601 Advanced Operating Systems", "attendance": "9" },
+          { "subject": "PEC-CS-D-601 Machine Learning", "attendance": "11" },
+          { "subject": "PEC-CS-A-601 Web and Internet Technology", "attendance": "13" },
+          { "subject": "PEC-CS-T-602 Parallel and Distributed Algorithms", "attendance": "7" },
+          { "subject": "PEC-CS-S-602 Embedded Systems", "attendance": "10" },
+          { "subject": "PEC-CS-D-602 Soft Computing", "attendance": "12" },
+          { "subject": "PEC-CS-A-602 Human Computer Interaction", "attendance": "8" },
+          { "subject": "OEC-CS-601A Introduction to Internet of Things", "attendance": "14" },
+          { "subject": "OEC-CS-601B Bio-informatics", "attendance": "9" },
+          { "subject": "OEC-CS-601C Robotics", "attendance": "11" },
+          { "subject": "PCC-CS691 Computer Networks Lab", "attendance": "13" },
+          { "subject": "PCC-CS692 Software Engineering Lab", "attendance": "8" },
+          { "subject": "PEC-CS-T-691 Microprocessor and Microcontroller Lab", "attendance": "12" },
+          { "subject": "PEC-CS-S-691 Advanced Operating Systems Lab", "attendance": "7" },
+          { "subject": "PEC-CS-D-691 Machine Learning Lab", "attendance": "10" },
+          { "subject": "PEC-CS-A-691 Web and Internet Technology Lab", "attendance": "14" },
+          { "subject": "PR 691 Minor Project II", "attendance": "9" },
+          { "subject": "PR 692 Skill Development VI: Soft Skill & Aptitude-III", "attendance": "11" },
+          { "subject": "MC 601 Intellectual Property Right", "attendance": "13" },
+          { "subject": "HM601 MOOCS COURSE-IV", "attendance": "8" }
+        ]
+      },
+      {
+        "name": "Debdutta Rudra",
+        "roll_number": "123211003053",
+        "batch": "2021-2025",
+        "semester": "6",
+        "section": "A",
+        "subjects": [
+          { "subject": "HSMC 604 Economics for Engineers", "attendance": "12" },
+          { "subject": "PCC-CS601 Computer Networks", "attendance": "8" },
+          { "subject": "PCC-CS602 Software Engineering", "attendance": "14" },
+          { "subject": "PEC-CS-T-601 Microprocessor and Microcontroller", "attendance": "9" },
+          { "subject": "PEC-CS-S-601 Advanced Operating Systems", "attendance": "11" },
+          { "subject": "PEC-CS-D-601 Machine Learning", "attendance": "13" },
+          { "subject": "PEC-CS-A-601 Web and Internet Technology", "attendance": "7" },
+          { "subject": "PEC-CS-T-602 Parallel and Distributed Algorithms", "attendance": "10" },
+          { "subject": "PEC-CS-S-602 Embedded Systems", "attendance": "12" },
+          { "subject": "PEC-CS-D-602 Soft Computing", "attendance": "8" },
+          { "subject": "PEC-CS-A-602 Human Computer Interaction", "attendance": "14" },
+          { "subject": "OEC-CS-601A Introduction to Internet of Things", "attendance": "9" },
+          { "subject": "OEC-CS-601B Bio-informatics", "attendance": "11" },
+          { "subject": "OEC-CS-601C Robotics", "attendance": "13" },
+          { "subject": "PCC-CS691 Computer Networks Lab", "attendance": "7" },
+          { "subject": "PCC-CS692 Software Engineering Lab", "attendance": "10" },
+          { "subject": "PEC-CS-T-691 Microprocessor and Microcontroller Lab", "attendance": "12" },
+          { "subject": "PEC-CS-S-691 Advanced Operating Systems Lab", "attendance": "9" },
+          { "subject": "PEC-CS-D-691 Machine Learning Lab", "attendance": "11" },
+          { "subject": "PEC-CS-A-691 Web and Internet Technology Lab", "attendance": "13" },
+          { "subject": "PR 691 Minor Project II", "attendance": "10" },
+          { "subject": "PR 692 Skill Development VI: Soft Skill & Aptitude-III", "attendance": "14" },
+          { "subject": "MC 601 Intellectual Property Right", "attendance": "9" },
+          { "subject": "HM601 MOOCS COURSE-IV", "attendance": "11" }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,143 @@
+{
+  "2020-2024": {
+      "1": {
+          "A": [
+              {
+                  "student_name": "Baivab Sarkar",
+                  "roll_number": "123211003045",
+                  "attendance": "12"
+              },
+              {
+                  "student_name": "Debdutta Rudra",
+                  "roll_number": "123211003053",
+                  "attendance": "10"
+              }
+          ],
+          "B": [
+              {
+                  "student_name": "Sneha Sharma",
+                  "roll_number": "123211003048",
+                  "attendance": "13"
+              },
+              {
+                  "student_name": "Avinash Kumar",
+                  "roll_number": "123211003049",
+                  "attendance": "9"
+              },
+              {
+                  "student_name": "Riya Gupta",
+                  "roll_number": "123211003050",
+                  "attendance": "12"
+              }
+          ]
+      },
+      "2": {
+          "A": [
+              {
+                  "student_name": "Kunal Roy",
+                  "roll_number": "123211003051",
+                  "attendance": "11"
+              },
+              {
+                  "student_name": "Sudipta Das",
+                  "roll_number": "123211003052",
+                  "attendance": "9"
+              },
+              {
+                  "student_name": "Priya Singh",
+                  "roll_number": "123211003053",
+                  "attendance": "10"
+              }
+          ],
+          "B": [
+              {
+                  "student_name": "Rajesh Kumar",
+                  "roll_number": "123211003054",
+                  "attendance": "14"
+              },
+              {
+                  "student_name": "Mukesh Singh",
+                  "roll_number": "123211003055",
+                  "attendance": "8"
+              },
+              {
+                  "student_name": "Arpita Das",
+                  "roll_number": "123211003056",
+                  "attendance": "11"
+              }
+          ]
+      },
+      "3": {
+          "A": [
+              {
+                  "student_name": "Ankur Sharma",
+                  "roll_number": "123211003057",
+                  "attendance": "9"
+              },
+              {
+                  "student_name": "Divya Singh",
+                  "roll_number": "123211003058",
+                  "attendance": "11"
+              },
+              {
+                  "student_name": "Alok Kumar",
+                  "roll_number": "123211003059",
+                  "attendance": "13"
+              }
+          ],
+          "B": [
+              {
+                  "student_name": "Varun Singh",
+                  "roll_number": "123211003060",
+                  "attendance": "10"
+              },
+              {
+                  "student_name": "Sujit Kumar",
+                  "roll_number": "123211003061",
+                  "attendance": "12"
+              },
+              {
+                  "student_name": "Kirti Gupta",
+                  "roll_number": "123211003062",
+                  "attendance": "8"
+              }
+          ]
+      },
+      "4": {
+          "A": [
+              {
+                  "student_name": "Shubham Sharma",
+                  "roll_number": "123211003063",
+                  "attendance": "12"
+              },
+              {
+                  "student_name": "Rajesh Singh",
+                  "roll_number": "123211003064",
+                  "attendance": "10"
+              },
+              {
+                  "student_name": "Priyanka Das",
+                  "roll_number": "123211003065",
+                  "attendance": "11"
+              }
+          ],
+          "B": [
+              {
+                  "student_name": "Ajay Kumar",
+                  "roll_number": "123211003066",
+                  "attendance": "13"
+              },
+              {
+                  "student_name": "Neha Gupta",
+                  "roll_number": "123211003067",
+                  "attendance": "9"
+              },
+              {
+                  "student_name": "Aman Singh",
+                  "roll_number": "123211003068",
+                  "attendance": "12"
+              }
+          ]
+      }
+  }
+}
