@@ -181,6 +181,132 @@ function formatTimeAgo(days, hours) {
     }
 }
 
+const showSuccessToast = (message) => {
+    const toastContent = document.createElement('div');
+    toastContent.classList.add('toast-content');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-check-circle', 'toast-icon');
+    icon.style.paddingLeft = '10px';
+    toastContent.appendChild(icon);
+
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+    toastContent.appendChild(messageElement);
+
+    const toast = Toastify({
+        node: toastContent,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: 'green',
+        progressBar: true,
+        style: {
+            padding: '20px 2px',
+            borderRadius: '8px',
+        }
+    });
+
+    const setToastWidth = () => {
+        const messageWidth = message.length * 10;
+        toast.options.style.maxWidth = `${messageWidth}px`;
+
+        if (window.innerWidth <= 768) {
+            toast.options.style.margin = '0 15px';
+        }
+    };
+
+    setToastWidth();
+
+    window.addEventListener('resize', setToastWidth);
+
+    toast.showToast();
+};
+
+const showErrorToast = (message) => {
+    const toastContent = document.createElement('div');
+    toastContent.classList.add('toast-content');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-exclamation-circle', 'toast-icon');
+    icon.style.paddingLeft = '10px';
+    toastContent.appendChild(icon);
+
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+    toastContent.appendChild(messageElement);
+
+    const toast = Toastify({
+        node: toastContent,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: 'red',
+        progressBar: true,
+        style: {
+            padding: '20px 2px',
+            borderRadius: '8px',
+        }
+    });
+
+    const setToastWidth = () => {
+        const messageWidth = message.length * 10;
+        toast.options.style.maxWidth = `${messageWidth}px`;
+
+        if (window.innerWidth <= 768) {
+            toast.options.style.margin = '0 15px';
+        }
+    };
+
+    setToastWidth();
+
+    window.addEventListener('resize', setToastWidth);
+
+    toast.showToast();
+};
+
+const showWarningToast = (message) => {
+    const toastContent = document.createElement('div');
+    toastContent.classList.add('toast-content');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-exclamation-triangle', 'toast-icon');
+    icon.style.paddingLeft = '10px';
+    toastContent.appendChild(icon);
+
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+    toastContent.appendChild(messageElement);
+
+    const toast = Toastify({
+        node: toastContent,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: '#f1a90f',
+        progressBar: true,
+        style: {
+            padding: '20px 2px',
+            borderRadius: '8px',
+        }
+    });
+
+    const setToastWidth = () => {
+        const messageWidth = message.length * 10;
+        toast.options.style.maxWidth = `${messageWidth}px`;
+
+        if (window.innerWidth <= 768) {
+            toast.options.style.margin = '0 15px';
+        }
+    };
+
+    setToastWidth();
+
+    window.addEventListener('resize', setToastWidth);
+
+    toast.showToast();
+};
+
 document.getElementById('rollNumber').addEventListener('input', function() {
     var rollNumberInput = this.value;
     var warningMessage = document.getElementById('warningMessage');
@@ -388,131 +514,186 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const showSuccessToast = (message) => {
-    const toastContent = document.createElement('div');
-    toastContent.classList.add('toast-content');
+document.addEventListener('DOMContentLoaded', () => {
+    const routinForm = document.getElementById('routinForm');
+    const newRoutinForm1 = document.getElementById('newRoutinForm1');
+    const newRoutinForm2 = document.getElementById('newRoutinForm2');
 
-    const icon = document.createElement('i');
-    icon.classList.add('fas', 'fa-check-circle', 'toast-icon');
-    icon.style.paddingLeft = '10px';
-    toastContent.appendChild(icon);
+    const teacherSelect = document.getElementById('teacher');
+    const subjectSelect = document.getElementById('subject');
+    const startTimeSelect = document.getElementById('startTime');
+    const endTimeSelect = document.getElementById('endTime');
+    const roomNoInput = document.getElementById('roomNo');
 
-    const messageElement = document.createElement('span');
-    messageElement.textContent = message;
-    toastContent.appendChild(messageElement);
+    const reportDiv = document.querySelector('.new-routin-report');
 
-    const toast = Toastify({
-        node: toastContent,
-        duration: 3000,
-        gravity: 'top',
-        position: 'center',
-        backgroundColor: 'green',
-        progressBar: true,
-        style: {
-            padding: '20px 2px',
-            borderRadius: '8px',
+    const homeButton = document.querySelector('.new-routin-report .routinBtn');
+    const cancelButtons = document.querySelectorAll('.routinBtn[type="reset"]');
+
+    const showForm = (formToShow, formToHide) => {
+        formToShow.style.display = 'block';
+        formToHide.style.display = 'none';
+    };
+
+    routinForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const action = event.submitter.value;
+
+        if (action === 'newRoutin') {
+            showForm(newRoutinForm1, routinForm);
+        } else if (action === 'updateRoutin') {
+            // Code for updateRoutin action
+        } else if (action === 'searchRoutin') {
+            // Code for searchRoutin action
         }
     });
 
-    const setToastWidth = () => {
-        const messageWidth = message.length * 10;
-        toast.options.style.maxWidth = `${messageWidth}px`;
+    fetch('../json/teachers.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(teacher => {
+                const option = document.createElement('option');
+                option.value = teacher.id;
+                option.textContent = teacher.name;
+                option.dataset.teacherId = teacher.id;
+                option.dataset.teacherName = teacher.name;
+                teacherSelect.appendChild(option);
+            });
+        });
 
-        if (window.innerWidth <= 768) {
-            toast.options.style.margin = '0 15px';
+    fetch('../json/routin.json')
+        .then(response => response.json())
+        .then(data => {
+            data.start_time.forEach(time => {
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                startTimeSelect.appendChild(option);
+            });
+
+            data.end_time.forEach(time => {
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                endTimeSelect.appendChild(option);
+            });
+
+            data.room_no.forEach(room => {
+                const option = document.createElement('option');
+                option.value = room;
+                option.textContent = room;
+                roomNoInput.appendChild(option);
+            });
+        });
+
+    newRoutinForm1.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedBatch = formData.get('batch');
+        const selectedSemester = formData.get('semester');
+        const selectedSection = formData.get('section');
+
+        if (!selectedBatch || !selectedSemester || !selectedSection) {
+            showWarningToast('Please select batch, semester, and section.');
+            return;
         }
-    };
 
-    setToastWidth();
+        try {
+            const response = await fetch('../json/subjects.json');
+            const data = await response.json();
 
-    window.addEventListener('resize', setToastWidth);
+            if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
+                const subjects = data[selectedBatch][selectedSemester];
+                subjectSelect.innerHTML = '';
 
-    toast.showToast();
-};
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
 
-const showErrorToast = (message) => {
-    const toastContent = document.createElement('div');
-    toastContent.classList.add('toast-content');
+                const reportBatch = document.getElementById('new-routin-report-batch');
+                const reportSemester = document.getElementById('new-routin-report-semester');
+                const reportSection = document.getElementById('new-routin-report-section');
 
-    const icon = document.createElement('i');
-    icon.classList.add('fas', 'fa-exclamation-circle', 'toast-icon');
-    icon.style.paddingLeft = '10px';
-    toastContent.appendChild(icon);
+                reportBatch.textContent = selectedBatch;
+                reportSemester.textContent = selectedSemester;
+                reportSection.textContent = selectedSection;
 
-    const messageElement = document.createElement('span');
-    messageElement.textContent = message;
-    toastContent.appendChild(messageElement);
-
-    const toast = Toastify({
-        node: toastContent,
-        duration: 3000,
-        gravity: 'top',
-        position: 'center',
-        backgroundColor: 'red',
-        progressBar: true,
-        style: {
-            padding: '20px 2px',
-            borderRadius: '8px',
+                newRoutinForm1.style.display = 'none';
+                newRoutinForm2.style.display = 'block';
+            } else {
+                showErrorToast('Subjects not found for the selected batch and semester.');
+            }
+        } catch (error) {
+            console.error('Error fetching subjects:', error);
+            showErrorToast('Error fetching subjects. Please try again later.');
         }
     });
 
-    const setToastWidth = () => {
-        const messageWidth = message.length * 10;
-        toast.options.style.maxWidth = `${messageWidth}px`;
+    newRoutinForm2.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedDay = formData.get('day');
+        const selectedSubject = formData.get('subject');
+        const selectedTeacherId = formData.get('teacher');
+        const selectedStartTime = formData.get('startTime');
+        const selectedEndTime = formData.get('endTime');
+        const selectedRoomNo = formData.get('roomNo');
 
-        if (window.innerWidth <= 768) {
-            toast.options.style.margin = '0 15px';
+        if (!selectedDay || !selectedSubject || !selectedTeacherId || !selectedStartTime || !selectedEndTime || !selectedRoomNo) {
+            showWarningToast('Please fill in all fields.');
+            return;
         }
-    };
 
-    setToastWidth();
+        if (selectedEndTime <= selectedStartTime) {
+            showWarningToast('End time must be greater than start time.');
+            return;
+        }
 
-    window.addEventListener('resize', setToastWidth);
+        try {
+            const selectedTeacherOption = document.querySelector(`#teacher [value="${selectedTeacherId}"]`);
+            const selectedTeacherName = selectedTeacherOption.dataset.teacherName;
 
-    toast.showToast();
-};
+            const reportDay = document.getElementById('new-routin-report-day');
+            const reportSubject = document.getElementById('new-routin-report-subject');
+            const reportTeacher = document.getElementById('new-routin-report-teacher');
+            const reportStartTime = document.getElementById('new-routin-report-startTime');
+            const reportEndTime = document.getElementById('new-routin-report-endTime');
+            const reportRoomNo = document.getElementById('new-routin-report-roomNo');
 
-const showWarningToast = (message) => {
-    const toastContent = document.createElement('div');
-    toastContent.classList.add('toast-content');
+            reportDay.textContent = selectedDay;
+            reportSubject.textContent = selectedSubject;
+            reportTeacher.textContent = selectedTeacherName;
+            reportStartTime.textContent = selectedStartTime;
+            reportEndTime.textContent = selectedEndTime;
+            reportRoomNo.textContent = selectedRoomNo;
 
-    const icon = document.createElement('i');
-    icon.classList.add('fas', 'fa-exclamation-triangle', 'toast-icon');
-    icon.style.paddingLeft = '10px';
-    toastContent.appendChild(icon);
-
-    const messageElement = document.createElement('span');
-    messageElement.textContent = message;
-    toastContent.appendChild(messageElement);
-
-    const toast = Toastify({
-        node: toastContent,
-        duration: 3000,
-        gravity: 'top',
-        position: 'center',
-        backgroundColor: '#f1a90f',
-        progressBar: true,
-        style: {
-            padding: '20px 2px',
-            borderRadius: '8px',
+            newRoutinForm2.style.display = 'none';
+            reportDiv.style.display = 'block';
+        } catch (error) {
+            console.error('Error processing New Routin:', error);
+            showErrorToast('Error processing New Routin. Please try again.');
         }
     });
 
-    const setToastWidth = () => {
-        const messageWidth = message.length * 10;
-        toast.options.style.maxWidth = `${messageWidth}px`;
+    cancelButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            routinForm.style.display = 'block';
+            newRoutinForm1.style.display = 'none';
+            newRoutinForm2.style.display = 'none';
 
-        if (window.innerWidth <= 768) {
-            toast.options.style.margin = '0 15px';
-        }
-    };
+            newRoutinForm1.reset();
+            newRoutinForm2.reset();
+        });
+    });
 
-    setToastWidth();
-
-    window.addEventListener('resize', setToastWidth);
-
-    toast.showToast();
-};
+    homeButton.addEventListener('click', () => {
+        location.reload();
+    });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const manageFacultyForm = document.getElementById('manageFacultyForm');
@@ -646,74 +827,6 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         showFormAndHideOthers(manageFacultyForm);
         removeFacultyForm.reset();
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const classForm = document.getElementById('classForm');
-    const classReport = document.querySelector('.class-report');
-    const tableBody = document.getElementById('tableBody');
-    const classBatchSpan = document.getElementById('classBatch-report');
-    const classSemesterSpan = document.getElementById('classSemes-reportter');
-    const classSectionSpan = document.getElementById('classSecti-reporton');
-
-    classReport.style.display = 'none';
-
-    classForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const selectedBatch = formData.get('batch');
-        const selectedSemester = formData.get('semester');
-        const selectedSection = formData.get('section');
-
-        if (!selectedBatch || !selectedSemester || !selectedSection) {
-            showWarningToast('Please enter batch, semester, and section.');
-            return;
-        }
-
-        try {
-            const response = await fetch('../json/class.json');
-            const data = await response.json();
-
-            if (data[selectedBatch] && data[selectedBatch][selectedSemester] && data[selectedBatch][selectedSemester][selectedSection]) {
-                const classDetails = data[selectedBatch][selectedSemester][selectedSection];
-                tableBody.innerHTML = '';
-
-                classBatchSpan.textContent = selectedBatch;
-                classSemesterSpan.textContent = selectedSemester;
-                classSectionSpan.textContent = selectedSection;
-
-                classDetails.forEach(detail => {
-                    const row = document.createElement('tr');
-                    const courseNameCell = document.createElement('td');
-                    courseNameCell.textContent = detail.course_name;
-                    row.appendChild(courseNameCell);
-
-                    const totalClassesCell = document.createElement('td');
-                    totalClassesCell.textContent = detail.total_classes;
-                    row.appendChild(totalClassesCell);
-
-                    const teacherNameCell = document.createElement('td');
-                    teacherNameCell.textContent = detail.teacher_name;
-                    row.appendChild(teacherNameCell);
-
-                    tableBody.appendChild(row);
-                });
-
-                classReport.style.display = 'block';
-                classForm.style.display = 'none';
-            } else {
-                showErrorToast('Class details not found for the selected batch, semester, or section.');
-            }
-        } catch (error) {
-            console.error('Error fetching class data:', error);
-            showErrorToast('Error fetching class details. Please try again later.');
-        }
-    });
-
-    const homeButton = document.querySelector('.class-report .stdBtn');
-    homeButton.addEventListener('click', () => {
-        location.reload();
     });
 });
 
