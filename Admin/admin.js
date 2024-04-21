@@ -672,6 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             newRoutinForm2.style.display = 'none';
             reportDiv.style.display = 'block';
+            showSuccessToast('New Routin added successfully!');
         } catch (error) {
             console.error('Error processing New Routin:', error);
             showErrorToast('Error processing New Routin. Please try again.');
