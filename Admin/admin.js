@@ -11,29 +11,12 @@ closeBtn.addEventListener('click', () => {
     sideMenu.style.display = 'none';
 });
 
-const body = document.body;
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    body.classList.add(savedTheme);
-    updateThemeToggler(savedTheme);
-}
-
 themeToggler.addEventListener('click', () => {
-    const currentTheme = body.classList.contains('dark-theme-variables') ? 'light-theme-variables' : 'dark-theme-variables';
-    body.classList.toggle('dark-theme-variables');
-    body.classList.toggle('light-theme-variables');
+    document.body.classList.toggle('dark-theme-variables');
 
-    localStorage.setItem('theme', currentTheme);
-    updateThemeToggler(currentTheme);
+    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
 });
-
-function updateThemeToggler(theme) {
-    const activeSpan = theme === 'dark-theme-variables' ? themeToggler.querySelector('span:nth-child(2)') : themeToggler.querySelector('span:nth-child(1)');
-    const inactiveSpan = theme === 'dark-theme-variables' ? themeToggler.querySelector('span:nth-child(1)') : themeToggler.querySelector('span:nth-child(2)');
-    
-    activeSpan.classList.add('active');
-    inactiveSpan.classList.remove('active');
-}
 
 const daysTag = document.querySelector(".days"),
     currentDate = document.querySelector(".current-date"),
@@ -180,6 +163,17 @@ function formatTimeAgo(days, hours) {
         return 'Just now';
     }
 }
+
+document.getElementById('rollNumber').addEventListener('input', function() {
+    var rollNumberInput = this.value;
+    var warningMessage = document.getElementById('warningMessage');
+
+    if (/[a-zA-Z]/.test(rollNumberInput) || /[^a-zA-Z0-9]/.test(rollNumberInput)) {
+        warningMessage.style.display = 'inline';
+    } else {
+        warningMessage.style.display = 'none';
+    }
+});
 
 const showSuccessToast = (message) => {
     const toastContent = document.createElement('div');
