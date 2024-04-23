@@ -8,11 +8,9 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="admin.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script> 
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <div class="container">
@@ -35,17 +33,17 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="#" id="student-details-menu">
+                <a href="#" id="manage-attendance-menu">
                     <span class="material-symbols-outlined">
-                        school
+                        inventory
                     </span>
-                    <h3>Student Details</h3>
+                    <h3>Attendance</h3>
                 </a>
-                <a href="#" id="class-details-menu">
+                <a href="#" id="manage-routin-menu">
                     <span class="material-symbols-outlined">
-                        cast_for_education
+                        pending_actions
                     </span>
-                    <h3>Class Details</h3>
+                    <h3>Manage Routin</h3>
                 </a>
                 <a href="#" id="manage-faculty-menu">
                     <span class="material-symbols-outlined">
@@ -53,29 +51,17 @@
                     </span>
                     <h3>Manage Faculty</h3>
                 </a>
-                <a href="#" id="assign-faculty-menu">
+                <a href="#" id="manage-student-menu">
                     <span class="material-symbols-outlined">
-                        person_add
+                        badge
                     </span>
-                    <h3>Assign Faculty</h3>
-                </a>
-                <a href="#" id="substitute-faculty-menu">
-                    <span class="material-symbols-outlined">
-                        person_alert
-                    </span>
-                    <h3>Substitute Faculty</h3>
+                    <h3>Manage Student</h3>
                 </a>
                 <a href="#" id="manage-subjects-menu">
                     <span class="material-symbols-outlined">
                         book
                     </span>
                     <h3>Manage Subjects</h3>
-                </a>
-                <a href="#" id="manage-batch-menu">
-                    <span class="material-symbols-outlined">
-                        format_list_bulleted
-                    </span>
-                    <h3>Manage Batch</h3>
                 </a>
                 <a href="../Logout/logout.html" id="logout-link">
                     <span class="material-symbols-outlined">
@@ -156,10 +142,18 @@
                     </div>
                 </div>
             </div>
-            <div id="student-details-content" class="content">
-                <h1>Student Details</h1>
-                <div class="stud">
-                    <form id="rollNumberForm" action="/submit" method="post">
+            <div id="manage-attendance-content" class="content">
+                <h1>Attendance</h1>
+                <div class="attendance">
+                    <form id="attendanceForm" action="/submit" method="post">
+                        <div class="attendance-from">
+                            <label class="second-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="studentAttendance" class="attendanceBtn widthBtn">Student Attendance</button>
+                        <button type="submit" name="action" value="classAttendance" class="attendanceBtn widthBtn">Class Attendance</button>
+                        <button type="submit" name="action" value="subjectsAttendance" class="attendanceBtn widthBtn">Subjects Attendance</button>
+                    </form>
+                    <form id="studentAttendanceForm" action="/submit" method="post" style="display: none;">
                         <div class="roll">
                             <label for="rollNumber">Enter Roll Number: </label>
                             <input type="text" id="rollNumber" name="rollNumber" placeholder="Search" minlength="12" maxlength="12" required>
@@ -167,15 +161,11 @@
                             <br>
                             <small class="text-muted">*Check before submit</small>
                         </div>
-                        <button type="submit" class="stdBtn">Submit</button>
+                        <button type="submit" class="attendanceBtn">Submit</button>
+                        <button type="reset" class="attendanceBtn" style="background-color: #dc3545;">Cancel</button>
                     </form>
-                </div>
-            </div>
-            <div id="class-details-content" class="content">
-                <h1>Class Details</h1>
-                <div class="class">
-                    <form id="classForm" action="/submit" method="post">
-                        <div class="class-view">
+                    <form id="classAttendanceForm" action="/submit" method="post" style="display: none;">
+                        <div class="class-attendance-from">
                             <label for="batch">Select Batch:</label>
                             <select id="batch" name="batch">
                                 <option value="">Search</option>
@@ -210,31 +200,109 @@
                             <br>
                             <small class="text-muted">*Check before submit</small>
                         </div>
-                        <button type="submit" class="stdBtn">Submit</button>
+                        <button type="submit" class="attendanceBtn">Submit</button>
+                        <button type="reset" class="attendanceBtn" style="background-color: #dc3545;">Cancel</button>
                     </form>
-                    <div class="class-report">
-                        <p>Class Details</p>
+                    <form id="subjectsAttendanceForm" action="/submit" method="post" style="display: none;">
+                        <div class="subjects-attendance-from">
+                            <label for="batch">Select Batch:</label>
+                            <select id="batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+                
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                
+                            <label for="section">Select Section:</label>
+                            <select id="section" name="section">
+                                <option value="">Search</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="attendanceBtn">Submit</button>
+                        <button type="reset" class="attendanceBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <div class="student-attendance-report" style="display: none;">
+                        <p>Student Attendance</p>
                         <div>
-                            <label for="classBatch-report">Batch:</label>
-                            <span id="classBatch-report"></span>
+                            <label for="student-attendance-report-name">Name:</label>
+                            <span id="student-attendance-report-name"></span>
                         </div>
                         <div>
-                            <label for="classSemes-reportter">Semester:</label>
-                            <span id="classSemes-reportter"></span>
+                            <label for="student-attendance-report-roll">Roll Number:</label>
+                            <span id="student-attendance-report-roll"></span>
                         </div>
                         <div>
-                            <label for="classSecti-reporton">Section:</label>
-                            <span id="classSecti-reporton"></span>
+                            <label for="student-attendance-report-batch">Batch:</label>
+                            <span id="student-attendance-report-batch"></span>
                         </div>
-                        <table id="classTable">
+                        <div>
+                            <label for="student-attendance-report-semester">Semester:</label>
+                            <span id="student-attendance-report-semester"></span>
+                        </div>
+                        <div>
+                            <label for="student-attendance-report-section">Section:</label>
+                            <span id="student-attendance-report-section"></span>
+                        </div>
+                        <table id="attendanceTable">
                             <thead>
                                 <tr>
-                                    <th>Course Name</th>
-                                    <th>Total Classes</th>
-                                    <th>Teacher Name</th>
+                                    <th>Subjects</th>
+                                    <th>Attendance</th>
                                 </tr>
                             </thead>
-                            <tbody id="tableBody">
+                            <tbody id="student-attendance-tableBody">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="attendanceBtn">Home</button>
+                    </div>
+                    <div class="class-attendance-report" style="display: none;">
+                        <p>Class Attendance</p>
+                        <div>
+                            <label for="class-attendance-report-batch">Batch:</label>
+                            <span id="class-attendance-report-batch"></span>
+                        </div>
+                        <div>
+                            <label for="class-attendance-report-semester">Semester:</label>
+                            <span id="class-attendance-report-semester"></span>
+                        </div>
+                        <div>
+                            <label for="class-attendance-report-section">Section:</label>
+                            <span id="class-attendance-report-section"></span>
+                        </div>
+                        <table id="classAttendanceTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Roll Number</th>
+                                    <th>Attendance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="class-attendance-tableBody">
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -242,7 +310,176 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" class="stdBtn">Home</button>
+                        <button type="button" class="attendanceBtn">Home</button>
+                    </div>
+                    <div class="subjects-attendance-report" style="display: none;">
+                        <p>Subjects Attendance</p>
+                        <div>
+                            <label for="subjects-attendance-report-batch">Batch:</label>
+                            <span id="subjects-attendance-report-batch"></span>
+                        </div>
+                        <div>
+                            <label for="subjects-attendance-report-semester">Semester:</label>
+                            <span id="subjects-attendance-report-semester"></span>
+                        </div>
+                        <div>
+                            <label for="subjects-attendance-report-section">Section:</label>
+                            <span id="subjects-attendance-report-section"></span>
+                        </div>
+                        <table id="subjectsAttendanceTable">
+                            <thead>
+                                <tr>
+                                    <th>Subjects</th>
+                                    <th>Attendance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subjects-attendance-tableBody">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="attendanceBtn">Home</button>
+                    </div>
+                </div>
+            </div>
+            <div id="manage-routin-content" class="content">
+                <h1>Manage Routin</h1>
+                <div class="routin">
+                    <form id="routinForm" action="/submit" method="post">
+                        <div class="manage-routin-from">
+                            <label class="first-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="newRoutin" class="routinBtn widthBtn">New Routin</button>
+                        <button type="submit" name="action" value="updateRoutin" class="routinBtn widthBtn">Update Routin</button>
+                        <button type="submit" name="action" value="searchRoutin" class="routinBtn widthBtn">Search</button>
+                    </form>
+                    <form id="newRoutinForm1" action="/submit" method="post" style="display: none;">
+                        <div class="new-routin-from">
+                            <label for="batch">Select Batch:</label>
+                            <select id="batch" name="batch">
+                                <option value="">Search</option>
+                                <option value="2020-2024">2020 - 2024</option>
+                                <option value="2021-2025">2021 - 2025</option>
+                                <option value="2022-2026">2022 - 2026</option>
+                                <option value="2023-2027">2023 - 2027</option>
+                                <option value="2024-2028">2024 - 2028</option>
+                            </select>
+                
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester" name="semester">
+                                <option value="">Search</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                
+                            <label for="section">Select Section:</label>
+                            <select id="section" name="section">
+                                <option value="">Search</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="routinBtn">Submit</button>
+                        <button type="reset" class="routinBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <form id="newRoutinForm2" action="/submit" method="post" style="display: none;">
+                        <div class="new-routin-from">
+                            <label for="day">Select Day:</label>
+                            <select id="day" name="day">
+                                <option value="">Search</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                            </select>
+                
+                            <label for="subject">Select Subject:</label>
+                            <select id="subject" name="subject">
+                                <option value="">Search</option>
+                            </select>
+                
+                            <label for="teacher">Select Teacher:</label>
+                            <select id="teacher" name="teacher">
+                                <option value="">Search</option>
+                            </select>
+                
+                            <div>
+                                <label for="startTime">Start Time:</label>
+                                <select id="startTime" name="startTime">
+                                    <option value="">Search</option>
+                                </select>
+                            </div>
+                
+                            <div>
+                                <label for="endTime">End Time:</label>
+                                <select id="endTime" name="endTime">
+                                    <option value="">Search</option>
+                                </select>
+                            </div>
+                
+                            <label for="roomNo">Room No:</label>
+                            <select id="roomNo" name="roomNo">
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="routinBtn">Submit</button>
+                        <button type="reset" class="routinBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <div class="new-routin-report" style="display: none;">
+                        <p>Routin Details</p>
+                        <div>
+                            <label for="new-routin-report-batch">Batch:</label>
+                            <span id="new-routin-report-batch"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-semester">Semester:</label>
+                            <span id="new-routin-report-semester"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-section">Section:</label>
+                            <span id="new-routin-report-section"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-day">Day:</label>
+                            <span id="new-routin-report-day"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-subject">Subject:</label>
+                            <span id="new-routin-report-subject"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-teacher">Teacher:</label>
+                            <span id="new-routin-report-teacher"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-startTime">Start Time:</label>
+                            <span id="new-routin-report-startTime"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-endTime">End Time:</label>
+                            <span id="new-routin-report-endTime"></span>
+                        </div>
+                        <div>
+                            <label for="new-routin-report-roomNo">Room No:</label>
+                            <span id="new-routin-report-roomNo"></span>
+                        </div>
+                        <button type="button" class="routinBtn">Home</button>
                     </div>
                 </div>
             </div>
@@ -253,8 +490,8 @@
                         <div class="manage-from">
                             <label class="first-op">Select Operation:</label>
                         </div>
-                        <button type="submit" name="action" value="addFaculty" class="stdBtn op">Add Faculty</button>
-                        <button type="submit" name="action" value="removeFaculty" class="stdBtn op" style="background-color: #dc3545;">Remove Faculty</button>
+                        <button type="submit" name="action" value="addFaculty" class="stdBtn op widthBtn">Add Faculty</button>
+                        <button type="submit" name="action" value="removeFaculty" class="stdBtn op widthBtn" style="background-color: #dc3545;">Remove Faculty</button>
                     </form>
                     <form id="addFacultyForm" action="/submit" method="post" style="display: none;">
                         <div class="manage-from">
@@ -307,8 +544,8 @@
                     </div>
                 </div>
             </div>
-            <div id="assign-faculty-content" class="content">
-                <h1>Assign Faculty</h1>
+            <div id="manage-student-content" class="content">
+                <h1>Manage Student</h1>
                 <div class="assign">
                     <form id="assignForm1" action="/submit" method="post">
                         <div class="assign-view1">
@@ -391,90 +628,6 @@
                     </div>
                 </div>
             </div>
-            <div id="substitute-faculty-content" class="content">
-                <h1>Substitute Faculty</h1>
-                <div class="subsitute">
-                    <form id="substituteForm1" action="/submit" method="post">
-                        <div class="substitute-view1">
-                            <label for="substitute-batch">Select Batch:</label>
-                            <select id="substitute-batch" name="batch">
-                                <option value="">Search</option>
-                                <option value="2020-2024">2020 - 2024</option>
-                                <option value="2021-2025">2021 - 2025</option>
-                                <option value="2022-2026">2022 - 2026</option>
-                                <option value="2023-2027">2023 - 2027</option>
-                                <option value="2024-2028">2024 - 2028</option>
-                            </select>
-            
-                            <label for="substitute-semester">Select Semester:</label>
-                            <select id="substitute-semester" name="semester">
-                                <option value="">Search</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                            </select>
-                            <br>
-                            <small class="text-muted">*Check before submit</small>
-                        </div>
-                        <button type="submit" class="substituteBtn">Submit</button>
-                    </form>
-                    <form id="substituteForm2" action="/submit" method="post" style="display: none;">
-                        <div class="substitute-view2">
-                            <label for="substitute-section">Select Section:</label>
-                            <select id="substitute-section" name="section">
-                                <option value="">Search</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                            </select>
-            
-                            <label for="substitute-subject">Select Subject:</label>
-                            <select id="substitute-subject" name="subject">
-                                <option value="">Search</option>
-                            </select>
-            
-                            <label for="substitute-teacher">Select Teacher:</label>
-                            <select id="substitute-teacher" name="teacher">
-                                <option value="">Search</option>
-                            </select>
-                            <br>
-                            <small class="text-muted">*Check before submit</small>
-                        </div>
-                        <button type="submit" class="substituteBtn">Submit</button>
-                        <button type="reset" class="substituteBtn" style="background-color: #dc3545;">Cancel</button>
-                    </form>
-                    <div class="substitute-report" style="display: none;">
-                        <p>Substitute Details</p>
-                        <div>
-                            <label for="substitute-reportBatch">Batch:</label>
-                            <span id="substitute-reportBatch"></span>
-                        </div>
-                        <div>
-                            <label for="substitute-reportSemester">Semester:</label>
-                            <span id="substitute-reportSemester"></span>
-                        </div>
-                        <div>
-                            <label for="substitute-reportSection">Section:</label>
-                            <span id="substitute-reportSection"></span>
-                        </div>
-                        <div>
-                            <label for="substitute-reportSubject">Subject:</label>
-                            <span id="substitute-reportSubject"></span>
-                        </div>
-                        <div>
-                            <label for="substitute-reportTeacher">Teacher:</label>
-                            <span id="substitute-reportTeacher"></span>
-                        </div>
-                        <button type="button" class="substituteBtn">Home</button>
-                    </div>
-                </div>
-            </div>
             <div id="manage-subjects-content" class="content">
                 <h1>Manage Subjects</h1>
                 <div class="managesubjects">
@@ -482,9 +635,9 @@
                         <div class="manage-subjects-from">
                             <label class="second-op">Select Operation:</label>
                         </div>
-                        <button type="submit" name="action" value="showsubjects" class="subjectBtn op">Show Subjects</button>
-                        <button type="submit" name="action" value="addsubjects" class="subjectBtn op" style="background-color: #28A745; padding-left: 1.7rem; padding-right: 1.7rem;">Add Subject</button>
-                        <button type="submit" name="action" value="removesubjects" class="subjectBtn op" style="background-color: #dc3545;">Remove Subject</button>
+                        <button type="submit" name="action" value="showsubjects" class="subjectBtn op widthBtn">Show Subjects</button>
+                        <button type="submit" name="action" value="addsubjects" class="subjectBtn op widthBtn" style="background-color: #28A745;">Add Subject</button>
+                        <button type="submit" name="action" value="removesubjects" class="subjectBtn op widthBtn" style="background-color: #dc3545;">Remove Subject</button>
                     </form>
                     <form id="showsubjectsForm" action="/submit" method="post" style="display: none;">
                         <div class="showsubjects-view">
@@ -665,58 +818,9 @@
                     </div>
                 </div>
             </div>
-            <div id="manage-batch-content" class="content">
-                <h1>Manage Batch</h1>
-                <div class="batch">
-                    <form id="managebatchForm" action="/submit" method="post">
-                        <div class="batch-from">
-                            <label class="first-op">Select Operation:</label>
-                        </div>
-                        <button type="submit" name="action" value="addBatch" class="batchBtn op">Add Batch</button>
-                        <button type="submit" name="action" value="removeBatch" class="batchBtn op" style="background-color: #dc3545;">Remove Batch</button>
-                    </form>
-                    <form id="addBatchForm" action="/submit" method="post" style="display: none;">
-                        <div class="batch-from">
-                            <label for="batchName">Enter Batch Name:</label>
-                            <input type="text" id="batchName" name="batchName" placeholder="20XX - 20XX" required>
-                            <br>
-                            <small class="text-muted">*Check before submit</small>
-                        </div>
-                        <button type="submit" class="batchBtn">Submit</button>
-                        <button type="reset" class="batchBtn" style="background-color: #dc3545;">Cancel</button>
-                    </form>
-                    <form id="removeBatchForm" action="/submit" method="post" style="display: none;">
-                        <div class="batch-from">
-                            <label for="batchSelect">Select Batch:</label>
-                            <select id="batchSelect" name="teacherSelect" required>
-                                <option value="">Search</option>
-                            </select>
-                            <br>
-                            <small class="text-muted">*Check before submit</small>
-                        </div>
-                        <button type="reset" class="batchBtn" style="background-color: #969da3;">Cancel</button>
-                        <button type="submit" class="batchBtn" style="background-color: #dc3545;">Remove</button>
-                    </form>
-                    <div class="batch-report-add" style="display: none;">
-                        <p>Faculty Details</p>
-                        <div>
-                            <label for="batch-report-add-batch">Batch:</label>
-                            <span id="batch-report-add-batch"></span>
-                        </div>
-                        <button type="button" class="batchBtn">Home</button>
-                    </div>
-                    <div class="batch-report-remove" style="display: none;">
-                        <p>Faculty Details</p>
-                        <div>
-                            <label for="batch-report-add-remove">Name:</label>
-                            <span id="batch-report-add-remove"></span>
-                        </div>
-                        <button type="button" class="batchBtn">Home</button>
-                    </div>
-                </div>
-            </div>
         </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script> 
     <script src="admin.js"></script>
 </body>
 </html>
