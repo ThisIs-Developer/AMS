@@ -290,6 +290,110 @@ const showWarningToast = (message) => {
     toast.showToast();
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+    const searchForm = document.getElementById('searchForm');
+    const classSearchForm = document.getElementById('classSearchForm');
+    const subjectSearchForm = document.getElementById('subjectSearchForm');
+
+    const classReportDiv = document.querySelector('.class-search-report');
+    const tableBody = document.getElementById('tableBody');
+    const classBatchSpan = document.getElementById('classBatch-search-report');
+    const classSemesterSpan = document.getElementById('classSemester-search-report');
+    const classSectionSpan = document.getElementById('classSection-search-report');
+
+
+    const classSearchHomeButton = document.querySelector('.class-search-report .searchBtn');
+    const cancelButtons = document.querySelectorAll('.searchBtn[type="reset"]');
+
+    const showForm = (formToShow, formToHide) => {
+        formToShow.style.display = 'block';
+        formToHide.style.display = 'none';
+    };
+
+    searchForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const action = event.submitter.value;
+
+        if (action === 'classSearch') {
+            showForm(classSearchForm, searchForm);
+        } else if (action === 'subjectSearch') {
+            showForm(subjectSearchForm, searchForm);
+        } else if (action === 'teacherSearch') {
+            
+        } else if (action === 'roomNoSearch') {
+        }
+    });
+
+    classSearchForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedBatch = formData.get('batch');
+        const selectedSemester = formData.get('semester');
+        const selectedSection = formData.get('section');
+
+        if (!selectedBatch || !selectedSemester || !selectedSection) {
+            showWarningToast('Please enter batch, semester, and section.');
+            return;
+        }
+
+        try {
+            const response = await fetch('../json/class.json');
+            const data = await response.json();
+
+            if (data[selectedBatch] && data[selectedBatch][selectedSemester] && data[selectedBatch][selectedSemester][selectedSection]) {
+                const classDetails = data[selectedBatch][selectedSemester][selectedSection];
+                tableBody.innerHTML = '';
+
+                classBatchSpan.textContent = selectedBatch;
+                classSemesterSpan.textContent = selectedSemester;
+                classSectionSpan.textContent = selectedSection;
+
+                classDetails.forEach(detail => {
+                    const row = document.createElement('tr');
+                    const courseNameCell = document.createElement('td');
+                    courseNameCell.textContent = detail.course_name;
+                    row.appendChild(courseNameCell);
+
+                    const totalClassesCell = document.createElement('td');
+                    totalClassesCell.textContent = detail.total_classes;
+                    row.appendChild(totalClassesCell);
+
+                    const teacherNameCell = document.createElement('td');
+                    teacherNameCell.textContent = detail.teacher_name;
+                    row.appendChild(teacherNameCell);
+
+                    tableBody.appendChild(row);
+                });
+
+                classReportDiv.style.display = 'block';
+                classSearchForm.style.display = 'none';
+            } else {
+                showErrorToast('Class details not found for the selected batch, semester, or section.');
+            }
+        } catch (error) {
+            console.error('Error fetching class data:', error);
+            showErrorToast('Error fetching class details. Please try again later.');
+        }
+    });
+
+    cancelButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            searchForm.style.display = 'block';
+            classSearchForm.style.display = 'none';
+            subjectSearchForm.style.display = 'none';
+
+            classSearchForm.reset();
+            subjectSearchForm.reset();
+        });
+    });
+
+    classSearchHomeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+});
+
 document.getElementById('rollNumber').addEventListener('input', function() {
     var rollNumberInput = this.value;
     var warningMessage = document.getElementById('warningMessage');
@@ -536,8 +640,6 @@ document.addEventListener('DOMContentLoaded', () => {
             showForm(newRoutinForm1, routinForm);
         } else if (action === 'updateRoutin') {
             showForm(updateRoutinForm1, routinForm);
-        } else if (action === 'searchRoutin') {
-            // Code for searchRoutin action
         }
     });
 
