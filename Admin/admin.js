@@ -164,17 +164,6 @@ function formatTimeAgo(days, hours) {
     }
 }
 
-document.getElementById('rollNumber').addEventListener('input', function() {
-    var rollNumberInput = this.value;
-    var warningMessage = document.getElementById('warningMessage');
-
-    if (/[a-zA-Z]/.test(rollNumberInput) || /[^a-zA-Z0-9]/.test(rollNumberInput)) {
-        warningMessage.style.display = 'inline';
-    } else {
-        warningMessage.style.display = 'none';
-    }
-});
-
 const showSuccessToast = (message) => {
     const toastContent = document.createElement('div');
     toastContent.classList.add('toast-content');
@@ -512,16 +501,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const routinForm = document.getElementById('routinForm');
     const newRoutinForm1 = document.getElementById('newRoutinForm1');
     const newRoutinForm2 = document.getElementById('newRoutinForm2');
+    const updateRoutinForm1 = document.getElementById('updateRoutinForm1');
+    const updateRoutinForm2 = document.getElementById('updateRoutinForm2');
 
-    const teacherSelect = document.getElementById('teacher');
-    const subjectSelect = document.getElementById('subject');
-    const startTimeSelect = document.getElementById('startTime');
-    const endTimeSelect = document.getElementById('endTime');
-    const roomNoInput = document.getElementById('roomNo');
+    const newRoutinTeacherSelect = document.getElementById('newRoutinTeacher');
+    const newRoutinSubjectSelect = document.getElementById('newRoutinSubject');
+    const newRoutinStartTimeSelect = document.getElementById('newRoutinStartTime');
+    const newRoutinEndTimeSelect = document.getElementById('newRoutinEndTime');
+    const newRoutinRoomNoInput = document.getElementById('newRoutinRoomNo');
 
-    const reportDiv = document.querySelector('.new-routin-report');
+    const updateRoutinTeacherSelect = document.getElementById('updateRoutinTeacher');
+    const updateRoutinSubjectSelect = document.getElementById('updateRoutinSubject');
+    const updateRoutinStartTimeSelect = document.getElementById('updateRoutinStartTime');
+    const updateRoutinEndTimeSelect = document.getElementById('updateRoutinEndTime');
+    const updateRoutinRoomNoInput = document.getElementById('updateRoutinRoomNo');
 
-    const homeButton = document.querySelector('.new-routin-report .routinBtn');
+    const newReportDiv = document.querySelector('.new-routin-report');
+    const updateReportDiv = document.querySelector('.update-routin-report');
+
+    const newHomeButton = document.querySelector('.new-routin-report .routinBtn');
+    const updateHomeButton = document.querySelector('.update-routin-report .routinBtn');
     const cancelButtons = document.querySelectorAll('.routinBtn[type="reset"]');
 
     const showForm = (formToShow, formToHide) => {
@@ -536,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (action === 'newRoutin') {
             showForm(newRoutinForm1, routinForm);
         } else if (action === 'updateRoutin') {
-            // Code for updateRoutin action
+            showForm(updateRoutinForm1, routinForm);
         } else if (action === 'searchRoutin') {
             // Code for searchRoutin action
         }
@@ -551,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 option.textContent = teacher.name;
                 option.dataset.teacherId = teacher.id;
                 option.dataset.teacherName = teacher.name;
-                teacherSelect.appendChild(option);
+                newRoutinTeacherSelect.appendChild(option);
             });
         });
 
@@ -562,30 +561,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const option = document.createElement('option');
                 option.value = time;
                 option.textContent = time;
-                startTimeSelect.appendChild(option);
+                newRoutinStartTimeSelect.appendChild(option);
             });
 
             data.end_time.forEach(time => {
                 const option = document.createElement('option');
                 option.value = time;
                 option.textContent = time;
-                endTimeSelect.appendChild(option);
+                newRoutinEndTimeSelect.appendChild(option);
             });
 
             data.room_no.forEach(room => {
                 const option = document.createElement('option');
                 option.value = room;
                 option.textContent = room;
-                roomNoInput.appendChild(option);
+                newRoutinRoomNoInput.appendChild(option);
             });
         });
 
     newRoutinForm1.addEventListener('submit', async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const selectedBatch = formData.get('batch');
-        const selectedSemester = formData.get('semester');
-        const selectedSection = formData.get('section');
+        const selectedBatch = formData.get('newRoutinBatch');
+        const selectedSemester = formData.get('newRoutinSemester');
+        const selectedSection = formData.get('newRoutinSection');
 
         if (!selectedBatch || !selectedSemester || !selectedSection) {
             showWarningToast('Please select batch, semester, and section.');
@@ -598,13 +597,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
                 const subjects = data[selectedBatch][selectedSemester];
-                subjectSelect.innerHTML = '';
 
                 subjects.forEach(subject => {
                     const option = document.createElement('option');
                     option.value = subject;
                     option.textContent = subject;
-                    subjectSelect.appendChild(option);
+                    newRoutinSubjectSelect.appendChild(option);
                 });
 
                 const reportBatch = document.getElementById('new-routin-report-batch');
@@ -629,12 +627,12 @@ document.addEventListener('DOMContentLoaded', () => {
     newRoutinForm2.addEventListener('submit', async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const selectedDay = formData.get('day');
-        const selectedSubject = formData.get('subject');
-        const selectedTeacherId = formData.get('teacher');
-        const selectedStartTime = formData.get('startTime');
-        const selectedEndTime = formData.get('endTime');
-        const selectedRoomNo = formData.get('roomNo');
+        const selectedDay = formData.get('newRoutinDay');
+        const selectedSubject = formData.get('newRoutinSubject');
+        const selectedTeacherId = formData.get('newRoutinTeacher');
+        const selectedStartTime = formData.get('newRoutinStartTime');
+        const selectedEndTime = formData.get('newRoutinEndTime');
+        const selectedRoomNo = formData.get('newRoutinRoomNo');
 
         if (!selectedDay || !selectedSubject || !selectedTeacherId || !selectedStartTime || !selectedEndTime || !selectedRoomNo) {
             showWarningToast('Please fill in all fields.');
@@ -647,25 +645,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const selectedTeacherOption = document.querySelector(`#teacher [value="${selectedTeacherId}"]`);
+            const selectedTeacherOption = document.querySelector(`#newRoutinTeacher [value="${selectedTeacherId}"]`);
             const selectedTeacherName = selectedTeacherOption.dataset.teacherName;
 
-            const reportDay = document.getElementById('new-routin-report-day');
-            const reportSubject = document.getElementById('new-routin-report-subject');
-            const reportTeacher = document.getElementById('new-routin-report-teacher');
-            const reportStartTime = document.getElementById('new-routin-report-startTime');
-            const reportEndTime = document.getElementById('new-routin-report-endTime');
-            const reportRoomNo = document.getElementById('new-routin-report-roomNo');
+            const newReportDay = document.getElementById('new-routin-report-day');
+            const newReportSubject = document.getElementById('new-routin-report-subject');
+            const newReportTeacher = document.getElementById('new-routin-report-teacher');
+            const newReportStartTime = document.getElementById('new-routin-report-startTime');
+            const newReportEndTime = document.getElementById('new-routin-report-endTime');
+            const newReportRoomNo = document.getElementById('new-routin-report-roomNo');
 
-            reportDay.textContent = selectedDay;
-            reportSubject.textContent = selectedSubject;
-            reportTeacher.textContent = selectedTeacherName;
-            reportStartTime.textContent = selectedStartTime;
-            reportEndTime.textContent = selectedEndTime;
-            reportRoomNo.textContent = selectedRoomNo;
+            newReportDay.textContent = selectedDay;
+            newReportSubject.textContent = selectedSubject;
+            newReportTeacher.textContent = selectedTeacherName;
+            newReportStartTime.textContent = selectedStartTime;
+            newReportEndTime.textContent = selectedEndTime;
+            newReportRoomNo.textContent = selectedRoomNo;
 
             newRoutinForm2.style.display = 'none';
-            reportDiv.style.display = 'block';
+            newReportDiv.style.display = 'block';
             showSuccessToast('New Routin added successfully!');
         } catch (error) {
             console.error('Error processing New Routin:', error);
@@ -673,19 +671,157 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    fetch('../json/teachers.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(teacher => {
+            const option = document.createElement('option');
+            option.value = teacher.id;
+            option.textContent = teacher.name;
+            option.dataset.teacherId = teacher.id;
+            option.dataset.teacherName = teacher.name;
+            updateRoutinTeacherSelect.appendChild(option); 
+        });
+    });
+
+fetch('../json/routin.json')
+    .then(response => response.json())
+    .then(data => {
+        data.start_time.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time;
+            option.textContent = time;
+            updateRoutinStartTimeSelect.appendChild(option);
+        });
+
+        data.end_time.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time;
+            option.textContent = time;
+            updateRoutinEndTimeSelect.appendChild(option);
+        });
+
+        data.room_no.forEach(room => {
+            const option = document.createElement('option');
+            option.value = room;
+            option.textContent = room;
+            updateRoutinRoomNoInput.appendChild(option);
+        });
+    });
+
+updateRoutinForm1.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const selectedBatch = formData.get('updateRoutinBatch');
+    const selectedSemester = formData.get('updateRoutinSemester');
+    const selectedSection = formData.get('updateRoutinSection');
+
+    if (!selectedBatch || !selectedSemester || !selectedSection) {
+        showWarningToast('Please select batch, semester, and section.');
+        return;
+    }
+
+    try {
+        const response = await fetch('../json/subjects.json');
+        const data = await response.json();
+
+        if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
+            const subjects = data[selectedBatch][selectedSemester];
+
+            subjects.forEach(subject => {
+                const option = document.createElement('option');
+                option.value = subject;
+                option.textContent = subject;
+                updateRoutinSubjectSelect.appendChild(option);
+            });
+
+            const reportBatch = document.getElementById('update-routin-report-batch');
+            const reportSemester = document.getElementById('update-routin-report-semester');
+            const reportSection = document.getElementById('update-routin-report-section');
+
+            reportBatch.textContent = selectedBatch;
+            reportSemester.textContent = selectedSemester;
+            reportSection.textContent = selectedSection;
+
+            updateRoutinForm1.style.display = 'none';
+            updateRoutinForm2.style.display = 'block';
+        } else {
+            showErrorToast('Subjects not found for the selected batch and semester.');
+        }
+    } catch (error) {
+        console.error('Error fetching subjects:', error);
+        showErrorToast('Error fetching subjects. Please try again later.');
+    }
+});
+
+updateRoutinForm2.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const selectedDay = formData.get('updateRoutinDay');
+    const selectedSubject = formData.get('updateRoutinSubject');
+    const selectedTeacherId = formData.get('updateRoutinTeacher');
+    const selectedStartTime = formData.get('updateRoutinStartTime');
+    const selectedEndTime = formData.get('updateRoutinEndTime');
+    const selectedRoomNo = formData.get('updateRoutinRoomNo');
+
+    if (!selectedDay || !selectedSubject || !selectedTeacherId || !selectedStartTime || !selectedEndTime || !selectedRoomNo) {
+        showWarningToast('Please fill in all fields.');
+        return;
+    }
+
+    if (selectedEndTime <= selectedStartTime) {
+        showWarningToast('End time must be greater than start time.');
+        return;
+    }
+
+    try {
+        const selectedTeacherOption = document.querySelector(`#updateRoutinTeacher [value="${selectedTeacherId}"]`);
+        const selectedTeacherName = selectedTeacherOption.dataset.teacherName;
+
+        const updateReportDay = document.getElementById('update-routin-report-day');
+        const updateReportSubject = document.getElementById('update-routin-report-subject');
+        const updateReportTeacher = document.getElementById('update-routin-report-teacher');
+        const updateReportStartTime = document.getElementById('update-routin-report-startTime');
+        const updateReportEndTime = document.getElementById('update-routin-report-endTime');
+        const updateReportRoomNo = document.getElementById('update-routin-report-roomNo');
+
+        updateReportDay.textContent = selectedDay;
+        updateReportSubject.textContent = selectedSubject;
+        updateReportTeacher.textContent = selectedTeacherName;
+        updateReportStartTime.textContent = selectedStartTime;
+        updateReportEndTime.textContent = selectedEndTime;
+        updateReportRoomNo.textContent = selectedRoomNo;
+
+        updateRoutinForm2.style.display = 'none';
+        updateReportDiv.style.display = 'block';
+        showSuccessToast('Routin updated successfully!');
+    } catch (error) {
+        console.error('Error processing Routin update:', error);
+        showErrorToast('Error processing Routin update. Please try again.');
+    }
+});
+
     cancelButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             event.preventDefault();
             routinForm.style.display = 'block';
             newRoutinForm1.style.display = 'none';
             newRoutinForm2.style.display = 'none';
+            updateRoutinForm1.style.display = 'none';
+            updateRoutinForm2.style.display = 'none';
 
             newRoutinForm1.reset();
             newRoutinForm2.reset();
+            updateRoutinForm1.reset();
+            updateRoutinForm2.reset();
         });
     });
 
-    homeButton.addEventListener('click', () => {
+    newHomeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+    updateHomeButton.addEventListener('click', () => {
         location.reload();
     });
 });

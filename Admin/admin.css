@@ -1012,6 +1012,34 @@ header .current-date{
     color: var(--color-dark);
 }
 
+.update-routin-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.update-routin-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.update-routin-report label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.update-routin-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
 .class {
     margin-top: 2rem;
     width: 450px;
