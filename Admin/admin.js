@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-fetch('../json/routin.json')
+    fetch('../json/routin.json')
     .then(response => response.json())
     .then(data => {
         data.start_time.forEach(time => {
@@ -709,97 +709,97 @@ fetch('../json/routin.json')
         });
     });
 
-updateRoutinForm1.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const selectedBatch = formData.get('updateRoutinBatch');
-    const selectedSemester = formData.get('updateRoutinSemester');
-    const selectedSection = formData.get('updateRoutinSection');
-
-    if (!selectedBatch || !selectedSemester || !selectedSection) {
-        showWarningToast('Please select batch, semester, and section.');
-        return;
-    }
-
-    try {
-        const response = await fetch('../json/subjects.json');
-        const data = await response.json();
-
-        if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
-            const subjects = data[selectedBatch][selectedSemester];
-
-            subjects.forEach(subject => {
-                const option = document.createElement('option');
-                option.value = subject;
-                option.textContent = subject;
-                updateRoutinSubjectSelect.appendChild(option);
-            });
-
-            const reportBatch = document.getElementById('update-routin-report-batch');
-            const reportSemester = document.getElementById('update-routin-report-semester');
-            const reportSection = document.getElementById('update-routin-report-section');
-
-            reportBatch.textContent = selectedBatch;
-            reportSemester.textContent = selectedSemester;
-            reportSection.textContent = selectedSection;
-
-            updateRoutinForm1.style.display = 'none';
-            updateRoutinForm2.style.display = 'block';
-        } else {
-            showErrorToast('Subjects not found for the selected batch and semester.');
+    updateRoutinForm1.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedBatch = formData.get('updateRoutinBatch');
+        const selectedSemester = formData.get('updateRoutinSemester');
+        const selectedSection = formData.get('updateRoutinSection');
+    
+        if (!selectedBatch || !selectedSemester || !selectedSection) {
+            showWarningToast('Please select batch, semester, and section.');
+            return;
         }
-    } catch (error) {
-        console.error('Error fetching subjects:', error);
-        showErrorToast('Error fetching subjects. Please try again later.');
-    }
-});
-
-updateRoutinForm2.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const selectedDay = formData.get('updateRoutinDay');
-    const selectedSubject = formData.get('updateRoutinSubject');
-    const selectedTeacherId = formData.get('updateRoutinTeacher');
-    const selectedStartTime = formData.get('updateRoutinStartTime');
-    const selectedEndTime = formData.get('updateRoutinEndTime');
-    const selectedRoomNo = formData.get('updateRoutinRoomNo');
-
-    if (!selectedDay || !selectedSubject || !selectedTeacherId || !selectedStartTime || !selectedEndTime || !selectedRoomNo) {
-        showWarningToast('Please fill in all fields.');
-        return;
-    }
-
-    if (selectedEndTime <= selectedStartTime) {
-        showWarningToast('End time must be greater than start time.');
-        return;
-    }
-
-    try {
-        const selectedTeacherOption = document.querySelector(`#updateRoutinTeacher [value="${selectedTeacherId}"]`);
-        const selectedTeacherName = selectedTeacherOption.dataset.teacherName;
-
-        const updateReportDay = document.getElementById('update-routin-report-day');
-        const updateReportSubject = document.getElementById('update-routin-report-subject');
-        const updateReportTeacher = document.getElementById('update-routin-report-teacher');
-        const updateReportStartTime = document.getElementById('update-routin-report-startTime');
-        const updateReportEndTime = document.getElementById('update-routin-report-endTime');
-        const updateReportRoomNo = document.getElementById('update-routin-report-roomNo');
-
-        updateReportDay.textContent = selectedDay;
-        updateReportSubject.textContent = selectedSubject;
-        updateReportTeacher.textContent = selectedTeacherName;
-        updateReportStartTime.textContent = selectedStartTime;
-        updateReportEndTime.textContent = selectedEndTime;
-        updateReportRoomNo.textContent = selectedRoomNo;
-
-        updateRoutinForm2.style.display = 'none';
-        updateReportDiv.style.display = 'block';
-        showSuccessToast('Routin updated successfully!');
-    } catch (error) {
-        console.error('Error processing Routin update:', error);
-        showErrorToast('Error processing Routin update. Please try again.');
-    }
-});
+    
+        try {
+            const response = await fetch('../json/subjects.json');
+            const data = await response.json();
+    
+            if (data.hasOwnProperty(selectedBatch) && data[selectedBatch].hasOwnProperty(selectedSemester)) {
+                const subjects = data[selectedBatch][selectedSemester];
+    
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject;
+                    updateRoutinSubjectSelect.appendChild(option);
+                });
+    
+                const reportBatch = document.getElementById('update-routin-report-batch');
+                const reportSemester = document.getElementById('update-routin-report-semester');
+                const reportSection = document.getElementById('update-routin-report-section');
+    
+                reportBatch.textContent = selectedBatch;
+                reportSemester.textContent = selectedSemester;
+                reportSection.textContent = selectedSection;
+    
+                updateRoutinForm1.style.display = 'none';
+                updateRoutinForm2.style.display = 'block';
+            } else {
+                showErrorToast('Subjects not found for the selected batch and semester.');
+            }
+        } catch (error) {
+            console.error('Error fetching subjects:', error);
+            showErrorToast('Error fetching subjects. Please try again later.');
+        }
+    });
+    
+    updateRoutinForm2.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedDay = formData.get('updateRoutinDay');
+        const selectedSubject = formData.get('updateRoutinSubject');
+        const selectedTeacherId = formData.get('updateRoutinTeacher');
+        const selectedStartTime = formData.get('updateRoutinStartTime');
+        const selectedEndTime = formData.get('updateRoutinEndTime');
+        const selectedRoomNo = formData.get('updateRoutinRoomNo');
+    
+        if (!selectedDay || !selectedSubject || !selectedTeacherId || !selectedStartTime || !selectedEndTime || !selectedRoomNo) {
+            showWarningToast('Please fill in all fields.');
+            return;
+        }
+    
+        if (selectedEndTime <= selectedStartTime) {
+            showWarningToast('End time must be greater than start time.');
+            return;
+        }
+    
+        try {
+            const selectedTeacherOption = document.querySelector(`#updateRoutinTeacher [value="${selectedTeacherId}"]`);
+            const selectedTeacherName = selectedTeacherOption.dataset.teacherName;
+    
+            const updateReportDay = document.getElementById('update-routin-report-day');
+            const updateReportSubject = document.getElementById('update-routin-report-subject');
+            const updateReportTeacher = document.getElementById('update-routin-report-teacher');
+            const updateReportStartTime = document.getElementById('update-routin-report-startTime');
+            const updateReportEndTime = document.getElementById('update-routin-report-endTime');
+            const updateReportRoomNo = document.getElementById('update-routin-report-roomNo');
+    
+            updateReportDay.textContent = selectedDay;
+            updateReportSubject.textContent = selectedSubject;
+            updateReportTeacher.textContent = selectedTeacherName;
+            updateReportStartTime.textContent = selectedStartTime;
+            updateReportEndTime.textContent = selectedEndTime;
+            updateReportRoomNo.textContent = selectedRoomNo;
+    
+            updateRoutinForm2.style.display = 'none';
+            updateReportDiv.style.display = 'block';
+            showSuccessToast('Routin updated successfully!');
+        } catch (error) {
+            console.error('Error processing Routin update:', error);
+            showErrorToast('Error processing Routin update. Please try again.');
+        }
+    });
 
     cancelButtons.forEach(button => {
         button.addEventListener('click', (event) => {
