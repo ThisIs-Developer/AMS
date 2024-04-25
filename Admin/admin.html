@@ -156,7 +156,6 @@
                             <label class="first-op">Select Operation:</label>
                         </div>
                         <button type="submit" name="action" value="classSearch" class="searchBtn widthBtn">Class Details</button>
-                        <button type="submit" name="action" value="subjectSearch" class="searchBtn widthBtn">Subject Details</button>
                         <button type="submit" name="action" value="teacherSearch" class="searchBtn widthBtn">Teacher Details</button>
                         <button type="submit" name="action" value="roomNoSearch" class="searchBtn widthBtn">RoomNo. Details</button>
                     </form>
@@ -199,6 +198,18 @@
                         <button type="submit" class="searchBtn">Submit</button>
                         <button type="reset" class="searchBtn" style="background-color: #dc3545;">Cancel</button>
                     </form>
+                    <form id="teacherSearchForm" action="/submit" method="post" style="display: none;">
+                        <div class="teacher-SearchForm">
+                            <label for="teacher">Select Teacher:</label>
+                            <select id="teacher" name="teacher" required>
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="searchBtn">Submit</button>
+                        <button type="reset" class="searchBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
                     <div class="class-search-report" style="display: none;">
                         <p>Class Details</p>
                         <div>
@@ -229,6 +240,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <button type="button" class="searchBtn">Home</button>
+                    </div>
+                    <div class="teacher-search-report" style="display: none;">
+                        <p>Teacher Details</p>
+                        <div>
+                            <label for="teacher-search-report-name">Name:</label>
+                            <span id="teacher-search-report-name"></span>
+                        </div>
                         <button type="button" class="searchBtn">Home</button>
                     </div>
                 </div>

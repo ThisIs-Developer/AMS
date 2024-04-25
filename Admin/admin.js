@@ -293,16 +293,19 @@ const showWarningToast = (message) => {
 document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('searchForm');
     const classSearchForm = document.getElementById('classSearchForm');
-    const subjectSearchForm = document.getElementById('subjectSearchForm');
+    const teacherSearchForm = document.getElementById('teacherSearchForm');
 
     const classReportDiv = document.querySelector('.class-search-report');
     const tableBody = document.getElementById('tableBody');
     const classBatchSpan = document.getElementById('classBatch-search-report');
     const classSemesterSpan = document.getElementById('classSemester-search-report');
     const classSectionSpan = document.getElementById('classSection-search-report');
-
+    
+    const teacherSearchReport = document.querySelector('.teacher-search-report');
+    const teacherNameSpan = document.getElementById('teacher-search-report-name');
 
     const classSearchHomeButton = document.querySelector('.class-search-report .searchBtn');
+    const teacherSearchHomeButton = document.querySelector('.teacher-search-report .searchBtn');
     const cancelButtons = document.querySelectorAll('.searchBtn[type="reset"]');
 
     const showForm = (formToShow, formToHide) => {
@@ -316,10 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (action === 'classSearch') {
             showForm(classSearchForm, searchForm);
-        } else if (action === 'subjectSearch') {
-            showForm(subjectSearchForm, searchForm);
         } else if (action === 'teacherSearch') {
-            
+            showForm(teacherSearchForm, searchForm);
         } else if (action === 'roomNoSearch') {
         }
     });
@@ -376,19 +377,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    fetch('../json/teachers.json')
+    .then(response => response.json())
+    .then(data => {
+        const teacherSelect = document.getElementById('teacher');
+        teacherSelect.innerHTML = '<option value="">Search</option>';
+        data.forEach(teacher => {
+            const option = document.createElement('option');
+            option.value = teacher.name;
+            option.textContent = teacher.name;
+            teacherSelect.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error fetching teacher data:', error)); 
+
+    teacherSearchForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedTeacherName = formData.get('teacher');
+    
+        if (!selectedTeacherName) {
+            showWarningToast('Please select a teacher.');
+            return;
+        }   
+    
+        teacherSearchForm.style.display = 'none';
+        teacherSearchReport.style.display = 'block';
+    
+        teacherNameSpan.textContent = selectedTeacherName;
+    });
+
     cancelButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             event.preventDefault();
             searchForm.style.display = 'block';
             classSearchForm.style.display = 'none';
-            subjectSearchForm.style.display = 'none';
+            teacherSearchForm.style.display = 'none';
 
             classSearchForm.reset();
-            subjectSearchForm.reset();
+            teacherSearchForm.reset();
         });
     });
 
     classSearchHomeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+    teacherSearchHomeButton.addEventListener('click', () => {
         location.reload();
     });
 
