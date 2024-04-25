@@ -784,6 +784,34 @@ header .current-date{
     color: var(--color-dark);
 }
 
+.roomNo-search-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.roomNo-search-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.roomNo-search-report label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.roomNo-search-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
 .attendance {
     margin-top: 2rem;
     width: 450px;

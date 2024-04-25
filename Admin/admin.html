@@ -210,6 +210,18 @@
                         <button type="submit" class="searchBtn">Submit</button>
                         <button type="reset" class="searchBtn" style="background-color: #dc3545;">Cancel</button>
                     </form>
+                    <form id="roomNoSearchForm" action="/submit" method="post" style="display: none;">
+                        <div class="roomNo-SearchForm">
+                            <label for="roomNo">Select Room No:</label>
+                            <select id="roomNo" name="roomNo" required>
+                                <option value="">Search</option>
+                            </select>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="searchBtn">Submit</button>
+                        <button type="reset" class="searchBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
                     <div class="class-search-report" style="display: none;">
                         <p>Class Details</p>
                         <div>
@@ -247,6 +259,14 @@
                         <div>
                             <label for="teacher-search-report-name">Name:</label>
                             <span id="teacher-search-report-name"></span>
+                        </div>
+                        <button type="button" class="searchBtn">Home</button>
+                    </div>
+                    <div class="roomNo-search-report" style="display: none;">
+                        <p>Teacher Details</p>
+                        <div>
+                            <label for="roomNo-search-report-number">Name:</label>
+                            <span id="roomNo-search-report-number"></span>
                         </div>
                         <button type="button" class="searchBtn">Home</button>
                     </div>

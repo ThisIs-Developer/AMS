@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('searchForm');
     const classSearchForm = document.getElementById('classSearchForm');
     const teacherSearchForm = document.getElementById('teacherSearchForm');
+    const roomNoSearchForm = document.getElementById('roomNoSearchForm');
 
     const classReportDiv = document.querySelector('.class-search-report');
     const tableBody = document.getElementById('tableBody');
@@ -301,11 +302,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const classSemesterSpan = document.getElementById('classSemester-search-report');
     const classSectionSpan = document.getElementById('classSection-search-report');
     
+    const teacherSelect = document.getElementById('teacher');
     const teacherSearchReport = document.querySelector('.teacher-search-report');
     const teacherNameSpan = document.getElementById('teacher-search-report-name');
 
+    const roomNoSelect = document.getElementById('roomNo');
+    const roomNoSearchReport = document.querySelector('.roomNo-search-report');
+    const roomNoNameSpan = document.getElementById('roomNo-search-report-number');    
+
     const classSearchHomeButton = document.querySelector('.class-search-report .searchBtn');
     const teacherSearchHomeButton = document.querySelector('.teacher-search-report .searchBtn');
+    const roomNoSearchHomeButton = document.querySelector('.roomNo-search-report .searchBtn');
     const cancelButtons = document.querySelectorAll('.searchBtn[type="reset"]');
 
     const showForm = (formToShow, formToHide) => {
@@ -322,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (action === 'teacherSearch') {
             showForm(teacherSearchForm, searchForm);
         } else if (action === 'roomNoSearch') {
+            showForm(roomNoSearchForm, searchForm);
         }
     });
 
@@ -380,7 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('../json/teachers.json')
     .then(response => response.json())
     .then(data => {
-        const teacherSelect = document.getElementById('teacher');
         teacherSelect.innerHTML = '<option value="">Search</option>';
         data.forEach(teacher => {
             const option = document.createElement('option');
@@ -407,15 +414,45 @@ document.addEventListener('DOMContentLoaded', () => {
         teacherNameSpan.textContent = selectedTeacherName;
     });
 
+    fetch('../json/routin.json')
+    .then(response => response.json())
+    .then(data => {
+        roomNoSelect.innerHTML = '<option value="">Search</option>';
+        data.room_no.forEach(room => {
+            const option = document.createElement('option');
+            option.value = room;
+            option.textContent = room;
+            roomNoSelect.appendChild(option);
+        });
+    });
+
+    roomNoSearchForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const selectedRoomNoNumber = formData.get('roomNo');
+    
+        if (!selectedRoomNoNumber) {
+            showWarningToast('Please select a Room No.');
+            return;
+        }   
+    
+        roomNoSearchForm.style.display = 'none';
+        roomNoSearchReport.style.display = 'block';
+    
+        roomNoNameSpan.textContent = selectedRoomNoNumber;
+    });
+
     cancelButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             event.preventDefault();
             searchForm.style.display = 'block';
             classSearchForm.style.display = 'none';
             teacherSearchForm.style.display = 'none';
+            roomNoSearchForm.style.display = 'none';
 
             classSearchForm.reset();
             teacherSearchForm.reset();
+            roomNoSearchForm.reset();
         });
     });
 
@@ -424,6 +461,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     teacherSearchHomeButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+    roomNoSearchHomeButton.addEventListener('click', () => {
         location.reload();
     });
 
