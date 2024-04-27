@@ -591,7 +591,7 @@ header .current-date{
     }
 }
 
-  .show-more {
+.show-more {
     margin-top: 20px;
     text-align: center;
 }
@@ -1435,6 +1435,129 @@ header .current-date{
 .manage-report-remove div {
     margin-bottom: 10px;
     color: var(--color-dark);
+}
+
+.student {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.student:hover {
+    box-shadow: none;
+}
+
+.student form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.student label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.student input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.student select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.student button.studentBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .student {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .student form {
+        padding: 20px;
+    }
+
+    .student select {
+        width: 90%;
+    }
+
+    .student button.studentBtn {
+        margin-top: 15px;
+    }
+
+    .student input[type="text"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .student {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .student form {
+        padding: 15px;
+    }
+
+    .student select {
+        width: 85%;
+    }
+
+    .student button.studentBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .student input[type="text"] {
+        width: 85%;
+    }
+}
+
+.student {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16vh;
+    margin-bottom: 16vh;
+}
+
+.student #detailsStudentForm button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.student .details-student-from {
+    text-align: center;
 }
 
 .managesubjects {

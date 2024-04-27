@@ -801,9 +801,36 @@
             </div>
             <div id="manage-student-content" class="content">
                 <h1>Manage Student</h1>
-                <div class="assign">
-                    <form id="assignForm1" action="/submit" method="post">
-                        <div class="assign-view1">
+                <div class="student">
+                    <form id="studentForm" action="/submit" method="post">
+                        <div class="student-form">
+                            <label class="first-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="detailsStudent" class="studentBtn widthBtn">Student Details</button>
+                        <button type="submit" name="action" value="addStudent" class="studentBtn widthBtn" style="background-color: #28A745;">Add Student</button>
+                        <button type="submit" name="action" value="updateStudent" class="studentBtn widthBtn" style="background-color: #ffc107;">Update Student</button>
+                        <button type="submit" name="action" value="deleteStudent" class="studentBtn widthBtn" style="background-color: #dc3545;">Delete Student</button>
+                    </form>
+                    <form id="detailsStudentForm" action="/submit" method="post" style="display: none;">
+                        <div class="details-student-from">
+                            <label class="first-op">Select Operation:</label>
+                        </div>
+                        <button type="submit" name="action" value="rollNoStudent" class="studentBtn widthBtn">RollNo. Search</button>
+                        <button type="submit" name="action" value="sectionStudent" class="studentBtn widthBtn">Section Search</button>
+                    </form>
+                    <form id="detailsStudentFormRollNo" action="/submit" method="post" style="display: none;">
+                        <div class="details-student-from-rollNo">
+                            <label for="rollNo">Enter Roll Number:</label>
+                            <input type="text" id="rollNo" name="rollNo" placeholder="Search" minlength="12" maxlength="12" required>
+                            <span id="warningMessage" style="color: red; display: none;">Please enter numeric characters only.</span>
+                            <br>
+                            <small class="text-muted">*Check before submit</small>
+                        </div>
+                        <button type="submit" class="studentBtn">Submit</button>
+                        <button type="reset" class="studentBtn" style="background-color: #dc3545;">Cancel</button>
+                    </form>
+                    <form id="detailsStudentFormSection" action="/submit" method="post" style="display: none;">
+                        <div class="details-student-from-section">
                             <label for="batch">Select Batch:</label>
                             <select id="batch" name="batch">
                                 <option value="">Search</option>
@@ -826,13 +853,7 @@
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                             </select>
-                            <br>
-                            <small class="text-muted">*Check before submit</small>
-                        </div>
-                        <button type="submit" class="stdBtn">Submit</button>
-                    </form>
-                    <form id="assignForm2" action="/submit" method="post" style="display: none;">
-                        <div class="assign-view2">
+                
                             <label for="section">Select Section:</label>
                             <select id="section" name="section">
                                 <option value="">Search</option>
@@ -841,46 +862,12 @@
                                 <option value="C">C</option>
                                 <option value="D">D</option>
                             </select>
-                
-                            <label for="subject">Select Subject:</label>
-                            <select id="subject" name="subject">
-                                <option value="">Search</option>
-                            </select>
-                
-                            <label for="teacher">Select Teacher:</label>
-                            <select id="teacher" name="teacher">
-                                <option value="">Search</option>
-                            </select>
                             <br>
                             <small class="text-muted">*Check before submit</small>
                         </div>
-                        <button type="submit" class="stdBtn">Submit</button>
-                        <button type="reset" class="stdBtn" style="background-color: #dc3545;">Cancel</button>
+                        <button type="submit" class="studentBtn">Submit</button>
+                        <button type="reset" class="studentBtn" style="background-color: #dc3545;">Cancel</button>
                     </form>
-                    <div class="report" style="display: none;">
-                        <p>Assign Details</p>
-                        <div>
-                            <label for="reportBatch">Batch:</label>
-                            <span id="reportBatch"></span>
-                        </div>
-                        <div>
-                            <label for="reportSemester">Semester:</label>
-                            <span id="reportSemester"></span>
-                        </div>
-                        <div>
-                            <label for="reportSection">Section:</label>
-                            <span id="reportSection"></span>
-                        </div>
-                        <div>
-                            <label for="reportSubject">Subject:</label>
-                            <span id="reportSubject"></span>
-                        </div>
-                        <div>
-                            <label for="reportTeacher">Teacher:</label>
-                            <span id="reportTeacher"></span>
-                        </div>
-                        <button type="button" class="stdBtn">Home</button>
-                    </div>
                 </div>
             </div>
             <div id="manage-subjects-content" class="content">

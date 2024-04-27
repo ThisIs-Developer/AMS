@@ -1140,6 +1140,51 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const studentForm = document.getElementById('studentForm');
+    const detailsStudentForm = document.getElementById('detailsStudentForm');
+
+    const detailsStudentFormRollNo = document.getElementById('detailsStudentFormRollNo');
+    const detailsStudentFormSection = document.getElementById('detailsStudentFormSection');
+
+    const showForm1 = (formToShow, formToHide) => {
+        formToShow.style.display = 'block';
+        formToHide.style.display = 'none';
+    };
+
+    studentForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const action = event.submitter.value;
+
+        if (action === 'detailsStudent') {
+            showForm1(detailsStudentForm, studentForm);
+        } else if (action === 'addStudent') {
+
+        } else if (action === 'updateStudent') {
+
+        } else if (action === 'deleteStudent') {
+
+        }
+    });
+
+    const showForm2 = (formToShow, formToHide) => {
+        formToShow.style.display = 'block';
+        formToHide.style.display = 'none';
+    };
+
+    detailsStudentForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const action = event.submitter.value;
+
+        if (action === 'rollNoStudent') {
+            showForm2(detailsStudentFormRollNo, detailsStudentForm);
+        } else if (action === 'sectionStudent') {
+            showForm2(detailsStudentFormSection, detailsStudentForm);
+        }
+    });
+    
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     const managesubjectsForm = document.getElementById('managesubjectsForm');
     const showsubjectsForm = document.getElementById('showsubjectsForm');
     const showsubjectsReport = document.querySelector('.showsubjects-report');
