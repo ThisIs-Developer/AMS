@@ -23,6 +23,7 @@
   --padding-1: 1.2rem;
 
   --box-shadow: 0 2rem 3rem var(--color-light);
+  --dark-mode-shadow:rgb(174, 174, 174);
 }
 
 .dark-theme-variables {
@@ -32,6 +33,7 @@
   --color-dark-variant: #a3bdcc;
   --color-light: rgba(0, 0, 0, 0.4);
   --box-shadow: 0 2rem 3rem var(--color-light);
+  --dark-mode-shadow:rgb(0, 0, 0);
 }
 
 * {
@@ -164,6 +166,7 @@ aside .logo img {
 
 aside .logo h2 {
   font-size: 1.6rem;
+  color: var(--color-dark);
 }
 
 aside .close {
@@ -247,6 +250,10 @@ main {
   display: flex;
   gap: 2rem;
   text-align: right;
+}
+
+.right-top .top button span {
+  display: none;
 }
 
 /* -----------------dashboard----------------- */
@@ -621,6 +628,7 @@ tr:nth-child(even) {
 /* ----------------------dark mode--------------------------- */
 
 #mode {
+  box-shadow: var(--color-dark);
   width: 55px;
   height: 25px;
   position: relative;
@@ -628,7 +636,7 @@ tr:nth-child(even) {
   background: var(--color-white);
   border-radius: 200px;
   cursor: pointer;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0px 5px 10px var(--dark-mode-shadow);
 }
 
 #mode:after {
@@ -640,7 +648,7 @@ tr:nth-child(even) {
   left: 2px;
   background: linear-gradient(180deg, #ffcc89, #d8860b);
   border-radius: 122px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.525);
 }
 
 #darkmode-toggle {
@@ -832,6 +840,7 @@ tr:nth-child(even) {
   }
 
   .right-top .top button span {
+    display: inline;
     font-size: 2rem;
   }
 }

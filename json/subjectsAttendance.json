@@ -1,0 +1,117 @@
+{
+    "2020-2024": {
+      "1": {
+        "A": [
+          { "subject": "M 101 Mathematics - I", "attendance": "10" },
+          { "subject": "PH 101 Physics- I", "attendance": "12" },
+          { "subject": "EC 101 Basic Electronics Engineering", "attendance": "8" },
+          { "subject": "HU 101 English", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "PH 191 Physics- I Lab", "attendance": "10" },
+          { "subject": "EC 191 Basic Electronics Engineering Lab", "attendance": "12" },
+          { "subject": "ME 192 Workshop/Manufacturing Practices", "attendance": "8" },
+          { "subject": "PR 192 PROJECT-IB", "attendance": "14" }
+        ]
+      },
+      "2": {
+        "A": [
+          { "subject": "M 201 Mathematics - II", "attendance": "10" },
+          { "subject": "CH 201 Chemistry", "attendance": "12" },
+          { "subject": "EE 201 Basic Electrical Engineering", "attendance": "8" },
+          { "subject": "CS 201 Programming for Problem Solving", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "CS291 Programming for Problem Solving Lab", "attendance": "10" },
+          { "subject": "CH 291 Chemistry", "attendance": "12" },
+          { "subject": "EE 291 Basic Electrical Engineering Lab", "attendance": "8" },
+          { "subject": "ME 291 Engineering Graphics & Design", "attendance": "14" }
+        ]
+      },
+      "3": {
+        "A": [
+          { "subject": "M(CSE)301 Mathematics-III", "attendance": "10" },
+          { "subject": "PH301 Physics-II", "attendance": "12" },
+          { "subject": "CS301 Digital Electronics and Computer Organization", "attendance": "8" },
+          { "subject": "CS302 Data Structures", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "CS 303 Circuit Theory and Network", "attendance": "10" },
+          { "subject": "PH391 Physics-II Lab", "attendance": "12" },
+          { "subject": "CS391 Digital Electronics and Computer Organization Lab", "attendance": "8" },
+          { "subject": "CS392 Data Structures Lab", "attendance": "14" }
+        ]
+      },
+      "4": {
+        "A": [
+          { "subject": "M(CSE)401 Numerical Methods and Statistics", "attendance": "10" },
+          { "subject": "HU 402 Economics for Engineers", "attendance": "12" },
+          { "subject": "CS401 Computer Architecture", "attendance": "8" },
+          { "subject": "CS402 Design and Analysis of Algorithms", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "CS403 Formal Language and Automata Theory", "attendance": "10" },
+          { "subject": "M(CSE)491 Numerical Methods and Statistics Lab", "attendance": "12" },
+          { "subject": "CS491 Computer Architecture Lab", "attendance": "8" },
+          { "subject": "CS492 Algorithms Lab", "attendance": "14" }
+        ]
+      },
+      "5": {
+        "A": [
+          { "subject": "CS501 Computer Graphics", "attendance": "10" },
+          { "subject": "CS502 Operating System", "attendance": "12" },
+          { "subject": "CS503 Database Management System", "attendance": "8" },
+          { "subject": "CS504 A. Object-Oriented Programming using Java", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "CS504 B. Multimedia Technology", "attendance": "10" },
+          { "subject": "CS504 C. Communication Engineering", "attendance": "12" },
+          { "subject": "CS505 A. Operations Research", "attendance": "8" },
+          { "subject": "CS505 B. Computational Geometry", "attendance": "14" }
+        ]
+      },
+      "6": {
+        "A": [
+          { "subject": "CS505 C. Distributed Algorithms", "attendance": "10" },
+          { "subject": "CS591 Computer Graphics Lab", "attendance": "12" },
+          { "subject": "CS592 Operating System Lab", "attendance": "8" },
+          { "subject": "CS593 Database Management System Lab", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "CS594 A. Object-Oriented Programming Lab", "attendance": "10" },
+          { "subject": "CS594 B. Multimedia Technology Lab", "attendance": "12" },
+          { "subject": "CS594 C. Communication Engineering Lab", "attendance": "8" },
+          { "subject": "PR591 Project-V", "attendance": "14" }
+        ]
+      },
+      "7": {
+        "A": [
+          { "subject": "PR592 Innovative activities-IV", "attendance": "10" },
+          { "subject": "MC501 Environmental Science", "attendance": "12" },
+          { "subject": "CS506 Research Methodology", "attendance": "8" },
+          { "subject": "CS507 Elective-1", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "CS508 Elective-2", "attendance": "10" },
+          { "subject": "PR701 Major Project-I", "attendance": "12" },
+          { "subject": "PR702 Innovative activities-V", "attendance": "8" },
+          { "subject": "MC701 Law for Engineers", "attendance": "14" }
+        ]
+      },
+      "8": {
+        "A": [
+          { "subject": "CS702 Elective-3", "attendance": "10" },
+          { "subject": "PR703 Major Project-II", "attendance": "12" },
+          { "subject": "PR704 Innovative activities-VI", "attendance": "8" },
+          { "subject": "MC702 Intellectual Property Rights", "attendance": "14" }
+        ],
+        "B": [
+          { "subject": "PR705 Innovative activities-VII", "attendance": "10" },
+          { "subject": "MC703 Disaster Management", "attendance": "12" },
+          { "subject": "MC704 Indian Constitution and Politics", "attendance": "8" },
+          { "subject": "MC705 Environmental Science and Engineering", "attendance": "14" }
+        ]
+      }
+    }
+  }
+  

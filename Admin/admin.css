@@ -596,7 +596,11 @@ header .current-date{
     text-align: center;
 }
 
-.stud {
+.widthBtn{
+    width: 165px;
+}
+
+.search {
     margin-top: 2rem;
     width: 450px;
     box-shadow: var(--box-shadow);
@@ -606,26 +610,23 @@ header .current-date{
     transition: all 300ms ease;
 }
 
-.stud:hover {
+.search:hover {
     box-shadow: none;
 }
 
-.stud form {
+.search form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px 30px;
 }
 
-.stud .roll {
-    margin-bottom: 20px;
-}
-
-.stud label {
+.search label {
     color: var(--color-dark);
+    margin-bottom: 5px;
 }
 
-.stud input[type="text"] {
+.search input[type="text"] {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -633,99 +634,7 @@ header .current-date{
     border-radius: var(--border-radius-3);
 }
 
-.stud button.stdBtn {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius-3);
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 1200px) {
-    .stud {
-        width: 450px;
-        margin-top: 2rem;
-    }
-
-    .stud form {
-        padding: 20px;
-    }
-
-    .stud input[type="text"] {
-        width: 90%;
-    }
-
-    .stud button.stdBtn {
-        margin-top: 15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .stud {
-        width: 90%;
-        margin-top: 2rem;
-    }
-
-    .stud form {
-        padding: 15px;
-    }
-
-    .stud input[type="text"] {
-        width: 85%;
-    }
-
-    .stud button.stdBtn {
-        margin-top: 12px;
-        padding: 6px 12px;
-    }
-}
-
-.stud {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2rem;
-    margin-top: 20vh;
-}
-
-#warningMessage {
-    color: red;
-    display: none;
-}
-
-.class {
-    margin-top: 2rem;
-    width: 450px;
-    box-shadow: var(--box-shadow);
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    transition: all 300ms ease;
-}
-
-.class:hover {
-    box-shadow: none;
-}
-
-.class form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 30px;
-}
-
-.class label {
-    color: var(--color-dark);
-    margin-bottom: 5px;
-}
-
-.class select {
+.search select {
     width: 100%;
     padding: 8px;
     margin-top: 0.2rem;
@@ -734,7 +643,7 @@ header .current-date{
     margin-bottom: 0.4rem;
 }
 
-.class button.stdBtn {
+.search button.searchBtn {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: var(--color-primary);
@@ -747,194 +656,63 @@ header .current-date{
 }
 
 @media screen and (max-width: 1200px) {
-    .class {
+    .search {
         width: 450px;
         margin-top: 2rem;
     }
 
-    .class form {
+    .search form {
         padding: 20px;
     }
 
-    .class select {
+    .search select {
         width: 90%;
     }
 
-    .class button.stdBtn {
+    .search button.searchBtn {
         margin-top: 15px;
+    }
+
+    .search input[type="text"] {
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .class {
+    .search {
         width: 90%;
         margin-top: 2rem;
     }
 
-    .class form {
+    .search form {
         padding: 15px;
     }
 
-    .class select {
+    .search select {
         width: 85%;
     }
 
-    .class button.stdBtn {
+    .search button.searchBtn {
         margin-top: 12px;
         padding: 6px 12px;
     }
-}
 
-.class {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2rem;
-    margin-top: 15vh;
-}
-
-.class-report {
-    display: block;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: var(--card-border-radius);
-    transition: background-color 0.3s;
-}
-
-.class-report p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #7380ec;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.class-report label {
-    font-weight: bold;
-    color: #363949;
-    margin-right: 10px;
-    color: var(--color-dark);
-}
-
-.class-report div {
-    margin-bottom: 10px;
-    color: var(--color-dark);
-}
-
-.class-report table {
-    border: 1px solid var(--color-dark);
-    color: var(--color-dark);
-    text-align: center;
-}
-
-.class-report table th {
-    padding: 0.4rem;
-    border: 1px solid var(--color-dark);
-}
-
-.class-report table td {
-    padding: 0.4rem;
-    border: 1px solid var(--color-dark);
-}
-
-.assign {
-    margin-top: 2rem;
-    width: 450px;
-    box-shadow: var(--box-shadow);
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    transition: all 300ms ease;
-}
-
-.assign:hover {
-    box-shadow: none;
-}
-
-.assign form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 30px;
-}
-
-.assign label {
-    color: var(--color-dark);
-    margin-bottom: 5px;
-}
-
-.assign select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 0.2rem;
-    border: 1px solid var(--color-dark);
-    border-radius: var(--border-radius-3);
-    margin-bottom: 0.4rem;
-}
-
-.assign button.stdBtn {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius-3);
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 1200px) {
-    .assign {
-        width: 450px;
-        margin-top: 2rem;
-    }
-
-    .assign form {
-        padding: 20px;
-    }
-
-    .assign select {
-        width: 90%;
-    }
-
-    .assign button.stdBtn {
-        margin-top: 15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .assign {
-        width: 90%;
-        margin-top: 2rem;
-    }
-
-    .assign form {
-        padding: 15px;
-    }
-
-    .assign select {
+    .search input[type="text"] {
         width: 85%;
     }
-
-    .assign button.stdBtn {
-        margin-top: 12px;
-        padding: 6px 12px;
-    }
 }
 
-.assign {
+.search {
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 16vh;
+    margin-bottom: 16vh;
 }
 
-.report {
+.class-search-report {
     display: block;
     margin-top: 20px;
     padding: 15px;
@@ -942,7 +720,7 @@ header .current-date{
     transition: background-color 0.3s;
 }
 
-.report p {
+.class-search-report p {
     font-size: 1.2rem;
     font-weight: bold;
     color: #7380ec;
@@ -950,19 +728,91 @@ header .current-date{
     text-align: center;
 }
 
-.report label {
+.class-search-report label {
     font-weight: bold;
     color: #363949;
     margin-right: 10px;
     color: var(--color-dark);
 }
 
-.report div {
+.class-search-report div {
     margin-bottom: 10px;
     color: var(--color-dark);
 }
 
-.subsitute {
+.class-search-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.class-search-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.class-search-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.teacher-search-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.teacher-search-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.teacher-search-report label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.teacher-search-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.roomNo-search-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.roomNo-search-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.roomNo-search-report label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.roomNo-search-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.attendance {
     margin-top: 2rem;
     width: 450px;
     box-shadow: var(--box-shadow);
@@ -972,23 +822,31 @@ header .current-date{
     transition: all 300ms ease;
 }
 
-.subsitute:hover {
+.attendance:hover {
     box-shadow: none;
 }
 
-.subsitute form {
+.attendance form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px 30px;
 }
 
-.subsitute label {
+.attendance label {
     color: var(--color-dark);
     margin-bottom: 5px;
 }
 
-.subsitute select {
+.attendance input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.attendance select {
     width: 100%;
     padding: 8px;
     margin-top: 0.2rem;
@@ -997,7 +855,7 @@ header .current-date{
     margin-bottom: 0.4rem;
 }
 
-.subsitute button.substituteBtn {
+.attendance button.attendanceBtn {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: var(--color-primary);
@@ -1010,54 +868,67 @@ header .current-date{
 }
 
 @media screen and (max-width: 1200px) {
-    .subsitute {
+    .attendance {
         width: 450px;
         margin-top: 2rem;
     }
 
-    .subsitute form {
+    .attendance form {
         padding: 20px;
     }
 
-    .subsitute select {
+    .attendance select {
         width: 90%;
     }
 
-    .subsitute button.substituteBtn {
+    .attendance button.attendanceBtn {
         margin-top: 15px;
+    }
+
+    .attendance input[type="text"] {
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .subsitute {
+    .attendance {
         width: 90%;
         margin-top: 2rem;
     }
 
-    .subsitute form {
+    .attendance form {
         padding: 15px;
     }
 
-    .subsitute select {
+    .attendance select {
         width: 85%;
     }
 
-    .subsitute button.substituteBtn {
+    .attendance button.attendanceBtn {
         margin-top: 12px;
         padding: 6px 12px;
     }
+
+    .attendance input[type="text"] {
+        width: 85%;
+    }
 }
 
-.subsitute {
+.attendance {
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 16vh;
+    margin-bottom: 16vh;
 }
 
-.substitute-report {
+.attendance .extra-gap {
+    margin-top: 0.6rem;
+}
+
+.student-attendance-report {
     display: block;
     margin-top: 20px;
     padding: 15px;
@@ -1065,7 +936,7 @@ header .current-date{
     transition: background-color 0.3s;
 }
 
-.substitute-report p {
+.student-attendance-report p {
     font-size: 1.2rem;
     font-weight: bold;
     color: #7380ec;
@@ -1073,14 +944,310 @@ header .current-date{
     text-align: center;
 }
 
-.substitute-report label {
+.student-attendance-report label {
     font-weight: bold;
     color: #363949;
     margin-right: 10px;
     color: var(--color-dark);
 }
 
-.substitute-report div {
+.student-attendance-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.student-attendance-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.student-attendance-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.student-attendance-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.student-attendance-report table td {
+    width: 75%;
+}
+
+.student-attendance-report table td:nth-child(even) {
+    width: 25%;
+}
+
+.class-attendance-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.class-attendance-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.class-attendance-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.class-attendance-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.class-attendance-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.class-attendance-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.class-attendance-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.class-attendance-report table td {
+    width: 50%;
+}
+
+.class-attendance-report table td:nth-child(even) {
+    width: 25%;
+}
+
+.subjects-attendance-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.subjects-attendance-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subjects-attendance-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.subjects-attendance-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.subjects-attendance-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.subjects-attendance-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.subjects-attendance-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.subjects-attendance-report table td {
+    width: 75%;
+}
+
+.subjects-attendance-report table td:nth-child(even) {
+    width: 25%;
+}
+
+.routin {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.routin:hover {
+    box-shadow: none;
+}
+
+.routin form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.routin label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.routin input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.routin select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.routin button.routinBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .routin {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .routin form {
+        padding: 20px;
+    }
+
+    .routin select {
+        width: 90%;
+    }
+
+    .routin button.routinBtn {
+        margin-top: 15px;
+    }
+
+    .routin input[type="text"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .routin {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .routin form {
+        padding: 15px;
+    }
+
+    .routin select {
+        width: 85%;
+    }
+
+    .routin button.routinBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .routin input[type="text"] {
+        width: 85%;
+    }
+}
+
+.routin {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16vh;
+    margin-bottom: 16vh;
+}
+
+.new-routin-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.new-routin-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.new-routin-report label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.new-routin-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.update-routin-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.update-routin-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.update-routin-report label {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.update-routin-report div {
     margin-bottom: 10px;
     color: var(--color-dark);
 }
@@ -1490,175 +1657,6 @@ header .current-date{
 }
 
 .removesubjects-report div {
-    margin-bottom: 10px;
-    color: var(--color-dark);
-}
-
-.batch {
-    margin-top: 2rem;
-    width: 450px;
-    box-shadow: var(--box-shadow);
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    transition: all 300ms ease;
-}
-
-.batch:hover {
-    box-shadow: none;
-}
-
-.batch form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 30px;
-}
-
-.batch label {
-    color: var(--color-dark);
-    margin-bottom: 5px;
-}
-
-.batch select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 0.2rem;
-    border: 1px solid var(--color-dark);
-    border-radius: var(--border-radius-3);
-    margin-bottom: 0.4rem;
-}
-
-.batch button.batchBtn {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius-3);
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-}
-
-.batch input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid var(--color-dark);
-    border-radius: var(--border-radius-3);
-}
-
-@media screen and (max-width: 1200px) {
-    .batch {
-        width: 450px;
-        margin-top: 2rem;
-    }
-
-    .batch form {
-        padding: 20px;
-    }
-
-    .batch select {
-        width: 90%;
-    }
-
-    .batch button.batchBtn {
-        margin-top: 15px;
-    }
-
-    .batch input[type="text"] {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .batch {
-        width: 90%;
-        margin-top: 2rem;
-    }
-
-    .batch form {
-        padding: 15px;
-    }
-
-    .batch select {
-        width: 85%;
-    }
-
-    .batch button.batchBtn {
-        margin-top: 12px;
-        padding: 6px 12px;
-    }
-
-    .batch input[type="text"] {
-        width: 85%;
-    }
-}
-
-.batch {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2rem;
-    margin-top: 15vh;
-}
-
-
-.batch-report-add {
-    display: block;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: var(--card-border-radius);
-    transition: background-color 0.3s;
-}
-
-.batch-report-add p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-primary);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.batch-report-add label {
-    font-weight: bold;
-    color: var(--color-dark);
-    margin-right: 10px;
-    color: var(--color-dark);
-}
-
-.batch-report-add div {
-    margin-bottom: 10px;
-    color: var(--color-dark);
-}
-
-.batch-report-remove {
-    display: block;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: var(--card-border-radius);
-    transition: background-color 0.3s;
-}
-
-.batch-report-remove p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-primary);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.batch-report-remove label {
-    font-weight: bold;
-    color: var(--color-dark);
-    margin-right: 10px;
-    color: var(--color-dark);
-}
-
-.batch-report-remove div {
     margin-bottom: 10px;
     color: var(--color-dark);
 }
