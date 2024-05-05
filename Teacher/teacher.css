@@ -1,128 +1,931 @@
-/* Resetting default margin and padding */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+  
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+  
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+  
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+  
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
 }
 
-/* Body styling */
+html {
+    font-size: 14px;
+}
+
 body {
-  font-family: 'Roboto', sans-serif; /* Use a material design font */
-  background-color: #f5f5f5; /* Use a light gray background */
-  display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
-  height: 100vh; /* Full viewport height */
-  margin: 0; /* Removing default margin */
-  padding: 0; /* Removing default padding */
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    background-color: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
 }
 
-/* Centering heading */
-h3 {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1.3rem;
-  color: #333;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-/* Centering container div */
 .container {
-  width: 80%;
-  max-width: 500px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow for subtlety */
-  transition: transform 0.3s; /* Smooth scaling */
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
 }
 
-.container:hover {
-  transform: scale(1.05);
+a {
+    color: var(--color-dark);
 }
 
-/* Form styling */
-form {
+img {
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    object-fit: hidden;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}   
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+aside {
+    height: 100vh;
+}
+
+aside .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 3rem;
+    height: 2.5rem;
+}
+
+aside .logo h2{
+    font-size: 1.6rem;
+}
+
+aside .close {
+    display: none;
+}
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active{
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a.active span {
+    color: var(--color-primary);
+    margin-left: calc(1rem - 3px);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover span {
+    margin-left: 1rem;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+.right-top {
+    margin-top:1.4rem;
+}
+
+.right-top .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right-top .top button {
+    display: none;
+}
+
+.right-top .theme-toggler {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: 50px;
+    height: 1.9rem;
+}
+
+.right-top .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-top .theme-toggler span.active {
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50px;
+}
+
+.right-top .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+#dashboard-content .dash-con {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+}
+
+#dashboard-content .right .recent-updates {
+    margin-top: 1rem;   
+}
+
+#dashboard-content .right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+#dashboard-content .right .recent-updates .updates {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+#dashboard-content .right .recent-updates .updates:hover {
+    box-shadow: none;
+}
+
+#dashboard-content .right .recent-updates .updates .update {
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 94%;
+        grid-template-columns: 7rem auto;
+    }
+
+    aside .logo h2{
+        display: none;
+    }
+    
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+
+    aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100%;
+        padding-right: var(--card-padding); 
+        display: none; 
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
+    }
+
+    aside .logo {
+        margin-left: 1rem;    
+    }
+
+    aside .logo h2 {
+        display: inline;
+    }
+
+    aside .sidebar h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        height: 3.4rem;
+        width: 100%;
+    }
+
+    aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+    .right {
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+
+    .right-top .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        z-index: 2;
+        margin: 0;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .right-top .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .right-top .profile .info {
+        display: none;
+    }
+
+    .right-top .top button {
+        display: inline-block;
+        cursor: pointer;
+        background: transparent;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem
+    }
+
+    .right-top .top button span {
+        font-size: 2rem;
+    }
+}
+
+.dark-theme-variables h2 {
+    color: var(--color-dark);
+}
+
+.dark-theme-variables main h1 {
+    color: var(--color-dark);
+}
+
+.dark-theme-variables .recent-updates h2 {
+    color: var(--color-dark);
+}
+
+.dark-theme-variables .close {
+    color: var(--color-dark);
+}
+
+.wrapper{
+  margin-top: 2rem;
+  width: 450px;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+.wrapper:hover{
+    box-shadow: none;
+}
+
+.wrapper header{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
 }
 
-/* Form group styling */
-.form-group {
+header .icons{
   display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Aligns items to the start */
-  margin: 6px; /* Consistent margin for spacing */
-  width: 90%; /* Matches the select box width */
-  margin-left: auto; /* Centers the form group */
-  margin-right: auto;
-  padding-bottom: 0px; /* Consistent bottom padding for all form groups */
 }
 
-/* Label styling */
-label {
-  font-weight: bold;
-  margin-top: 0.2rem; /* Top margin to match bottom padding of form-group */
-  margin-bottom: 0.2rem; /* Responsive space between label and select box */
-  color: #555;
-  font-size: 14px;
-}
-
-/* Select styling for responsive design */
-select,
-input[type="date"] {
-  width: 100%; /* Full width of form-group, adjusted for flex-start alignment */
-  padding: 0.4rem; /* Slightly larger padding for touch targets */
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 13px; /* Responsive font size */
-  background-color: #f5f5f5; /* Use a light gray background */
-}
-
-/* Submit button styling */
-button[type="submit"] {
-  padding: 10px 20px;
-  background-color: rgb(72, 72, 255); /* Use a material design green color */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
   cursor: pointer;
-  font-size: 15px; /* Responsive font size */
-  transition: background-color 0.3s ease;
-  display: block; /* Ensure the button is block level for margin auto to work */
-  margin: 0 auto; /* Centers the button horizontally */
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
 }
 
-button[type="submit"]:hover {
-  background-color: #392f83; /* Use a darker material design green color */
+.icons span:last-child{
+  margin-right: -10px;
 }
 
-button[type="submit"] a {
-  color: #fff; /* White hyperlink color */
-  text-decoration: none;
+header .icons span:hover{
+  background: #f2f2f2;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    padding: 10px; /* Adding some padding to ensure content does not touch the edges */
-    height: 100vh; /* Maintain full viewport height */
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.calendar{
+  padding: 20px;
+}
+
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+
+.calendar .days{
+  margin-bottom: 20px;
+}
+
+.calendar li{
+  color: var(--color-dark);
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+
+.days li.inactive{
+  color: #aaa;
+}
+
+.days li.active{
+  color: #fff;
+}
+
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.days li.active::before{
+  background: var(--color-primary);
+}
+
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper{
+      width: 360px; 
+    }
+  
+    header .icons span{
+      height: 32px; 
+      width: 32px;
+      line-height: 32px;
+      font-size: 1.6rem;
+    }
+  
+    header .current-date{
+      font-size: 1.2rem;
+    }
+  
+    .calendar li{
+      font-size: 1rem;
+    }
+  
+    .calendar .days li{
+      margin-top: 20px;
+    }
+  
+    .days li::before{
+      height: 32px; 
+      width: 32px;
+    }
+}
+
+.show-more {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.widthBtn{
+    width: 165px;
+}
+
+.attendance {
+    margin-top: 2rem;
+    width: 450px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.attendance:hover {
+    box-shadow: none;
+}
+
+.attendance form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.attendance label {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.attendance input[type="text"], .attendance input[type="date"]{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+}
+
+.attendance select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-3);
+    margin-bottom: 0.4rem;
+}
+
+.attendance button.attendanceBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .attendance {
+        width: 450px;
+        margin-top: 2rem;
+    }
+
+    .attendance form {
+        padding: 20px;
+    }
+
+    .attendance select {
+        width: 90%;
+    }
+
+    .attendance button.attendanceBtn {
+        margin-top: 15px;
+    }
+
+    .attendance input[type="text"], .attendance input[type="date"] {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .attendance {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .attendance form {
+        padding: 15px;
+    }
+
+    .attendance select {
+        width: 85%;
+    }
+
+    .attendance button.attendanceBtn {
+        margin-top: 12px;
+        padding: 6px 12px;
+    }
+
+    .attendance input[type="text"], .attendance input[type="date"] {
+        width: 85%;
+    }
+}
+
+.attendance {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16vh;
+    margin-bottom: 16vh;
+}
+
+.attendance .extra-gap {
+    margin-top: 0.6rem;
+}
+
+.student-attendance-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+
+.student-attendance-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.student-attendance-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+
+.student-attendance-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.student-attendance-report table {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.student-attendance-report table th {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.student-attendance-report table td {
+    padding: 0.4rem;
+    border: 1px solid var(--color-dark);
+}
+
+.student-attendance-report table td {
+    width: 75%;
+}
+
+.student-attendance-report table td:nth-child(even) {
+    width: 25%;
+}
+
+.give-attendance-report {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
+}
+  
+.give-attendance-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+.give-attendance-report label {
+    font-weight: bold;
+    color: #363949;
+    margin-right: 10px;
+    color: var(--color-dark);
+}
+  
+.give-attendance-report div {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.subsitute {
+  margin-top: 2rem;
+  width: 450px;
+  box-shadow: var(--box-shadow);
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  transition: all 300ms ease;
+}
+
+.subsitute:hover {
+  box-shadow: none;
+}
+
+.subsitute form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 30px;
+}
+
+.subsitute label {
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.subsitute select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 0.2rem;
+  border: 1px solid var(--color-dark);
+  border-radius: var(--border-radius-3);
+  margin-bottom: 0.4rem;
+}
+
+.subsitute button.substituteBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+  .subsitute {
+      width: 450px;
+      margin-top: 2rem;
   }
 
-  .container {
-    width: 100%; /* Use full width for better utilization of small screens */
-    max-width: 100%; /* Override max-width to fit the device width */
-    margin: auto;
-    padding: 15px; /* Sufficient padding for touch interaction */
-    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.2); /* Optionally remove shadow for a cleaner look on small devices */
+  .subsitute form {
+      padding: 20px;
   }
 
-  h3 {
-    font-size: 1.2rem; /* Adjust font size for readability on small devices */
+  .subsitute select {
+      width: 90%;
   }
 
-  select,
-  input[type="date"] {
-    padding: 0.5rem; /* Adjust padding for easier interaction on touch devices */
+  .subsitute button.substituteBtn {
+      margin-top: 15px;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .subsitute {
+      width: 90%;
+      margin-top: 2rem;
+  }
+
+  .subsitute form {
+      padding: 15px;
+  }
+
+  .subsitute select {
+      width: 85%;
+  }
+
+  .subsitute button.substituteBtn {
+      margin-top: 12px;
+      padding: 6px 12px;
+  }
+}
+
+.subsitute {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-top: 16vh;
+}
+
+.substitute-report {
+  display: block;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: var(--card-border-radius);
+  transition: background-color 0.3s;
+}
+
+.substitute-report p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7380ec;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.substitute-report label {
+  font-weight: bold;
+  color: #363949;
+  margin-right: 10px;
+  color: var(--color-dark);
+}
+
+.substitute-report div {
+  margin-bottom: 10px;
+  color: var(--color-dark);
+}
+
+.toast-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toast-content .toast-icon {
+    margin-right: 10px;
 }
