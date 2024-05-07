@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            sidebarLinks.forEach(item => item.classList.remove("active"));
+            this.classList.add("active");
+            const title = this.querySelector("h3").textContent;
+
+            document.title = "Student | " + title;
+        });
+    });
+});
+
 document.getElementById('Personal').addEventListener('click', showOnlyPersonalDetails);
 document.getElementById('Guardian').addEventListener('click', showOnlyGuardianDetails);
 document.getElementById('Semester_Results').addEventListener('click', showOnlySemesterResults);
