@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            sidebarLinks.forEach(item => item.classList.remove("active"));
+            this.classList.add("active");
+            const title = this.querySelector("h3").textContent;
+
+            document.title = "Admin | " + title;
+        });
+    });
+});
+
 const sideMenu = document.querySelector('aside');
 const menuBtn = document.querySelector('#menu-btn');
 const closeBtn = document.querySelector('#close-btn');
