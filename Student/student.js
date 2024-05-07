@@ -159,3 +159,24 @@ document.getElementById('logout-link').addEventListener('click', function (event
     localStorage.removeItem('token');
     window.location.href = this.getAttribute('href');
 });
+
+
+
+//fetching---------------
+
+
+// Assuming the API endpoint returns JSON data
+// fetch('https://your-api-endpoint.com/data')
+//   .then(response => response.json())
+//   .then(data => {
+//     // Assuming the data is an object with keys corresponding to input field IDs
+//     Object.keys(data).forEach(key => {
+//       const inputElement = document.getElementById(key);
+//       if (inputElement) {
+//         inputElement.value = data[key];
+//       }
+//     });
+//   })
+//   .catch(error => {
+//     console.error('Error fetching data:', error);
+//   });

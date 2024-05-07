@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/logo-favi.png">
     <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="student.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -20,7 +23,7 @@
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-symbols-outlined">
-                    close
+                        close
                     </span>
                 </div>
             </div>
@@ -71,22 +74,31 @@
             <div class="dashboard">
                 <h1>Account Details</h1>
                 <div class="dashboard-content" id="student-det">
-                    <div class="box">
-                        <label for="">Student's Name:</label>
-                        <input type="text" value="Ayan Chatterjee" readonly>
-                    </div>
-                    <div class="box"><label for="">Department & Batch:</label>
-                        <input type="text" value="CSE(2021-2025)" readonly>
-                    </div>
-                    <div class="box"><label for="">Semester:</label>
-                        <input type="text" value="6" readonly>
-                    </div>
-                    <div class="box"><label for="">Roll No:</label>
-                        <input type="text" value="123211003039" readonly>
-                    </div>
-                    <div class="box"><label for="">Registration No:</label>
-                        <input type="text" value="211230100110052" readonly>
-                    </div>
+                    <form action="" method="get">
+                        <div class="box">
+                            <label for="">First Name:</label>
+                            <input type="text" readonly id="first-name">
+                        </div>
+                        <div class="box">
+                            <label for="">Last Name:</label>
+                            <input type="text" readonly id="last-name">
+                        </div>
+                        <div class="box"><label for="">Department:</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="box"><label for="">Batch:</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="box"><label for="">Semester:</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="box"><label for="">Roll No:</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="box"><label for="">Registration No:</label>
+                            <input type="text" readonly>
+                        </div>
+                    </form>
                 </div>
 
                 <!---------- det-start-btn------------- -->
@@ -99,132 +111,138 @@
                 <!---------- det-start-btn ends------------- -->
                 <div class="dashboard-content" id="address">
                     <h2>From Admission Records</h2>
-
-                    <div class="outer_box">
-                        <div class="box"><label for="">Present Address:</label>
-                            <input type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui"
-                                readonly>
+                    <form action="" method="get">
+                        <div class="outer_box">
+                            <div class="box"><label for="">Present Address:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">City:</label>
+                                <input type="text"  readonly>
+                            </div>
+                            <div class="box"><label for="">Pin No:</label>
+                                <input type="text"  readonly>
+                            </div>
                         </div>
-                        <div class="box"><label for="">City:</label>
-                            <input type="text" value="Ranaghat" readonly>
+                        <div class="outer_box">
+                            <div class="box"><label for="">Permanent Address:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">City:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Pin No:</label>
+                                <input type="text" readonly>
+                            </div>
                         </div>
-                        <div class="box"><label for="">Pin No:</label>
-                            <input type="text" value="741127" readonly>
+                        <div class="outer_box">
+                            <div class="box"><label for="">Mobile No:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Email:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Date of Birth:</label>
+                                <input type="text" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="outer_box">
-                        <div class="box"><label for="">Permanent Address:</label>
-                            <input type="text" value="VILL:-KHARDAPARA; PO:-BIRNAGAR ; PS;-TAHERPUR ;" readonly>
-                        </div>
-                        <div class="box"><label for="">City:</label>
-                            <input type="text" value="Ranaghat" readonly>
-                        </div>
-                        <div class="box"><label for="">Pin No:</label>
-                            <input type="text" value="741127" readonly>
-                        </div>
-                    </div>
-                    <div class="outer_box">
-                        <div class="box"><label for="">Mobile No:</label>
-                            <input type="text" value="8001669243" readonly>
-                        </div>
-                        <div class="box"><label for="">Email:</label>
-                            <input type="text" value="ayanchatterjee789@gmail.com" readonly>
-                        </div>
-                        <div class="box"><label for="">Date of Birth:</label>
-                            <input type="text" value="04-10-2002" readonly>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="dashboard-content" id="total-marks">
                     <h2>% of Marks</h2>
 
-                    <div class="outer_box">
-                        <div class="box"><label for="">Class X:</label>
-                            <input type="text" value="79%" readonly>
+                    <form action="" method="get">
+                        <div class="outer_box">
+                            <div class="box"><label for="">Class X:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Class XII:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Diploma:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Graduate:</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Post Graduate:</label>
+                                <input type="text" readonly>
+                            </div>
                         </div>
-                        <div class="box"><label for="">Class XII:</label>
-                            <input type="text" value="85.5%" readonly>
-                        </div>
-                        <div class="box"><label for="">Diploma:</label>
-                            <input type="text" value="N/A" readonly>
-                        </div>
-                        <div class="box"><label for="">Graduate:</label>
-                            <input type="text" value="8.65" readonly>
-                        </div>
-                        <div class="box"><label for="">Post Graduate:</label>
-                            <input type="text" value="N/A" readonly>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="dashboard-content" id="hs-marks">
                     <h2>HS Marks</h2>
                     <div class="external_box">
-                        <div class="outer_box" id="eng">
-                            <h3>English</h3>
-                            <div class="outer_box">
-                                <div class="box"><label for="">Full Marks:</label>
-                                    <input type="text" value="N/A" readonly>
-                                </div>
-                                <div class="box"><label for="">Obtained Marks:</label>
-                                    <input type="text" value="N/A" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="outer_box" id="phy">
-                            <h3>Physics</h3>
-                            <div class="outer_box">
-                                <div class="box"><label for="">Full Marks:</label>
-                                    <input type="text" value="N/A" readonly>
-                                </div>
-                                <div class="box"><label for="">Obtained Marks:</label>
-                                    <input type="text" value="N/A" readonly>
+                        <form action="" method="get">
+                            <div class="outer_box" id="eng">
+                                <h3>English</h3>
+                                <div class="outer_box">
+                                    <div class="box"><label for="">Full Marks:</label>
+                                        <input type="text"  readonly>
+                                    </div>
+                                    <div class="box"><label for="">Obtained Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="outer_box" id="chem">
-                            <h3>Chemisty</h3>
-                            <div class="outer_box">
-                                <div class="box"><label for="">Full Marks:</label>
-                                    <input type="text" value="N/A" readonly>
-                                </div>
-                                <div class="box"><label for="">Obtained Marks:</label>
-                                    <input type="text" value="N/A" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="outer_box" id="math">
-                            <h3>Mathametics</h3>
-                            <div class="outer_box">
-                                <div class="box"><label for="">Full Marks:</label>
-                                    <input type="text" value="N/A" readonly>
-                                </div>
-                                <div class="box"><label for="">Obtained Marks:</label>
-                                    <input type="text" value="N/A" readonly>
+                            <div class="outer_box" id="phy">
+                                <h3>Physics</h3>
+                                <div class="outer_box">
+                                    <div class="box"><label for="">Full Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
+                                    <div class="box"><label for="">Obtained Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="outer_box" id="chem">
+                                <h3>Chemisty</h3>
+                                <div class="outer_box">
+                                    <div class="box"><label for="">Full Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
+                                    <div class="box"><label for="">Obtained Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer_box" id="math">
+                                <h3>Mathametics</h3>
+                                <div class="outer_box">
+                                    <div class="box"><label for="">Full Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
+                                    <div class="box"><label for="">Obtained Marks:</label>
+                                        <input type="text" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="dashboard-content" id="present-details">
                     <h2>Current Co-ordinates</h2>
+                    <form action="" method="post">
 
-                    <label for="" id="current-address-label">Current Address:</label>
-                    <input type="text" placeholder="Enter Current Address" id="current-address">
+                        <label for="" id="current-address-label">Current Address:</label>
+                        <input type="text" placeholder="Enter Current Address" id="current-address">
 
-                    <div class="outer_box">
-                        <div class="box"><label for="">Current Mobile No:</label>
-                            <input type="text" value="8001669243">
+                        <div class="outer_box">
+                            <div class="box"><label for="">Current Mobile No:</label>
+                                <input type="text" >
+                            </div>
+                            <div class="box"><label for="">Current Email:</label>
+                                <input type="text">
+                            </div>
+                            <div class="box"><label for="">Blood Group:</label>
+                                <input type="text" >
+                            </div>
+                            <div class="box"><label for="">Date of Birth:</label>
+                                <input type="text" >
+                            </div>
                         </div>
-                        <div class="box"><label for="">Current Email:</label>
-                            <input type="text" value="ayanchatterjee789@gmail.com">
-                        </div>
-                        <div class="box"><label for="">Blood Group:</label>
-                            <input type="text" value="O+">
-                        </div>
-                        <div class="box"><label for="">Date of Birth:</label>
-                            <input type="text" value="04-10-2002">
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
 
@@ -235,71 +253,78 @@
                 <div class="dashboard-content" id="guardian-det">
                     <h2>Guardian Details</h2>
                     <div class="outer_box">
-                        <div class="box">
-                            <label for="">Guardian's Name</label>
-                            <input type="text" value="Uttam Chatterjee" readonly>
-                        </div>
-                        <div class="box">
-                            <label for="">Mobile NO.</label>
-                            <input type="text" value="XXXXXXXXXX" readonly>
-                        </div>
-                        <div class="box"><label for="">Emsil ID</label>
-                            <input type="text" value="N/A" readonly>
-                        </div>
-                        <div class="box">
-                            <label for="">Address</label>
-                            <input type="text" value="N/A">
-                        </div>
+                        <form action="" method="get">
+                            <div class="box">
+                                <label for="">Guardian First Name</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box">
+                                <label for="">Guardian Last Name</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box">
+                                <label for="">Mobile NO.</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box"><label for="">Email ID</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="box">
+                                <label for="">Address</label>
+                                <input type="text" >
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="dashboard-content" id="sem-result">
                     <h2>SGPA up to last published semester results</h2>
                     <div class="outer_box">
-                        <div class="box">
-                            <label for="">Semester 1</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 2</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 3</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 4</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 5</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 6</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 7</label>
-                            <input type="number" value="0.0">
-                        </div>
-                        <div class="box">
-                            <label for="">Semester 8</label>
-                            <input type="number" value="0.0">
-                        </div>
-
+                        <form action="" method="post">
+                            <div class="box">
+                                <label for="">Semester 1</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 2</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 3</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 4</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 5</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 6</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 7</label>
+                                <input type="number" >
+                            </div>
+                            <div class="box">
+                                <label for="">Semester 8</label>
+                                <input type="number" >
+                            </div>
+                        </form>
                     </div>
                 </div>
-                
+
                 <!----------- hidden dashboard content ends -------------->
 
 
-                
+
                 <div class="dashboard-content" id="det-end-btn">
                     <button type="submit" id="submit">Submit</button>
-                    <button id="back">Back</button>
+                    <!-- <button id="back">Back</button> -->
                 </div>
-                
+
 
 
             </div> <!-------------------- dashboard ends here ------------------->
@@ -336,90 +361,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
                         <tr>
                             <td>--</td>
                             <td>--</td>
