@@ -1,0 +1,84 @@
+{
+    "students": [
+        {
+            "student": {
+                "id": "123211003045",
+                "name": "Debdutta Rudra",
+                "registration no": "20230001",
+                "batch": "2021-2025",
+                "semester": "3rd",
+                "department": "Computer Science"
+            },
+            "personal details": {
+                "address": {
+                    "present address": {
+                        "Address": "123 Main Street",
+                        "city": "Anytown",
+                        "pin no": "12345"
+                    },
+                    "permanent address": {
+                        "Address": "456 Elm Street",
+                        "city": "Sometown",
+                        "pin no": "54321"
+                    }
+                },
+                "contact": {
+                    "Mobile No": "9876543210",
+                    "Email": "johndoe@example.com",
+                    "Date of Birth": "1999-01-01",
+                    "blood group": "A+"
+                },
+                "marks": {
+                    "class-x": "85%",
+                    "class-xii": "80%",
+                    "Diploma": "75%",
+                    "graduation": "3.8 GPA",
+                    "post graduation": "4.0 GPA"
+                },
+                "HS Marks": {
+                    "english": {
+                        "eng-full-marks": "100",
+                        "eng-obtained-marks": "85"
+                    },
+                    "physics": {
+                        "phy-full-marks": "100",
+                        "phy-obtained-marks": "90"
+                    },
+                    "chemistry": {
+                        "chem-full-marks": "100",
+                        "chem-obtained-marks": "80"
+                    },
+                    "math": {
+                        "math-full-marks": "100",
+                        "math-obtained-marks": "95"
+                    }
+                },
+                "Current co-ordinates": {
+                    "current address": "789 Oak Avenue",
+                    "currnt mobile no": "9988776655",
+                    "current email": "johndoe2@example.com",
+                    "blood group": "A+",
+                    "date of birth": "1999-01-01"
+                }
+            },
+            "guardian details": {
+                "guardian-first-name": "Jane",
+                "guardian-last-name": "Doe",
+                "guardian mobile no": "9876543210",
+                "guardian email": "janedoe@example.com",
+                "guardian address": "123 Main Street, Anytown, 12345"
+            },
+            "sgpa": {
+                "1st sem": "3.5",
+                "2nd sem": "3.8",
+                "3rd sem": "4.0",
+                "4th sem": "3.9",
+                "5th sem": "4.0",
+                "6th sem": "4.0",
+                "7th sem": "4.0",
+                "8th sem": "4.0"
+            }
+        }
+        
+    ]
+}

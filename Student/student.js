@@ -2,46 +2,35 @@ document.getElementById('Personal').addEventListener('click', showOnlyPersonalDe
 document.getElementById('Guardian').addEventListener('click', showOnlyGuardianDetails);
 document.getElementById('Semester_Results').addEventListener('click', showOnlySemesterResults);
 
-document.getElementById('attendence-menu').addEventListener('click',showOnlyAttendence);
-document.getElementById('dashboard-menu').addEventListener('click',showDashboard);
-// const dashboard=document.querySelector('.dashboard');
+document.getElementById('attendence-menu').addEventListener('click', showOnlyAttendence);
+document.getElementById('dashboard-menu').addEventListener('click', showDashboard);
 
-document.getElementById('sem-form-submit').addEventListener('click',showTable);
+document.getElementById('sem-form-submit').addEventListener('click', showTable);
 
-function showTable(){
-
-
-
-    document.querySelector('.sem-submit').style.display ='none';
-    document.querySelector('.dashboard').style.display ='none';
-
-
-
-    document.querySelector('#table-container').style.display ='flex';
+function showTable() {
+    document.querySelector('.sem-submit').style.display = 'none';
+    document.querySelector('.dashboard').style.display = 'none';
+    document.querySelector('#table-container').style.display = 'flex';
 }
 
-function showOnlyAttendence(){
-    document.querySelector('.sem-submit').style.display ='flex';
-    document.querySelector('.dashboard').style.display ='none';
+function showOnlyAttendence() {
+    document.querySelector('.sem-submit').style.display = 'flex';
+    document.querySelector('.dashboard').style.display = 'none';
 }
 
-function showDashboard(){
-    document.querySelector('.sem-submit').style.display ='none';
-    document.querySelector('.dashboard').style.display ='flex';
+function showDashboard() {
+    document.querySelector('.sem-submit').style.display = 'none';
+    document.querySelector('.dashboard').style.display = 'flex';
 }
-
-
-
 
 function resetButtonColors() {
     const buttons = document.querySelectorAll('.dashboard-btn');
     buttons.forEach(button => {
         if (button.id !== 'Personal' && button.id !== 'Guardian' && button.id !== 'Semester_Results') {
-            button.style.backgroundColor = 'initial'; // Reset color to initial state
+            button.style.backgroundColor = 'initial';
         }
     });
 }
-
 
 function hideAllDashboardContent() {
     document.getElementById('address').style.display = 'none';
@@ -59,48 +48,31 @@ function showOnlyPersonalDetails() {
     document.getElementById('total-marks').style.display = 'flex';
     document.getElementById('hs-marks').style.display = 'flex';
     document.getElementById('present-details').style.display = 'flex';
-
-    // Change background color of active button
     document.getElementById('Personal').style.backgroundColor = '#28a745';
-    document.getElementById('Guardian').style.backgroundColor = ''; // Reset other buttons
-    document.getElementById('Semester_Results').style.backgroundColor = ''; // Reset other buttons
+    document.getElementById('Guardian').style.backgroundColor = '';
+    document.getElementById('Semester_Results').style.backgroundColor = '';
 }
 
 function showOnlyGuardianDetails() {
     hideAllDashboardContent();
     document.getElementById('guardian-det').style.display = 'flex';
-
-
-  // Change background color of active button
-  document.getElementById('Personal').style.backgroundColor = 'var(--color-primary)'; // Reset other buttons
-  document.getElementById('Guardian').style.backgroundColor = '#28a745';
-  document.getElementById('Semester_Results').style.backgroundColor = ''; // Reset other buttons
-    
+    document.getElementById('Personal').style.backgroundColor = 'var(--color-primary)';
+    document.getElementById('Guardian').style.backgroundColor = '#28a745';
+    document.getElementById('Semester_Results').style.backgroundColor = '';
 }
 
 function showOnlySemesterResults() {
     hideAllDashboardContent();
     document.getElementById('sem-result').style.display = 'flex';
-
-
-
-    // Change background color of active button
-    document.getElementById('Personal').style.backgroundColor = 'var(--color-primary)'; // Reset other buttons
-    document.getElementById('Guardian').style.backgroundColor = ''; // Reset other buttons
+    document.getElementById('Personal').style.backgroundColor = 'var(--color-primary)';
+    document.getElementById('Guardian').style.backgroundColor = '';
     document.getElementById('Semester_Results').style.backgroundColor = '#28a745';
 }
 
-
-
-
-
-
-//-------------------- dark mode-------------------
-
-const themeToggler=document.querySelector('#mode');
-themeToggler.addEventListener('click',()=>{
+const themeToggler = document.querySelector('#mode');
+themeToggler.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme-variables');
-})
+});
 
 const sideMenu = document.querySelector('aside');
 const menuBtn = document.querySelector('#menu-btn');
@@ -113,7 +85,6 @@ menuBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     sideMenu.style.display = 'none';
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const menuItems = document.querySelectorAll(".sidebar a");
@@ -160,23 +131,68 @@ document.getElementById('logout-link').addEventListener('click', function (event
     window.location.href = this.getAttribute('href');
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const studentDetailsUrl = '../json/account.json'; 
 
+    fetch(studentDetailsUrl)
+        .then(response => response.json())
+        .then(data => {
+            const students = data.students;
 
-//fetching---------------
+            students.forEach(student => {
+                document.getElementById('first-name').value = student.student.name.split(' ')[0];
+                document.getElementById('last-name').value = student.student.name.split(' ')[1];
+                document.getElementById('department').value = student.student.department;
+                document.getElementById('batch').value = student.student.batch;
+                document.getElementById('semester').value = student.student.semester;
+                document.getElementById('roll-no').value = student.student.id;
+                document.getElementById('registration-no').value = student.student['registration no'];
 
+                document.getElementById('present-address').value = student['personal details'].address['present address'].Address;
+                document.getElementById('city').value = student['personal details'].address['present address'].city;
+                document.getElementById('pin-no').value = student['personal details'].address['present address']['pin no'];
+                document.getElementById('permanent-address').value = student['personal details'].address['permanent address'].Address;
+                document.getElementById('permanent-city').value = student['personal details'].address['permanent address'].city;
+                document.getElementById('permanent-pin').value = student['personal details'].address['permanent address']['pin no'];
+                document.getElementById('mobile-no').value = student['personal details'].contact['Mobile No'];
+                document.getElementById('email').value = student['personal details'].contact.Email;
+                document.getElementById('dob').value = student['personal details'].contact['Date of Birth'];
 
-// Assuming the API endpoint returns JSON data
-// fetch('https://your-api-endpoint.com/data')
-//   .then(response => response.json())
-//   .then(data => {
-//     // Assuming the data is an object with keys corresponding to input field IDs
-//     Object.keys(data).forEach(key => {
-//       const inputElement = document.getElementById(key);
-//       if (inputElement) {
-//         inputElement.value = data[key];
-//       }
-//     });
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error);
-//   });
+                document.getElementById('class-x').value = student['personal details'].marks['class-x'];
+                document.getElementById('class-xii').value = student['personal details'].marks['class-xii'];
+                document.getElementById('diploma').value = student['personal details'].marks.Diploma;
+                document.getElementById('graduate').value = student['personal details'].marks.graduation;
+                document.getElementById('post-graduate').value = student['personal details'].marks['post graduation'];
+                document.getElementById('eng-full-marks').value = student['personal details']['HS Marks'].english['eng-full-marks'];
+                document.getElementById('eng-obtained-marks').value = student['personal details']['HS Marks'].english['eng-obtained-marks'];
+                document.getElementById('phy-full-marks').value = student['personal details']['HS Marks'].physics['phy-full-marks'];
+                document.getElementById('phy-obtained-marks').value = student['personal details']['HS Marks'].physics['phy-obtained-marks'];
+                document.getElementById('chem-full-marks').value = student['personal details']['HS Marks'].chemistry['chem-full-marks'];
+                document.getElementById('chem-obtained-marks').value = student['personal details']['HS Marks'].chemistry['chem-obtained-marks'];
+                document.getElementById('math-full-marks').value = student['personal details']['HS Marks'].math['math-full-marks'];
+                document.getElementById('math-obtained-marks').value = student['personal details']['HS Marks'].math['math-obtained-marks'];
+
+                document.getElementById('current-address').value = student['personal details']['Current co-ordinates']['current address'];
+                document.getElementById('current-mobile-no').value = student['personal details']['Current co-ordinates']['currnt mobile no'];
+                document.getElementById('current-email').value = student['personal details']['Current co-ordinates']['current email'];
+                document.getElementById('blood-group').value = student['personal details']['Current co-ordinates']['blood group'];
+                document.getElementById('date-of-birth').value = student['personal details']['Current co-ordinates']['date of birth'];
+
+                document.getElementById('guardian-first-name').value = student['guardian details']['guardian-first-name'];
+                document.getElementById('guardian-last-name').value = student['guardian details']['guardian-last-name'];
+                document.getElementById('guardian-mobile-no').value = student['guardian details']['guardian mobile no'];
+                document.getElementById('guardian-email').value = student['guardian details']['guardian email'];
+                document.getElementById('guardian-address').value = student['guardian details']['guardian address'];
+
+                document.getElementById('sgpa-1st-sem').value = student.sgpa['1st sem'];
+                document.getElementById('sgpa-2nd-sem').value = student.sgpa['2nd sem'];
+                document.getElementById('sgpa-3rd-sem').value = student.sgpa['3rd sem'];
+                document.getElementById('sgpa-4th-sem').value = student.sgpa['4th sem'];
+                document.getElementById('sgpa-5th-sem').value = student.sgpa['5th sem'];
+                document.getElementById('sgpa-6th-sem').value = student.sgpa['6th sem'];
+                document.getElementById('sgpa-7th-sem').value = student.sgpa['7th sem'];
+                document.getElementById('sgpa-8th-sem').value = student.sgpa['8th sem'];
+            });
+        })
+        .catch(error => console.error('Error fetching student details:', error));
+});
