@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="student-form.css">
+</head>
+
+<body>
+    <form action="" method="post" class="form">
+        <h1 class="text-center">Student Details</h1>
+        <!-- Progress bar -->
+        <div class="progressbar">
+            <div class="progress" id="progress"></div>
+            <div class="progress-step progress-step-active"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+        </div>
+        <div class="form-step form-step-active">
+            <div class="box">
+                <h3>Account Information</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" name="first-name" id="first-name">
+                    </div>
+                    <div class="input-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" name="last-name" id="last-name">
+                    </div>
+                    <div class="input-group">
+                        <label for="batch">Batch:</label>
+                        <input type="text" name="batch" id="batch">
+                    </div>
+                    <div class="input-group">
+                        <label for="sem">Semester:</label>
+                        <input type="text" name="sem" id="sem">
+                    </div>
+                    <div class="input-group">
+                        <label for="dept">Department:</label>
+                        <input type="text" name="dept" id="dept">
+                    </div>
+                    <div class="input-group">
+                        <label for="roll">Roll No:</label>
+                        <input type="text" name="roll" id="roll">
+                    </div>
+                    <div class="input-group">
+                        <label for="reg">Registration No:</label>
+                        <input type="text" name="reg" id="reg">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Personal Information</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="p-phone">Phone No:</label>
+                        <input type="text" name="p-phone" id="p-phone">
+                    </div>
+                    <div class="input-group">
+                        <label for="p-email">Email ID:</label>
+                        <input type="text" name="p-email" id="p-email">
+                    </div>
+                    <div class="input-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="text" name="dob" id="dob">
+                    </div>
+                    <div class="input-group">
+                        <label for="blood-group">Blood Group:</label>
+                        <input type="text" name="blood-group" id="blood-group">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Address Information</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="present-add">Present Address:</label>
+                        <input type="text" name="present-add" id="present-add">
+                    </div>
+                    <div class="input-group">
+                        <label for="present-city">City:</label>
+                        <input type="text" name="present-city" id="present-city">
+                    </div>
+                    <div class="input-group">
+                        <label for="present-pin">PIN code:</label>
+                        <input type="text" name="present-pin" id="present-pin">
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="present-add">Present Address:</label>
+                        <input type="text" name="present-add" id="present-add">
+                    </div>
+                    <div class="input-group">
+                        <label for="permanent-city">City:</label>
+                        <input type="text" name="permanent-city" id="permanent-city">
+                    </div>
+                    <div class="input-group">
+                        <label for="permanent-pin">PIN code:</label>
+                        <input type="text" name="permanent-pin" id="permanent-pin">
+                    </div>
+                </div>
+            </div>
+            <div class="btns-group">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+        </div>
+        <div class="form-step">
+            <div class="box">
+                <h3>Guardian Information</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="g-first-name">Guardian First Name:</label>
+                        <input type="text" name="g-first-name" id="g-first-name">
+                    </div>
+                    <div class="input-group">
+                        <label for="g-last-name">Guardian Last Name:</label>
+                        <input type="text" name="g-last-name" id="g-last-name">
+                    </div>
+                    <div class="input-group">
+                        <label for="g-phone">Phone No:</label>
+                        <input type="text" name="g-phone" id="g-phone">
+                    </div>
+                    <div class="input-group">
+                        <label for="g-email">Email ID:</label>
+                        <input type="text" name="g-email" id="g-email">
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="g-add">Present Address:</label>
+                        <input type="text" name="g-add" id="g-add">
+                    </div>
+                    <div class="input-group">
+                        <label for="g-pin">PIN code:</label>
+                        <input type="text" name="g-pin" id="g-pin">
+                    </div>
+                    <div class="input-group">
+                        <label for="g-city">City:</label>
+                        <input type="text" name="g-city" id="g-city">
+                    </div>
+                    <div class="input-group">
+                        <label for="g-state">State:</label>
+                        <input type="text" name="g-state" id="g-state">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Current Co-ordinates</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="co-add">Present Address:</label>
+                        <input type="text" name="co-add" id="co-add">
+                    </div>
+                    <div class="input-group">
+                        <label for="co-pin">PIN code:</label>
+                        <input type="text" name="co-pin" id="co-pin">
+                    </div>
+                    <div class="input-group">
+                        <label for="co-city">City:</label>
+                        <input type="text" name="co-city" id="co-city">
+                    </div>
+                    <div class="input-group">
+                        <label for="co-state">State:</label>
+                        <input type="text" name="co-state" id="co-state">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Current Contact</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="co-phone">Current Phone No:</label>
+                        <input type="text" name="co-phone" id="co-phone">
+                    </div>
+                    <div class="input-group">
+                        <label for="co-email">Current Email Address:</label>
+                        <input type="text" name="co-email" id="co-email">
+                    </div>
+                </div>
+            </div>
+            <div class="btns-group">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+        </div>
+        <div class="form-step">
+            <div class="box">
+                <h3>Marks Obtained</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="marks-10">Class X:</label>
+                        <input type="text" name="marks-10" id="marks-10">
+                    </div>
+                    <div class="input-group">
+                        <label for="marks-12">Class XII:</label>
+                        <input type="text" name="marks-12" id="marks-12">
+                    </div>
+                    <div class="input-group">
+                        <label for="marks-diploma">Diploma:</label>
+                        <input type="text" name="marks-diploma" id="marks-diploma">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>HS Marks Information</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <label for="marks-eng">English:</label>
+                        <input type="text" name="marks-eng" id="marks-eng" placeholder="Full Marks">
+                        <input type="text" name="marks-eng" id="marks-eng" placeholder="Obtained Marks">
+                    </div>
+                    <div class="input-group">
+                        <label for="marks-phy">Physics:</label>
+                        <input type="text" name="marks-phy" id="marks-phy" placeholder="Full Marks">
+                        <input type="text" name="marks-phy" id="marks-phy" placeholder="Obtained Marks">
+                    </div>
+                    <div class="input-group">
+                        <label for="marks-math">Math:</label>
+                        <input type="text" name="marks-math" id="marks-math" placeholder="Full Marks">
+                        <input type="text" name="marks-math" id="marks-math" placeholder="Obtained Marks">
+                    </div>
+                    <div class="input-group">
+                        <label for="marks-chem">Chemistry:</label>
+                        <input type="text" name="marks-chem" id="marks-chem" placeholder="Full Marks">
+                        <input type="text" name="marks-chem" id="marks-chem" placeholder="Obtained Marks">
+                    </div>
+                </div>
+            </div>
+            <div class="btns-group">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+        </div>
+        <div class="form-step">
+            <div class="box">
+                <h3>SGPA Information</h3>
+                <div class="inner-box">
+                    <div class="input-group">
+                        <input type="number" name="sgpa" id="sgpa-1" placeholder="SGPA 1">
+                        <input type="number" name="sgpa" id="sgpa-2" placeholder="SGPA 2">
+                        <input type="number" name="sgpa" id="sgpa-3" placeholder="SGPA 3">
+                        <input type="number" name="sgpa" id="sgpa-4" placeholder="SGPA 4">
+                        <input type="number" name="sgpa" id="sgpa-5" placeholder="SGPA 5">
+                        <input type="number" name="sgpa" id="sgpa-6" placeholder="SGPA 6">
+                        <input type="number" name="sgpa" id="sgpa-7" placeholder="SGPA 7">
+                        <input type="number" name="sgpa" id="sgpa-8" placeholder="SGPA 8">
+                    </div>
+                </div>
+            </div>
+            <div class="btns-group">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-submit">Submit</a>
+            </div>
+        </div>
+    </form>
+    <script src="student-form.js"></script>
+</body>
+
+</html>
