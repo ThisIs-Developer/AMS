@@ -3,7 +3,7 @@
 :root {
   --color-primary: #7380ec;
   --color-danger: #ff7782;
-  --color-success: #41f1b6;
+  --color-success: #33e37c;
   --color-warning: #ffbb55;
   --color-white: #fff;
   --color-info-dark: #7d8da1;
@@ -474,7 +474,7 @@ main {
   display: flex;
   flex-direction: column;
   background: var(--color-white);
-  width: 60vw;
+  width: 400px;
   height: 30vh;
   justify-content: center;
   align-items: center;
@@ -506,13 +506,21 @@ main {
   border: 1px solid green;
 }
 
-#sem-form-submit {
-  width: 30%;
+
+
+.sem-form-btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sem-form-btn{
+  width: 65px;
   border-radius: 5px;
   padding: 2px 0;
-  margin-top: 8px;
+  margin: 8px;
   cursor: pointer;
-  margin-top: 10px;
   padding: 8px 0px;
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -522,6 +530,14 @@ main {
   font-weight: bold;
 }
 
+#sem-form-submit {
+  background-color: var(--color-success);
+} 
+
+#sem-form-cancel{
+  background-color: var(--color-danger);
+
+}
 table,
 th,
 td {
@@ -780,5 +796,8 @@ td {
   .right-top .top button span {
     display: inline;
     font-size: 2rem;
+  }
+  .sem-submit form{
+    margin-left: 10%;
   }
 }
