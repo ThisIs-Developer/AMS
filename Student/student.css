@@ -502,12 +502,6 @@ main {
   margin-bottom: 1rem;
 }
 
-#sem {
-  border: 1px solid green;
-}
-
-
-
 .sem-form-btn-div {
   width: 100%;
   display: flex;
@@ -531,7 +525,7 @@ main {
 }
 
 #sem-form-submit {
-  background-color: var(--color-success);
+  background-color: var(--color-primary);
 } 
 
 #sem-form-cancel{

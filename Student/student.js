@@ -13,14 +13,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const submitBtn = document.getElementById('sem-form-submit');
+    const cancelBtn = document.getElementById('sem-form-cancel');
+    const semForm = document.querySelector('.sem-submit');
+    const tableContainer = document.getElementById('table-container');
+    const selectSemester = document.querySelector('select[name="choose sem"]');
+
+    submitBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (selectSemester.value === '') {
+            alert('Please select a semester before submitting.');
+        } else {
+            showTable();
+        }
+    });
+
+    cancelBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        semForm.reset();
+    });
+
+    function showTable() {
+        semForm.style.display = 'none';
+        tableContainer.style.display = 'block';
+    }
+});
+
 document.getElementById('Personal').addEventListener('click', showOnlyPersonalDetails);
 document.getElementById('Guardian').addEventListener('click', showOnlyGuardianDetails);
 document.getElementById('Semester_Results').addEventListener('click', showOnlySemesterResults);
 
 document.getElementById('attendence-menu').addEventListener('click', showOnlyAttendence);
 document.getElementById('dashboard-menu').addEventListener('click', showDashboard);
-
-document.getElementById('sem-form-submit').addEventListener('click', showTable);
 
 function showTable() {
     document.querySelector('.sem-submit').style.display = 'none';
