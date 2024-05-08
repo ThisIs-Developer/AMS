@@ -120,8 +120,9 @@ input {
 
 .input-group input {
   width: 100%;
-  padding: 5px;
-  margin: 0 5px;
+  padding: 10px;
+  margin: 2px 5px;
+  border-radius: 15px;
 }
 .input-group input::placeholder{
   text-align: center;
@@ -182,12 +183,11 @@ input {
 
 #sgpa input{
   display: flex;
+  flex: 1 0 calc(48% - 5px);
   width: auto;
-  margin: 5px;
+  padding: 10px;
+  margin: 12px 5px;
 }
-
-
-
 
 .btns-group {
   display: grid;
@@ -205,9 +205,46 @@ input {
   border-radius: 0.25rem;
   cursor: pointer;
   transition: 0.3s;
+  border-radius: 15px;
 }
 
 .btn:hover {
   background-color: var(--hover-primary-background);
   box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+
+.asterisk {
+  color: red;
+  font-size: larger;
+}
+
+.address:last-child {
+  margin-top: 35px;
+}
+
+.indexing {
+  margin-left: 6px;
+  background-color: black;
+  color: white;
+  height: 30px;  
+  width: 30px;
+  border-radius: 50%;  
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1200px) {
+  .form {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    width: 95%;
+  }
 }
