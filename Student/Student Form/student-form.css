@@ -26,6 +26,10 @@ body {
   background-color: var(--color-background);
 }
 
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+}
 .text-center {
   text-align: center;
 }
@@ -107,10 +111,20 @@ body {
 }
 
 .input-group {
+  flex-grow: 1;
   margin: 10px 0;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 5px;
+  margin: 0 5px;
+}
+.input-group input::placeholder{
+  text-align: center;
 }
 @keyframes animate {
   from {
@@ -136,9 +150,10 @@ body {
   box-shadow: none;
 }
 .inner-box {
-    /* display: flex; */
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+    flex-direction: column;
 }
 
 .inner-box div{
@@ -148,9 +163,28 @@ body {
 }
 
 
+#hs-marks .input-group{
+  /* display: block; */
+  /* flex-grow: 1; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#hs-marks label{
+  flex: 1 0 100%;
+  margin-right: 10px;
+}
+#hs-marks .input-group input{
+  /* width: auto; */
+  flex: 1 0 calc(48% - 5px); /* 50% width with margin */
+  margin: 5px;
+}
 
-
-
+#sgpa input{
+  display: flex;
+  width: auto;
+  margin: 5px;
+}
 
 
 
