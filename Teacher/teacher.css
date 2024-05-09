@@ -699,6 +699,22 @@ header .current-date {
     padding: 6px 12px;
   }
 
+  .submit-button-container {
+    margin-top: 10px;
+    padding: 7px 11px;
+    background-color: #007bff;
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+  }
+
+  .submit-button-container button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
   .attendance input[type="text"],
   .attendance input[type="date"] {
     width: 85%;
@@ -933,27 +949,55 @@ header .current-date {
   margin-right: 10px;
 }
 
-.table-container{
-    border: 1px solid var(--color-dark);
+.table-container {
+  padding: 0.2rem;
+  border: 1px solid var(--color-dark);
+  border-radius: 8px;
 }
 
-.table-container th{
-    padding: 0.4rem;
-    border: 1px solid var(--color-dark);
+.table-container th {
+  padding: 0.4rem;
+  border: 1px solid var(--color-dark);
+  border-radius: 6px;
 }
 
-.table-container td{
-    padding: 0.4rem;
-    border: 1px solid var(--color-dark);
+.table-container td {
+  padding: 0.4rem;
+  border: 1px solid var(--color-dark);
+  text-align: center;
+  border-radius: 6px;
 }
 
 .table-container input[type="checkbox" i] {
-    width: calc(100% - 11px);
-    background-color: initial;
-    cursor: default;
-    appearance: auto;
-    box-sizing: border-box;
-    margin: 3px 3px 3px 4px;
-    padding: initial;
-    border: initial;
+  width: calc(100% - 11px);
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+
+.submit-button-container {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.submit-button-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+#data-table th {
+  background-color: #007bff;
+  color: #fff;
+  position: sticky;
+  top: 0;
 }
