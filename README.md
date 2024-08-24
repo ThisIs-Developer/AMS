@@ -12,15 +12,17 @@ The Academic Management System (AMS) is a comprehensive solution tailored to the
 - **Comprehensive Reporting**: Generate detailed attendance reports.
 
 ## UI
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/6db5a434-46f6-4b5b-9327-095f82d29569" alt="screen_1" height="400" width="200">
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/97a5a836-b1ae-42ec-be7a-1f871a63269a" alt="screen_2" height="400" width="200">
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/b21ed68e-37d4-4a40-a49d-62f0e5d7762f" alt="screen_3" height="400" width="200">
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/814196de-12ee-4688-9cff-7d1ecb7989d6" alt="screen_4" height="400" width="200">
+
+<img src="https://github.com/user-attachments/assets/9090a068-315c-4a63-bd8c-6a0e24ced6c7" alt="screen_1" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/b8ca07eb-5bfc-4cb1-863d-e216ae6a3c40" alt="screen_2" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/27bcfea5-f19e-495f-9a03-6eac4b656bff" alt="screen_3" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/f3d60c73-750d-475a-b8ae-b5e640aacffc" alt="screen_4" height="400" width="200">
 <br>
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/3084fc93-5b85-49ca-ae86-4953ccb3fd5f" alt="screen_5" height="400" width="200">
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/680ca969-a8ab-4018-9887-86fb8ba2af87" alt="screen_6" height="400" width="200">
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/9bdf387e-33a6-4c38-8403-a33421a43fd1" alt="screen_7" height="400" width="200">
-<img src="https://github.com/iam-baivab/AMS/assets/169576921/6dbde8c0-1ad4-42bc-a75b-846520510ad5" alt="screen_8" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/54b97435-2930-4591-b869-921fc82a8198" alt="screen_5" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/ca09a8e9-0267-4d92-bcb3-06f34f7ee695" alt="screen_6" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/8d21db80-f4a6-4518-892e-50cbde92e93a" alt="screen_7" height="400" width="200">
+<img src="https://github.com/user-attachments/assets/bf917663-3f21-4484-bb22-2a59e86d7f12" alt="screen_8" height="400" width="200">
+
 
 ## Benefits
 
