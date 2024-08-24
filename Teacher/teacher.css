@@ -602,7 +602,7 @@ header .current-date {
 
 .attendance {
   margin-top: 2rem;
-  width: 450px;
+  width: 900px;
   box-shadow: var(--box-shadow);
   background: var(--color-white);
   padding: var(--card-padding);
@@ -615,10 +615,11 @@ header .current-date {
 }
 
 .attendance form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px 30px;
+  display: block;
+  margin-top: 20px;
+  padding: 39px;
+  border-radius: var(--card-border-radius);
+  transition: background-color 0.3s;
 }
 
 .attendance label {
@@ -658,12 +659,16 @@ header .current-date {
 
 @media screen and (max-width: 1200px) {
   .attendance {
-    width: 450px;
+    width: 90%;
     margin-top: 2rem;
   }
 
   .attendance form {
-    padding: 20px;
+    display: block;
+    margin-top: 20px;
+    padding: 39px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
   }
 
   .attendance select {
@@ -672,6 +677,22 @@ header .current-date {
 
   .attendance button.attendanceBtn {
     margin-top: 15px;
+  }
+
+  .submit-button-container {
+    margin-top: 10px;
+    padding: 7px 11px;
+    background-color: #007bff;
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+  }
+
+  .submit-button-container button[type="submit"]:hover {
+    background-color: #0056b3;
   }
 
   .attendance input[type="text"],
@@ -687,7 +708,11 @@ header .current-date {
   }
 
   .attendance form {
-    padding: 15px;
+    display: block;
+    margin-top: 20px;
+    padding: 39px;
+    border-radius: var(--card-border-radius);
+    transition: background-color 0.3s;
   }
 
   .attendance select {
@@ -735,56 +760,47 @@ header .current-date {
   margin-top: 0.6rem;
 }
 
-.student-attendance-report {
-  display: block;
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: var(--card-border-radius);
-  transition: background-color 0.3s;
-}
-
-.student-attendance-report p {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #7380ec;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.student-attendance-report label {
-  font-weight: bold;
-  color: #363949;
-  margin-right: 10px;
-  color: var(--color-dark);
-}
-
-.student-attendance-report div {
-  margin-bottom: 10px;
-  color: var(--color-dark);
-}
-
 .student-attendance-report table {
   border: 1px solid var(--color-dark);
   color: var(--color-dark);
   text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.student-attendance-report p{
+  font-size: 1.2rem;
+    font-weight: bold;
+    color: #7380ec;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .student-attendance-report table th {
-  padding: 0.4rem;
+  padding: 1rem 2rem;
   border: 1px solid var(--color-dark);
+  background-color: var(--color-background);
+  font-size: 1rem;
 }
 
 .student-attendance-report table td {
-  padding: 0.4rem;
+  padding: 1rem 4rem;
   border: 1px solid var(--color-dark);
 }
 
-.student-attendance-report table td {
-  width: 75%;
+.student-attendance-report table tr:nth-child(even) {
+  background-color: var(--color-background);
 }
 
-.student-attendance-report table td:nth-child(even) {
-  width: 25%;
+.student-attendance-report input[type="checkbox" i] {
+  width: calc(100% - 11px);
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
 }
 
 .give-attendance-report {
@@ -939,36 +955,164 @@ header .current-date {
   color: var(--color-dark);
 }
 
-.toast-content {
+.medical-attendence {
+  margin-top: 2rem;
+  width: 450px;
+  box-shadow: var(--box-shadow);
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  transition: all 300ms ease;
+}
+
+.medical-attendence:hover {
+  box-shadow: none;
+}
+
+.medical-attendence form {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 30px;
+}
+
+.medical-attendence label {
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.medical-attendence select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 0.2rem;
+  border: 1px solid var(--color-dark);
+  border-radius: var(--border-radius-3);
+  margin-bottom: 0.4rem;
+}
+
+.medical-attendence button.medicalAttendenceBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+  .medical-attendence {
+    width: 450px;
+    margin-top: 2rem;
+  }
+
+  .medical-attendence form {
+    padding: 20px;
+  }
+
+  .medical-attendence select {
+    width: 90%;
+  }
+
+  .medical-attendence button.medicalAttendenceBtn {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .medical-attendence {
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  .medical-attendence form {
+    padding: 15px;
+  }
+
+  .medical-attendence select {
+    width: 85%;
+  }
+
+  .medical-attendence button.medicalAttendenceBtn {
+    margin-top: 12px;
+    padding: 6px 12px;
+  }
+}
+
+.medical-attendence {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-top: 16vh;
 }
 
-.toast-content .toast-icon {
-  margin-right: 10px;
+.medical-attendence-report {
+  display: block;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: var(--card-border-radius);
+  transition: background-color 0.3s;
 }
 
-.table-container {
-  padding: 0.2rem;
-  border: 1px solid var(--color-dark);
-  border-radius: 8px;
-}
-
-.table-container th {
-  padding: 0.4rem;
-  border: 1px solid var(--color-dark);
-  border-radius: 6px;
-}
-
-.table-container td {
-  padding: 0.4rem;
-  border: 1px solid var(--color-dark);
+.medical-attendence-report p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7380ec;
+  margin-bottom: 20px;
   text-align: center;
-  border-radius: 6px;
 }
 
-.table-container input[type="checkbox" i] {
+.medical-attendence-report label {
+  font-weight: bold;
+  color: #363949;
+  margin-right: 10px;
+  color: var(--color-dark);
+}
+
+.medical-attendence-report div {
+  margin-bottom: 10px;
+  color: var(--color-dark);
+}
+
+.medicalAttendenceView1 input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 0.2rem;
+  border: 1px solid var(--color-dark);
+  border-radius: var(--border-radius-3);
+  margin-bottom: 0.4rem;
+}
+
+.medical-attendence-report table {
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.medical-attendence-report table th {
+  padding: 1rem 2rem;
+  border: 1px solid var(--color-dark);
+  background-color: var(--color-background);
+  font-size: 1rem;
+}
+
+.medical-attendence-report table td {
+  padding: 1rem 2rem;
+  border: 1px solid var(--color-dark);
+}
+
+.medical-attendence-report table tr:nth-child(even) {
+  background-color: var(--color-background);
+}
+
+.medical-attendence-report input[type="checkbox" i] {
   width: calc(100% - 11px);
   background-color: initial;
   cursor: default;
@@ -977,6 +1121,16 @@ header .current-date {
   margin: 3px 3px 3px 4px;
   padding: initial;
   border: initial;
+}
+
+.toast-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-content .toast-icon {
+  margin-right: 10px;
 }
 
 .submit-button-container {
@@ -996,8 +1150,8 @@ header .current-date {
 }
 
 #data-table th {
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--color-background);
+  color: var(--color-dark);
   position: sticky;
   top: 0;
 }
