@@ -69,7 +69,7 @@ The Academic Management System (AMS) is a comprehensive solution tailored to the
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/iam-baivab/AMS.git
+   git clone https://github.com/ThisIs-Developer/AMS.git
    cd AMS
    ```
 
@@ -93,7 +93,7 @@ The Academic Management System (AMS) is a comprehensive solution tailored to the
 
 ## Contributors
 
- * [@Baivab Sarkar](https://github.com/iam-baivab) 
+ * [@Baivab Sarkar](https://github.com/ThisIs-Developer) 
  * [@Ayan Chatterjee](https://github.com/Ayan123C)
  * [@Ayan Kumar Dey](https://github.com/AyanKumarDey)
  * [@Bhishmadev Ghosh](https://github.com/bhishma620)
@@ -114,4 +114,4 @@ For any inquiries or support, please contact:
 Thank you for using AMS! We hope this system significantly enhances attendance management at your institution.
 
 [license-shield]: https://img.shields.io/badge/License-Apache%202.0-red.svg
-[license-url]: https://github.com/iam-baivab/AMS/blob/main/LICENSE
+[license-url]: https://github.com/ThisIs-Developer/AMS/blob/main/LICENSE
