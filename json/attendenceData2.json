@@ -1,0 +1,42 @@
+{
+    "sem-1": [
+        { "subjectID": "CS101", "subjectName": "Introduction to Programming", "totalClass": 50, "classPresent": 45, "attendancePercentage": 90 },
+        { "subjectID": "MA101", "subjectName": "Calculus", "totalClass": 50, "classPresent": 48, "attendancePercentage": 96 },
+        { "subjectID": "PH101", "subjectName": "Physics I", "totalClass": 50, "classPresent": 47, "attendancePercentage": 94 }
+    ],
+    "sem-2": [
+        { "subjectID": "CS102", "subjectName": "Data Structures", "totalClass": 50, "classPresent": 46, "attendancePercentage": 92 },
+        { "subjectID": "MA102", "subjectName": "Linear Algebra", "totalClass": 50, "classPresent": 44, "attendancePercentage": 88 },
+        { "subjectID": "CH101", "subjectName": "Chemistry", "totalClass": 50, "classPresent": 49, "attendancePercentage": 98 }
+    ],
+    "sem-3": [
+        { "subjectID": "CS201", "subjectName": "Algorithms", "totalClass": 50, "classPresent": 45, "attendancePercentage": 90 },
+        { "subjectID": "MA201", "subjectName": "Discrete Mathematics", "totalClass": 50, "classPresent": 48, "attendancePercentage": 96 },
+        { "subjectID": "PH201", "subjectName": "Physics II", "totalClass": 50, "classPresent": 47, "attendancePercentage": 94 }
+    ],
+    "sem-4": [
+        { "subjectID": "CS202", "subjectName": "Computer Networks", "totalClass": 50, "classPresent": 46, "attendancePercentage": 92 },
+        { "subjectID": "MA202", "subjectName": "Probability and Statistics", "totalClass": 50, "classPresent": 44, "attendancePercentage": 88 },
+        { "subjectID": "EN202", "subjectName": "English Literature", "totalClass": 50, "classPresent": 49, "attendancePercentage": 98 }
+    ],
+    "sem-5": [
+        { "subjectID": "CS301", "subjectName": "Operating Systems", "totalClass": 50, "classPresent": 42, "attendancePercentage": 84 },
+        { "subjectID": "MA301", "subjectName": "Complex Analysis", "totalClass": 50, "classPresent": 43, "attendancePercentage": 86 },
+        { "subjectID": "PH301", "subjectName": "Quantum Mechanics", "totalClass": 50, "classPresent": 50, "attendancePercentage": 100 }
+    ],
+    "sem-6": [
+        { "subjectID": "CS302", "subjectName": "Databases", "totalClass": 50, "classPresent": 45, "attendancePercentage": 90 },
+        { "subjectID": "MA302", "subjectName": "Numerical Methods", "totalClass": 50, "classPresent": 48, "attendancePercentage": 96 },
+        { "subjectID": "PH302", "subjectName": "Solid State Physics", "totalClass": 50, "classPresent": 47, "attendancePercentage": 94 }
+    ],
+    "sem-7": [
+        { "subjectID": "CS401", "subjectName": "Artificial Intelligence", "totalClass": 50, "classPresent": 46, "attendancePercentage": 92 },
+        { "subjectID": "MA401", "subjectName": "Optimization Techniques", "totalClass": 50, "classPresent": 44, "attendancePercentage": 88 },
+        { "subjectID": "EN401", "subjectName": "Technical Writing", "totalClass": 50, "classPresent": 49, "attendancePercentage": 98 }
+    ],
+    "sem-8": [
+        { "subjectID": "CS402", "subjectName": "Machine Learning", "totalClass": 50, "classPresent": 42, "attendancePercentage": 84 },
+        { "subjectID": "MA402", "subjectName": "Stochastic Processes", "totalClass": 50, "classPresent": 43, "attendancePercentage": 86 },
+        { "subjectID": "PH402", "subjectName": "Nuclear Physics", "totalClass": 50, "classPresent": 50, "attendancePercentage": 100 }
+    ]
+}

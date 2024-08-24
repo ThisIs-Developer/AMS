@@ -1,0 +1,103 @@
+{
+    "JIS/2021/0488": {
+        "subjects": [
+            "CS601 Computer Networks",
+            "CS602 Microprocessors and Microcontrollers",
+            "CS603 Software Engineering",
+            "CS604 A. Compiler Design",
+            "CS604 B. Computer Vision",
+            "CS604 C. Simulation and modeling",
+            "CS605 A. Pattern Recognition",
+            "CS605 B. Distributed Operating System",
+            "CS605 C. Distributed Database",
+            "CS606 A. Data Warehousing and Data Mining",
+            "CS606 B. Digital Image Processing",
+            "CS606 C. E-commerce and ERP",
+            "CS691 Computer Networks Lab",
+            "CS692 Microprocessors and Microcontrollers Lab",
+            "CS693 Software Engineering Lab",
+            "PR691 Project-VI",
+            "PR692 Innovative activities-V",
+            "MC681 Technical Lecture Presentation & Group Discussion-I"
+        ]
+    },
+    "JIS/2022/0456": {
+        "subjects": [
+            "M(CSE)401 Numerical Methods and Statistics",
+            "HU 402 Economics for Engineers",
+            "CS401 Computer Architecture",
+            "CS402 Design and Analysis of Algorithms",
+            "CS403 Formal Language and Automata Theory",
+            "M(CSE)491 Numerical Methods and Statistics Lab",
+            "CS491 Computer Architecture Lab",
+            "CS492 Algorithms Lab",
+            "PR 491 Project-IV",
+            "PR 492 Innovative activities-III",
+            "MC401 Constitution of India"
+        ]
+    },
+    "JIS/2023/0123": {
+        "subjects": [
+            "M 201 Mathematics - II",
+            "CH 201 Chemistry",
+            "EE 201 Basic Electrical Engineering",
+            "CS 201 Programming for Problem Solving",
+            "ME 201 Engineering Mechanics",
+            "CS291 Programming for Problem Solving Lab",
+            "CH 291 Chemistry",
+            "EE 291 Basic Electrical Engineering Lab",
+            "ME 291 Engineering Graphics & Design",
+            "HU 291 Language Lab",
+            "PR 291 Project-II",
+            "PR 292 Innovative activities-I",
+            "MC 281 NSS/ Physical Activities/Meditation & Yoga/Photography/Nature Club"
+        ]
+    },
+    "JIS/2018/0789": {
+        "subjects": [
+            "M(CSE)301 Mathematics-III",
+            "PH301 Physics-II",
+            "CS301 Digital Electronics and Computer Organization",
+            "CS302 Data Structures",
+            "CS 303 Circuit Theory and Network",
+            "PH391 Physics-II Lab",
+            "CS391 Digital Electronics and Computer Organization Lab",
+            "CS392 Data Structures Lab",
+            "CS393 Programming with C++",
+            "PR 391 Project-III",
+            "PR 392 Innovative activities-II",
+            "MC 381 Behavioural and Interpersonal Skills"
+        ]
+    },
+    "JIS/2021/0678": {
+        "subjects": [
+            "M(CSE)401 Numerical Methods and Statistics",
+            "HU 402 Economics for Engineers",
+            "CS401 Computer Architecture",
+            "CS402 Design and Analysis of Algorithms",
+            "CS403 Formal Language and Automata Theory",
+            "M(CSE)491 Numerical Methods and Statistics Lab",
+            "CS491 Computer Architecture Lab",
+            "CS492 Algorithms Lab",
+            "PR 491 Project-IV",
+            "PR 492 Innovative activities-III",
+            "MC401 Constitution of India"
+        ]
+    },
+    "JIS/2020/0345": {
+        "subjects": [
+            "HU804 Principles of Management",
+            "CS801 A. Mobile Computing",
+            "CS801 B. Bio-informatics",
+            "CS801 C. Cyber Law and Security Policy",
+            "CS801 D. VLSI Design",
+            "CS802 A. Parallel Computing",
+            "CS802 B. Machine Learning",
+            "CS802 C. Real Time Embedded System",
+            "CS802 D. Advanced Computer Architecture",
+            "CS891 Design lab",
+            "PR891 Project-VIII",
+            "MC801 Essence of Indian Knowledge Tradition"
+        ]
+    }
+}
