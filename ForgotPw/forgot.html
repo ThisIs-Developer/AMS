@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/logo-favi.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="forgot.css">
+
+    
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Forgot Password</title>
+</head>
+<body>
+
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+       <div class="row border rounded-5 p-3 bg-white shadow box-area">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #176B87;">
+                <div class="featured-image mb-3">
+                    <img src="../assets/verify.png" class="img-fluid" style="width: 250px;">
+                </div>
+                <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">One More Step,</p>
+                <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Attendance Management System.</small>
+            </div>
+
+            <div class="col-md-6 right-box">
+                <div class="row align-items-center">
+                    <div class="header-text mb-4 forgot-mail">
+                        <h2>Forgot Password</h2>
+                        <p>We will send you a <span style="font-weight: bold;">One Time Password</span> on your register email address</p>
+                    </div>
+                    <form action="/submit" method="post" class="forgot-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email address" name="id" required>
+                        </div>
+                        <div class="input-group mb-3" style="margin-top: 40px;">
+                            <button type="submit" class="btn btn-lg btn-primary w-100 fs-6 " style="background-color: #176B87;">Submit</button>
+                        </div>
+                    </form>
+                    <div class="header-text mb-4 check-mail" style="display: none;">
+                        <form action="/submit" method="post" class="reset-pass">
+                            <div class="header-text mb-4 rest-txt">
+                                <h2>Reset Password</h2>
+                                <p> Successfully sent 6-digit verification code to <span style="color: #007bff;"></span></p>
+                                <p>The code is valid for 10 minutes.</p>
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Enter OTP code" name="otp" maxlength="6" minlength="6">
+                                </div>
+                                <p>Set the new password for your account so you can login and access all the features.</p>
+                            </div>
+                            <div class="input-group mb-3 position-relative">
+                                <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="New Password" name="psw" required>
+                                <span class="input-group-text eye-icon" onclick="togglePasswordVisibility('psw')">
+                                    <i class="material-icons">visibility</i>
+                                </span>
+                            </div>
+    
+                            <div class="input-group mb-1 position-relative">
+                                <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Confirm Password" name="conf-psw" required>
+                                <span class="input-group-text eye-icon" onclick="togglePasswordVisibility('conf-psw')">
+                                    <i class="material-icons">visibility</i>
+                                </span>
+                            </div>
+                            <span id="warningMessage-pass" style="color: red; display: none; font-size: small;">Passwords didn't match</span>
+                            <div class="input-group mb-3" style="margin-top: 40px;">
+                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6 " style="background-color: #176B87;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="header-text mb-4 password-success" style="display: none;">
+                        <h2>Password changed successfully</h2>
+                        <p>Login again to continue.</p>
+                        <div class="log-again">
+                            <a href="../Login/login.html" class="btn btn-primary" style="background-color: #176B87;">Login</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <script src="forgot.js"></script>
+</body>
+</html>
