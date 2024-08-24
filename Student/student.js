@@ -1,3 +1,6 @@
+let batch='';
+let section='';
+
 document.addEventListener("DOMContentLoaded", function () {
     const sidebarLinks = document.querySelectorAll(".sidebar a");
 
@@ -56,6 +59,7 @@ function showTable() {
 function showOnlyAttendence() {
     document.querySelector('.sem-submit').style.display = 'flex';
     document.querySelector('.dashboard').style.display = 'none';
+    document.querySelector('#table-container').style.display = 'none';
 }
 
 function showDashboard() {
@@ -79,6 +83,7 @@ function hideAllDashboardContent() {
     document.getElementById('present-details').style.display = 'none';
     document.getElementById('guardian-det').style.display = 'none';
     document.getElementById('sem-result').style.display = 'none';
+    document.getElementById('personal-info').style.display = 'none';
 }
 
 function showOnlyPersonalDetails() {
@@ -171,68 +176,224 @@ document.getElementById('logout-link').addEventListener('click', function (event
     window.location.href = this.getAttribute('href');
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const studentDetailsUrl = '../json/account.json'; 
 
-    fetch(studentDetailsUrl)
-        .then(response => response.json())
+
+
+
+// document.getElementById('sem-form-submit').addEventListener('click', function(event) {
+//     event.preventDefault(); // Prevent the default form submission
+
+//     const selectedSemester = document.querySelector('select[name="choose sem"]').value;
+//     const accessToken = localStorage.getItem('access_token'); // Get access token from localStorage
+//     const collegeId = localStorage.getItem('userId'); // Get collegeId from localStorage
+//      console.log("TEST"+" "+batch+" "+section);
+
+//     if (selectedSemester && collegeId) {
+//        const url = `http://localhost:8080/student-profile/attendance?collegeId=${collegeId}&batch=${batch}&sem=${selectedSemester}&section=${section}`;
+
+
+//          console.log(url);
+
+//         fetch(url, {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `Bearer ${accessToken}`
+//             }
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data); // Print the data in console
+//             const tableBody = document.querySelector('#Attendance-table tbody');
+//             tableBody.innerHTML = ''; // Clear any existing rows
+    
+//             data.forEach(subject => {
+//                 const row = document.createElement('tr');
+    
+//                 const subCodeCell = document.createElement('td');
+//                 subCodeCell.textContent = subject.subCode;
+//                 row.appendChild(subCodeCell);
+    
+//                 const subNameCell = document.createElement('td');
+//                 subNameCell.textContent = subject.subName;
+//                 row.appendChild(subNameCell);
+    
+//                 const totalClassCell = document.createElement('td');
+//                 totalClassCell.textContent = subject.totalClass;
+//                 row.appendChild(totalClassCell);
+    
+//                 const presentClassCell = document.createElement('td');
+//                 presentClassCell.textContent = subject.presentClass;
+//                 row.appendChild(presentClassCell);
+    
+//                 const percentageCell = document.createElement('td');
+//                 percentageCell.textContent = subject.percentage;
+//                 row.appendChild(percentageCell);
+    
+//                 tableBody.appendChild(row);
+//             });
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//         });
+//     } else {
+//         console.warn('Please select a semester and ensure collegeId is available.');
+//     }
+// });
+
+document.getElementById('sem-form-submit').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const selectedSemester = document.querySelector('select[name="choose sem"]').value;
+    const accessToken = localStorage.getItem('access_token'); // Get access token from localStorage
+    const collegeId = localStorage.getItem('userId'); // Get collegeId from localStorage
+    const batch = "2021-2025"; // Assuming batch is a static value based on your previous examples
+    const section = "A"; // Assuming section is a static value based on your previous examples
+
+    if (selectedSemester && collegeId) {
+        const url = `http://localhost:8080/student-profile/attendance?collegeId=${collegeId}&batch=${batch}&sem=${selectedSemester}&section=${section}`;
+
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Return the parsed JSON promise
+        })
         .then(data => {
-            const students = data.students;
+            console.log(data); // Print the data in console
+            
+            const tableBody = document.querySelector('#Attendence-table tbody');
+            tableBody.innerHTML = ''; // Clear any existing rows
 
-            students.forEach(student => {
-                document.getElementById('first-name').value = student.student.name.split(' ')[0];
-                document.getElementById('last-name').value = student.student.name.split(' ')[1];
-                document.getElementById('department').value = student.student.department;
-                document.getElementById('batch').value = student.student.batch;
-                document.getElementById('semester').value = student.student.semester;
-                document.getElementById('roll-no').value = student.student.id;
-                document.getElementById('registration-no').value = student.student['registration no'];
-
-                document.getElementById('present-address').value = student['personal details'].address['present address'].Address;
-                document.getElementById('city').value = student['personal details'].address['present address'].city;
-                document.getElementById('pin-no').value = student['personal details'].address['present address']['pin no'];
-                document.getElementById('permanent-address').value = student['personal details'].address['permanent address'].Address;
-                document.getElementById('permanent-city').value = student['personal details'].address['permanent address'].city;
-                document.getElementById('permanent-pin').value = student['personal details'].address['permanent address']['pin no'];
-                document.getElementById('mobile-no').value = student['personal details'].contact['Mobile No'];
-                document.getElementById('email').value = student['personal details'].contact.Email;
-                document.getElementById('dob').value = student['personal details'].contact['Date of Birth'];
-
-                document.getElementById('class-x').value = student['personal details'].marks['class-x'];
-                document.getElementById('class-xii').value = student['personal details'].marks['class-xii'];
-                document.getElementById('diploma').value = student['personal details'].marks.Diploma;
-                document.getElementById('graduate').value = student['personal details'].marks.graduation;
-                document.getElementById('post-graduate').value = student['personal details'].marks['post graduation'];
-                document.getElementById('eng-full-marks').value = student['personal details']['HS Marks'].english['eng-full-marks'];
-                document.getElementById('eng-obtained-marks').value = student['personal details']['HS Marks'].english['eng-obtained-marks'];
-                document.getElementById('phy-full-marks').value = student['personal details']['HS Marks'].physics['phy-full-marks'];
-                document.getElementById('phy-obtained-marks').value = student['personal details']['HS Marks'].physics['phy-obtained-marks'];
-                document.getElementById('chem-full-marks').value = student['personal details']['HS Marks'].chemistry['chem-full-marks'];
-                document.getElementById('chem-obtained-marks').value = student['personal details']['HS Marks'].chemistry['chem-obtained-marks'];
-                document.getElementById('math-full-marks').value = student['personal details']['HS Marks'].math['math-full-marks'];
-                document.getElementById('math-obtained-marks').value = student['personal details']['HS Marks'].math['math-obtained-marks'];
-
-                document.getElementById('current-address').value = student['personal details']['Current co-ordinates']['current address'];
-                document.getElementById('current-mobile-no').value = student['personal details']['Current co-ordinates']['currnt mobile no'];
-                document.getElementById('current-email').value = student['personal details']['Current co-ordinates']['current email'];
-                document.getElementById('blood-group').value = student['personal details']['Current co-ordinates']['blood group'];
-                document.getElementById('date-of-birth').value = student['personal details']['Current co-ordinates']['date of birth'];
-
-                document.getElementById('guardian-first-name').value = student['guardian details']['guardian-first-name'];
-                document.getElementById('guardian-last-name').value = student['guardian details']['guardian-last-name'];
-                document.getElementById('guardian-mobile-no').value = student['guardian details']['guardian mobile no'];
-                document.getElementById('guardian-email').value = student['guardian details']['guardian email'];
-                document.getElementById('guardian-address').value = student['guardian details']['guardian address'];
-
-                document.getElementById('sgpa-1st-sem').value = student.sgpa['1st sem'];
-                document.getElementById('sgpa-2nd-sem').value = student.sgpa['2nd sem'];
-                document.getElementById('sgpa-3rd-sem').value = student.sgpa['3rd sem'];
-                document.getElementById('sgpa-4th-sem').value = student.sgpa['4th sem'];
-                document.getElementById('sgpa-5th-sem').value = student.sgpa['5th sem'];
-                document.getElementById('sgpa-6th-sem').value = student.sgpa['6th sem'];
-                document.getElementById('sgpa-7th-sem').value = student.sgpa['7th sem'];
-                document.getElementById('sgpa-8th-sem').value = student.sgpa['8th sem'];
+            data.forEach(subject => {
+                const row = document.createElement('tr');
+    
+                const subCodeCell = document.createElement('td');
+                subCodeCell.textContent = subject.subCode;
+                row.appendChild(subCodeCell);
+    
+                const subNameCell = document.createElement('td');
+                subNameCell.textContent = subject.subName;
+                row.appendChild(subNameCell);
+    
+                const totalClassCell = document.createElement('td');
+                totalClassCell.textContent = subject.totalClass;
+                row.appendChild(totalClassCell);
+    
+                const presentClassCell = document.createElement('td');
+                presentClassCell.textContent = subject.presentClass;
+                row.appendChild(presentClassCell);
+    
+                const percentageCell = document.createElement('td');
+                percentageCell.textContent = subject.percentage;
+                row.appendChild(percentageCell);
+    
+                tableBody.appendChild(row);
             });
         })
-        .catch(error => console.error('Error fetching student details:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error appropriately, e.g., display an error message to the user
+        });
+    } else {
+        console.warn('Please select a semester and ensure collegeId is available.');
+    }
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('data');
+    }
+
+    // Retrieve and parse the JSON string from the URL
+    const jsonString = decodeURIComponent(getQueryParams());
+    const profileData = JSON.parse(jsonString);
+
+    batch=profileData.educationalDetails.batch;
+    section=profileData.educationalDetails.section;
+
+    // Print the data to the console
+    console.log('Profile Data:', profileData);
+
+    // Display the data on the page
+    // const profileDiv = document.getElementById('profile');
+    // profileDiv.textContent = JSON.stringify(profileData, null, 2);
+
+       // Fill educational details
+       document.getElementById('first-name').value = profileData.educationalDetails.firstName;
+       document.getElementById('last-name').value = profileData.educationalDetails.lastName;
+       document.getElementById('department').value = profileData.educationalDetails.department;
+       document.getElementById('batch').value = profileData.educationalDetails.batch;
+       document.getElementById('semester').value = profileData.educationalDetails.sem;
+       document.getElementById('roll-no').value = profileData.educationalDetails.rollNo;
+       document.getElementById('registration-no').value = profileData.educationalDetails.regNo;
+       document.getElementById('clgID').value = profileData.educationalDetails.collegeId;
+   
+       // Fill personal information
+       document.getElementById('mobile-no').value = profileData.personalInformation.mobileNo;
+       document.getElementById('email').value = profileData.personalInformation.email;
+       document.getElementById('dob').value = profileData.personalInformation.dob;
+       document.getElementById('blood-group').value = profileData.personalInformation.bloodGroup;
+   
+       // Fill current contact
+       document.getElementById('current-mobile-no').value = profileData.currentContact.mobileNo;
+       document.getElementById('current-email').value = profileData.currentContact.email;
+   
+       // Fill address information
+       document.getElementById('present-address').value = profileData.addressInformation.presentAddress;
+       document.getElementById('city').value = profileData.addressInformation.presentCity;
+       document.getElementById('state').value = profileData.addressInformation.presentState;
+       document.getElementById('pin-no').value = profileData.addressInformation.presentPin;
+       document.getElementById('permanent-address').value = profileData.addressInformation.permanentAddress;
+       document.getElementById('permanent-city').value = profileData.addressInformation.permanentCity;
+       document.getElementById('permanent-state').value = profileData.addressInformation.permanentState;
+       document.getElementById('permanent-pin').value = profileData.addressInformation.permanentPin;
+   
+       // Fill guardian details
+       document.getElementById('guardian-first-name').value = profileData.guardianDetails.firstName;
+       document.getElementById('guardian-last-name').value = profileData.guardianDetails.lastName;
+       document.getElementById('guardian-mobile-no').value = profileData.guardianDetails.mobileNo;
+       document.getElementById('guardian-email').value = profileData.guardianDetails.email;
+       document.getElementById('guardian-address').value = profileData.guardianDetails.presentAddress;
+   
+       // Fill HS marks
+       document.getElementById('class-x').value = profileData.marks.matricPercentage;
+       document.getElementById('class-xii').value = profileData.marks.hsPercentage;
+       document.getElementById('diploma').value = profileData.marks.diplomaPercentage;
+       document.getElementById('eng-full-marks').value = profileData.marks.englishTotal;
+       document.getElementById('eng-obtained-marks').value = profileData.marks.englishObtained;
+       document.getElementById('phy-full-marks').value = profileData.marks.physicsTotal;
+       document.getElementById('phy-obtained-marks').value = profileData.marks.physicsObtained;
+       document.getElementById('chem-full-marks').value = profileData.marks.chemistryTotal;
+       document.getElementById('chem-obtained-marks').value = profileData.marks.chemistryObtained;
+       document.getElementById('math-full-marks').value = profileData.marks.mathTotal;
+       document.getElementById('math-obtained-marks').value = profileData.marks.mathObtained;
+   
+       // Fill semester results
+       document.getElementById('sgpa-1st-sem').value = profileData.semesterMarks.sem1;
+       document.getElementById('sgpa-2nd-sem').value = profileData.semesterMarks.sem2;
+       document.getElementById('sgpa-3rd-sem').value = profileData.semesterMarks.sem3;
+       document.getElementById('sgpa-4th-sem').value = profileData.semesterMarks.sem4;
+       document.getElementById('sgpa-5th-sem').value = profileData.semesterMarks.sem5;
+       document.getElementById('sgpa-6th-sem').value = profileData.semesterMarks.sem6;
+       document.getElementById('sgpa-7th-sem').value = profileData.semesterMarks.sem7;
+       document.getElementById('sgpa-8th-sem').value = profileData.semesterMarks.sem8;
+
+       //current-co 
+       document.getElementById('current-co-address').value=profileData.currentCoOrdinate.presentAddress;
+       document.getElementById('current-co-pin-code').value=profileData.currentCoOrdinate.presentPin;
+       document.getElementById('current-co-city').value=profileData.currentCoOrdinate.presentCity;
+     
+
+
+   
 });

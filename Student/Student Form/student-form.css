@@ -1,13 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  --primary-color: #5460cd;
-  --secondary-color:#dcdcdc;
-  --hover-primary-background:rgb(50, 50, 232);
-  --color-background: #f6f6f9;
-  --white-background:white;
-  --color-light: rgba(132, 139, 200, 0.18);
-  --box-shadow: 0 2rem 3rem var(--color-light);
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+  
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+  
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+  
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    
+    --hover-primary-background:rgb(50, 50, 232);
+    --secondary-color:#dcdcdc;
+    --primary-color: #5460cd;
+    --color-background: #f6f6f9;
+    --white-background:white;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
 
-
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 *,
@@ -16,9 +48,8 @@
   box-sizing: border-box;
 }
 
-
 body {
-  font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   display: grid;
   place-items: center;
@@ -65,6 +96,7 @@ input {
   width: 2.1875rem;
   height: 2.1875rem;
   background-color: #dcdcdc;
+  color: black;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -88,8 +120,6 @@ input {
   background-color: var(--primary-color);
   color: #f3f3f3;
 }
-
-
 
 .form {
   
@@ -137,7 +167,6 @@ input {
     opacity: 1;
   }
 }
-
 
 .box {
   background-color: var(--white-background);
@@ -190,9 +219,11 @@ input {
 }
 
 .btns-group {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.5rem; */
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .btn {
@@ -224,8 +255,8 @@ input {
 
 .indexing {
   margin-left: 6px;
-  background-color: black;
-  color: white;
+  background-color: var(--color-dark);
+  color: var(--color-white);
   height: 30px;  
   width: 30px;
   border-radius: 50%;  
@@ -246,4 +277,118 @@ input {
   .form {
     width: 95%;
   }
+}
+
+html {
+  font-size: 14px;
+}
+
+h2{
+  font-size: 1.4rem;
+}
+/* Navigation bar styling */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-background);
+  padding: 1rem 2rem;
+  box-shadow: var(--box-shadow);
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.theme-toggler {
+  background: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 4.2rem;
+  cursor: pointer;
+  border-radius: 50px;
+  height: 1.9rem;
+}
+
+.theme-toggler span {
+  font-size: 1.2rem;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-toggler span.active {
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .theme-toggler {
+    width: 4.4rem;
+    position: absolute;
+    left: 75%;
+  }
+}
+
+body.dark-theme-variables {
+  background-color: var(--color-background);
+  color: #f6f6f9;
+}
+
+body.dark-theme-variables .navbar {
+  background-color: var(--color-background);
+}
+
+body.dark-theme-variables .box {
+  background-color: var(--color-white);
+}
+
+.btn-cancel{
+  background-color: #dc3545;
+}
+
+.btn-cancel:hover {
+  background-color: #cc1429;
+  box-shadow: 0 0 0 2px #dc3549, 0 0 0 3px #dc3545;
+}
+
+.asterisk {
+  position: relative;
+  cursor: help;
+}
+
+.asterisk:hover::after {
+  content: "Required field";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 999;
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/logo-favi.png">
-    <title>Student | Dashboard</title>
+    <title>Student Search</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="student.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -33,16 +33,10 @@
                     <h3>Account Details</h3>
                 </a>
                 <a href="#" id="attendence-menu">
-                    <span class="material-symbols-outlined">
-                        overview
-                    </span>
-                    <h3>Attendence</h3>
+                    
                 </a>
                 <a href="../Logout/logout.html" id="logout-link">
-                    <span class="material-symbols-outlined">
-                        logout
-                    </span>
-                    <h3>Log out</h3>
+                    
                 </a>
             </div>
         </aside>
@@ -100,10 +94,6 @@
                             <label for="registration-no">Registration No:</label>
                             <input type="text" readonly id="registration-no">
                         </div>
-                        <div class="box">
-                            <label for="clgID">College ID:</label>
-                            <input type="text" readonly id="clgID">
-                        </div>
                     </form>
                 </div>
 
@@ -112,29 +102,6 @@
                     <button type="button" id="Guardian" onclick="dashStartBtn('#Guardian')">Guardian Details</button>
                     <button type="button" id="Semester_Results" onclick="dashStartBtn('#Semester_Results')">Semester
                         Results</button>
-                </div>
-
-                <div class="dashboard-content" id="personal-info">
-                    <h2>Personal Information</h2>
-                        <div class="outer_box">
-                            <div class="box">
-                                <label for="mobile-no">Mobile No:</label>
-                                <input type="text" readonly id="mobile-no">
-                            </div>
-                            <div class="box">
-                                <label for="email">Email:</label>
-                                <input type="text" readonly id="email">
-                            </div>
-                            <div class="box">
-                                <label for="dob">Date of Birth:</label>
-                                <input type="text" readonly id="dob">
-                            </div>
-                            <div class="box">
-                                <label for="blood-group">Blood Group:</label>
-                                <input type="text" readonly id="blood-group">
-                            </div>
-                        </div>
-                    </form>
                 </div>
 
                 <div class="dashboard-content" id="address">
@@ -148,10 +115,6 @@
                             <div class="box">
                                 <label for="city">City:</label>
                                 <input type="text" readonly id="city">
-                            </div>
-                            <div class="box">
-                                <label for="state">State:</label>
-                                <input type="text" readonly id="state">
                             </div>
                             <div class="box">
                                 <label for="pin-no">Pin No:</label>
@@ -168,15 +131,11 @@
                                 <input type="text" readonly id="permanent-city">
                             </div>
                             <div class="box">
-                                <label for="state">State:</label>
-                                <input type="text" readonly id="permanent-state">
-                            </div>
-                            <div class="box">
                                 <label for="permanent-pin">Pin No:</label>
                                 <input type="text" readonly id="permanent-pin">
                             </div>
                         </div>
-                        <!-- <div class="outer_box">
+                        <div class="outer_box">
                             <div class="box">
                                 <label for="mobile-no">Mobile No:</label>
                                 <input type="text" readonly id="mobile-no">
@@ -189,7 +148,7 @@
                                 <label for="dob">Date of Birth:</label>
                                 <input type="text" readonly id="dob">
                             </div>
-                        </div> -->
+                        </div>
                     </form>
                 </div>
                 
@@ -208,6 +167,14 @@
                             <div class="box">
                                 <label for="diploma">Diploma:</label>
                                 <input type="text" readonly id="diploma">
+                            </div>
+                            <div class="box">
+                                <label for="graduate">Graduate:</label>
+                                <input type="text" readonly id="graduate">
+                            </div>
+                            <div class="box">
+                                <label for="post-graduate">Post Graduate:</label>
+                                <input type="text" readonly id="post-graduate">
                             </div>
                         </div>
                     </form>
@@ -276,9 +243,9 @@
                 <div class="dashboard-content" id="present-details">
                     <h2>Current Co-ordinates</h2>
                     <form action="" method="post">
-                        <div class="box co-add">
-                            <label for="current-co-address">Current Address:</label>
-                            <input type="text" placeholder="Enter Current Address" id="current-co-address">
+                        <div class="box">
+                            <label for="current-address">Current Address:</label>
+                            <input type="text" placeholder="Enter Current Address" id="current-address">
                         </div>
                         <div class="outer_box">
                             <div class="box">
@@ -290,12 +257,12 @@
                                 <input type="text" id="current-email">
                             </div>
                             <div class="box">
-                                <label for="current-co-city">City:</label>
-                                <input type="text" id="current-co-city">
+                                <label for="blood-group">Blood Group:</label>
+                                <input type="text" id="blood-group">
                             </div>
                             <div class="box">
-                                <label for="current-co-pin-code">Pin Code:</label>
-                                <input type="text" id="current-co-pin-code">
+                                <label for="date-of-birth">Date of Birth:</label>
+                                <input type="text" id="date-of-birth">
                             </div>
                         </div>
                     </form>
@@ -370,6 +337,7 @@
                 </div>
 
                 <div class="dashboard-content" id="det-end-btn">
+                    <button id="backButton">Go Back</button>                
                     <button type="submit" id="submit">Submit</button>
                 </div>
             </div>
@@ -379,24 +347,21 @@
                     <label for="choose sem">Select Semester</label>
                     <select name="choose sem">
                         <option value="">Search</option>
-                        <option value="1">Semester 1</option>
-                        <option value="2">Semester 2</option>
-                        <option value="3">Semester 3</option>
-                        <option value="4">Semester 4</option>
-                        <option value="5">Semester 5</option>
-                        <option value="6">Semester 6</option>
-                        <option value="7">Semester 7</option>
-                        <option value="8">Semester 8</option>
+                        <option value="sem-1">Semester 1</option>
+                        <option value="sem-2">Semester 2</option>
+                        <option value="sem-3">Semester 3</option>
+                        <option value="sem-4">Semester 4</option>
+                        <option value="sem-5">Semester 5</option>
+                        <option value="sem-6">Semester 6</option>
+                        <option value="sem-7">Semester 7</option>
+                        <option value="sem-8">Semester 8</option>
                     </select>
                     <div class="sem-form-btn-div">
                         <button id="sem-form-submit" class="sem-form-btn">Submit</button>
                         <button type="reset" id="sem-form-cancel" class="sem-form-btn" style="background-color: #dc3545;">Cancel</button>
-                    </div>
-                    
+                    </div>                   
                 </form>
-                
-            </div>
-            
+            </div>           
 
             <div id="table-container">
                 <h1>ATTENDENCE REPORT</h1>
@@ -417,7 +382,7 @@
             </div>
         </main>
     </div>
-    <script src="student.js"></script>
+    <script src="student_search.js"></script>
 </body>
 
 </html>

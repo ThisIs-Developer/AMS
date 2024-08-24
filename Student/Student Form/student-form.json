@@ -1,0 +1,81 @@
+{
+    "collegeId": "JIS/2021/0638",
+    "educationalDetails": {
+      "collegeId": "JIS/2021/0638",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "batch": "2021-2025",
+      "department": "Electrical Engineering",
+      "rollNo": "A125",
+      "regNo": "REG2021003",
+      "regular": "Yes",
+      "sem": "6",
+      "section": "A"
+    },
+    "personalInformation": {
+      "collegeId": "JIS/2021/0638",
+      "mobileNo": "+1234567892",
+      "email": "jane.smith@example.com",
+      "bloodGroup": "B+",
+      "dob": "1999-06-15"
+    },
+    "currentContact": {
+      "collegeId": "JIS/2021/0638",
+      "mobileNo": "+1987654323",
+      "email": "jane.smith@example.com"
+    },
+    "currentCoOrdinate": {
+      "collegeId": "JIS/2021/0638",
+      "presentAddress": "125 Main Street",
+      "presentCity": "Springfield",
+      "presentState": "IL",
+      "presentPin": "12347"
+    },
+    "addressInformation": {
+      "collegeId": "JIS/2021/0638",
+      "presentAddress": "458 Oak Avenue",
+      "presentCity": "Oakland",
+      "presentState": "CA",
+      "presentPin": "67892",
+      "permanentAddress": "791 Pine Road",
+      "permanentCity": "Pineville",
+      "permanentState": "NY",
+      "permanentPin": "54323"
+    },
+    "guardianDetails": {
+      "collegeId": "JIS/2021/0638",
+      "firstName": "Jack",
+      "lastName": "Smith",
+      "mobileNo": "+9876543212",
+      "email": "jack.smith@example.com",
+      "presentAddress": "791 Elm Street",
+      "presentCity": "Elmsford",
+      "presentState": "TX",
+      "presentPin": "98767"
+    },
+    "marks": {
+      "collegeId": "JIS/2021/0638",
+      "matricPercentage": "87",
+      "hsPercentage": "92",
+      "diplomaPercentage": "82",
+      "englishTotal": "100",
+      "englishObtained": "90",
+      "physicsTotal": "100",
+      "physicsObtained": "94",
+      "chemistryTotal": "100",
+      "chemistryObtained": "87",
+      "mathTotal": "100",
+      "mathObtained": "92"
+    },
+    "semesterMarks": {
+      "collegeId": "JIS/2021/0638",
+      "sem1": "80",
+      "sem2": "84",
+      "sem3": "82",
+      "sem4": "87",
+      "sem5": "81",
+      "sem6": "90",
+      "sem7": "85",
+      "sem8": "88"
+    }
+  }

@@ -1,0 +1,46 @@
+{
+    "students": [
+        {
+            "student": {
+                "id": "C001",
+                "name": "John Doe",
+                "rollNo": "123211003039",
+                "registration no": "R001"
+            },
+            "personal details": {
+                "contact": {
+                    "Email": "johndoe@example.com",
+                    "Mobile No": "1234567890"
+                }
+            }
+        },
+        {
+            "student": {
+                "id": "C002",
+                "name": "Jane Smith",
+                "rollNo": "123211003039",
+                "registration no": "R002"
+            },
+            "personal details": {
+                "contact": {
+                    "Email": "janesmith@example.com",
+                    "Mobile No": "0987654321"
+                }
+            }
+        },
+        {
+            "student": {
+                "id": "C003",
+                "name": "Emily Johnson",
+                "rollNo": "123211003039",
+                "registration no": "R003"
+            },
+            "personal details": {
+                "contact": {
+                    "Email": "emilyjohnson@example.com",
+                    "Mobile No": "1122334455"
+                }
+            }
+        }
+    ]
+}

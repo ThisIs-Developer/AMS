@@ -410,6 +410,10 @@ main {
   margin: 0.5rem 0;
 }
 
+.co-add,.add{
+  width: 91%;
+}
+
 #current-address-label {
   text-align: start;
 }
@@ -439,7 +443,7 @@ main {
   font-weight: bold;
 }
 
-#back {
+#backButton {
   margin-right: 34px;
   padding: 3px;
   border-radius: var(--border-radius-3);
@@ -532,11 +536,14 @@ main {
   background-color: var(--color-danger);
 
 }
+table{
+  width: 92%;
+}
 table,
 th,
 td {
   border: 1px solid rgb(145, 145, 145);
-  border-collapse: separate;
+  border-collapse: collapse;
   margin: 1rem 1.5rem;
 }
 
@@ -545,9 +552,10 @@ td {
 }
 
 #table-container {
+  margin-top: 10%;
   overflow-x: auto;
   background: var(--color-white);
-  width: 70vw;
+  /* width: 70vw; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -747,6 +755,7 @@ td {
   main {
     margin-top: 8rem;
     padding: 0 1rem;
+    width: 100vw;
   }
 
   .right {
